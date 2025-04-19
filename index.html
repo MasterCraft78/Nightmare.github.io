@@ -2,40 +2,82 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive meta tag -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Galeri Nightmare</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet"> <!-- Creepster font -->
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Minecraft&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
-    <div class="logo">Nightmare</div>
+    <div class="logo-container">
+      <div class="logo">Nightmare</div>
+      <div class="subtitle">Horror Gallery</div>
+    </div>
   </header>
 
   <main>
-    <h2>Galeri Nightmare</h2>
+    <div class="title-container">
+      <h2>Galeri Nightmare</h2>
+      <div class="divider"></div>
+    </div>
 
     <section class="season">
-      <h3>Season 1</h3>
+      <div class="season-header">
+        <h3>Season 1</h3>
+        <div class="season-date">2025</div>
+      </div>
       <div class="gallery">
-        <img src="FB_IMG_1745047364612.jpg" alt="Description of image 1">
-        <img src="img2.jpg" alt="Description of image 2">
-        <img src="img3.jpg" alt="Description of image 3">
-        <img src="img4.jpg" alt="Description of image 4">
-        <img src="img5.jpg" alt="Description of image 5">
+        <div class="gallery-item">
+          <img src="FB_IMG_1745047364612.jpg" alt="Description of image 1">
+          <div class="image-overlay">
+            <p>Image Description</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="img2.jpg" alt="Description of image 2">
+          <div class="image-overlay">
+            <p>Image Description</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="img3.jpg" alt="Description of image 3">
+          <div class="image-overlay">
+            <p>Image Description</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="img4.jpg" alt="Description of image 4">
+          <div class="image-overlay">
+            <p>Image Description</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="img5.jpg" alt="Description of image 5">
+          <div class="image-overlay">
+            <p>Image Description</p>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="season">
-      <h3>Season 2</h3>
+      <div class="season-header">
+        <h3>Season 2</h3>
+        <div class="season-date">Coming Soon</div>
+      </div>
       <!-- Galeri untuk Season 2 bisa ditambah di sini -->
     </section>
   </main>
 
   <footer>
-    <p>© 2025 Nightmare.</p>
-    <a href="#">Join us on Discord</a> |
-    <a href="#">Follow us on Instagram</a>
+    <div class="footer-content">
+      <p>© 2025 Nightmare. All rights reserved.</p>
+      <div class="social-links">
+        <a href="#" class="social-btn discord">Join Discord</a>
+        <a href="#" class="social-btn instagram">Follow Instagram</a>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
