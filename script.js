@@ -276,6 +276,16 @@ function initLightboxKeyboardNav() {
     });
 }
 
+
+const music = document.getElementById('background-music');
+function toggleMusic() {
+    if (music.paused) {
+        music.play();
+    } else {
+        music.pause();
+    }
+}
+
 // Add smooth scroll behavior for anchor links (if any added later)
 // This is optional but good practice if you add #links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
