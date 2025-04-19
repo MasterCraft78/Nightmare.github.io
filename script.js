@@ -326,6 +326,10 @@ function initMusicToggle() {
      music.volume = 0.5; // Set a default volume
 
 
+     // REMOVE OR COMMENT OUT THIS LINE to let 'autoplay' attribute try to work
+     // music.pause(); // Start paused by default for better compatibility
+
+
      // Update button state based on music pause state
      function updateMusicButtonState() {
         if (music.paused) {
@@ -364,8 +368,8 @@ function initMusicToggle() {
      music.addEventListener('pause', updateMusicButtonState);
      music.addEventListener('ended', updateMusicButtonState);
 
-     // Set initial state (usually paused, requires user click)
-     music.pause(); // Start paused by default for better compatibility
+     // Update the button state based on whether the music is playing or not
+     // (This will reflect if 'autoplay' actually succeeded)
      updateMusicButtonState();
 }
 
