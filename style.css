@@ -1095,6 +1095,9 @@ footer {
     .face-bottom {
         transform: rotateX(-90deg) translateZ(30px);
     }
+
+#audio {
+    display: none;
 }
 
 
