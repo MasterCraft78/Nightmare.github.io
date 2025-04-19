@@ -1,19 +1,25 @@
-/* Modern CSS Variables */
+/* --- Global Variables --- */
 :root {
-    --primary: #5EBD5E; /* Minecraft grass green */
-    --primary-dark: #4A9C4A;
-    --secondary: #2A2A2A; /* Dark gray */
-    --dark: #1A1A1A; /* Very dark gray */
-    --darker: #121212; /* Almost black */
-    --light: #F0F0F0; /* Light gray */
-    --accent: #4ECDC4; /* Teal accent */
-    --accent-dark: #3EB8B0;
-    --shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
-    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
-    --minecraft-font: 'Minecraft', sans-serif;
+    --primary: #5A8D74; /* Muted Teal/Green, like warped wood */
+    --primary-dark: #4A7C64;
+    --secondary: #2A2A2A;    /* Dark gray */
+    --dark: #1A1A1A;       /* Very dark gray */
+    --darker: #121212;      /* Almost black */
+    --light: #F0F0F0;      /* Light gray */
+    --accent: #E35D6A;     /* A reddish/crimson accent for "Nightmare" */
+    --accent-dark: #D14B5C;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+    --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Different easing */
+    --minecraft-font: 'Minecraft', sans-serif; /* Define font stack */
+    --body-font: 'Roboto', sans-serif; /* Readable font for body text */
+    --texture-overlay: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAFklEQVQYV2NkYGD4z8DAwMAEQgEFGAAj9wL+0y2aXwAAAABJRU5ErkJggg=='); /* Subtle dark noise texture */
+    --s1-color: #FFD700; /* Gold for Season 1 */
+    /* Add colors for future seasons here */
+    /* --s2-color: #C0C0C0; Silver */
+    /* --s3-color: #CD7F32; Bronze */
 }
 
-/* Base Reset & Styles */
+/* --- Base Reset & Styles --- */
 * {
     margin: 0;
     padding: 0;
@@ -22,11 +28,11 @@
 
 html {
     scroll-behavior: smooth;
-    font-size: 16px;
+    font-size: 16px; /* Base font size */
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: var(--body-font); /* Use readable body font */
     background-color: var(--darker);
     color: var(--light);
     line-height: 1.7;
@@ -42,17 +48,32 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background:
-        radial-gradient(circle at 15% 25%, rgba(94, 189, 94, 0.1) 0%, transparent 30%),
-        radial-gradient(circle at 85% 75%, rgba(78, 205, 196, 0.1) 0%, transparent 30%),
-        linear-gradient(170deg, var(--darker) 0%, var(--dark) 100%);
+    /* Deeper, more atmospheric gradient */
+    background: linear-gradient(180deg, var(--darker) 0%, var(--dark) 60%, var(--darker) 100%);
     z-index: -2;
-    opacity: 0.8;
+    opacity: 0.9; /* Slightly more opaque base */
 }
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--texture-overlay);
+    /* Subtle texture */
+    opacity: 0.03;
+    /* Very subtle */
+    z-index: -1;
+    pointer-events: none;
+    /* Don't block clicks */
+}
+
 
 /* Scrollbar Styling */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 12px; /* Slightly wider */
 }
 
 ::-webkit-scrollbar-track {
@@ -61,44 +82,46 @@ body::before {
 
 ::-webkit-scrollbar-thumb {
     background: var(--primary);
-    border-radius: 5px;
-    border: 2px solid var(--dark);
+    border-radius: 6px; /* Slightly larger radius */
+    border: 3px solid var(--darker); /* Thicker border */
 }
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--primary-dark);
 }
 
-/* Header Styles */
+/* --- Header Styles --- */
 header {
-    background: linear-gradient(135deg, rgba(42, 42, 42, 0.7), rgba(26, 26, 26, 0.8));
-    padding: 3rem 1rem;
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(18, 18, 18, 0.95));
+    padding: 4rem 1rem 3rem; /* Adjust padding */
     text-align: center;
     position: relative;
     overflow: hidden;
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px); /* Enhance blur */
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.05); /* Subtle border */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5); /* Stronger header shadow */
 }
 
 .header-container {
     position: relative;
     z-index: 2;
-    max-width: 1200px;
+    max-width: 1300px; /* Wider container */
     margin: 0 auto;
     padding: 0 20px;
 }
 
 .logo {
-    font-family: var(--minecraft-font);
-    font-size: clamp(3rem, 8vw, 4.5rem);
+    font-family: var(--minecraft-font); /* Use variable */
+    font-size: clamp(3.5rem, 10vw, 5.5rem); /* More responsive range */
     font-weight: 700;
-    color: var(--primary);
-    text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.6), 0 0 15px rgba(94, 189, 94, 0.3);
-    letter-spacing: 3px;
-    margin-bottom: 0.5rem;
+    color: var(--primary); /* Base color */
+    text-shadow: 5px 5px 0 rgba(0, 0, 0, 0.7), 0 0 20px rgba(90, 141, 116, 0.4); /* Adjusted shadow */
+    letter-spacing: 4px; /* Increased spacing */
+    margin-bottom: 0.8rem;
     transition: var(--transition);
     display: inline-block;
+    /* Gradient text effect */
     background: linear-gradient(45deg, var(--primary), var(--accent));
     -webkit-background-clip: text;
     background-clip: text;
@@ -106,246 +129,259 @@ header {
 }
 
 .logo:hover {
-    transform: scale(1.03);
-    text-shadow: 6px 6px 0 rgba(0, 0, 0, 0.7), 0 0 25px rgba(94, 189, 94, 0.5);
+    transform: scale(1.05); /* More prominent scale */
+    text-shadow: 8px 8px 0 rgba(0, 0, 0, 0.8), 0 0 30px rgba(90, 141, 116, 0.6);
 }
 
 .subtitle {
-    font-family: var(--minecraft-font);
-    font-size: clamp(1.2rem, 3vw, 1.5rem);
-    font-weight: 300;
+    font-family: var(--body-font); /* Use readable font for subtitle */
+    font-size: clamp(1.3rem, 4vw, 1.7rem); /* More responsive range */
+    font-weight: 400; /* Medium weight */
     color: var(--light);
-    opacity: 0.85;
-    margin-bottom: 2rem;
-    letter-spacing: 1px;
+    opacity: 0.9; /* Less transparent */
+    margin-bottom: 3rem; /* Increased spacing */
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .server-stats {
     display: flex;
     justify-content: center;
-    gap: clamp(1rem, 4vw, 2rem);
-    margin-top: 1.5rem;
-    flex-wrap: wrap;
+    gap: clamp(1.5rem, 5vw, 3rem); /* More responsive gap */
+    margin-top: 2rem;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
 .stat-item {
-    background: rgba(0, 0, 0, 0.4);
-    padding: 0.8rem 1.5rem;
+    background: rgba(42, 42, 42, 0.6); /* Darker background */
+    padding: 1rem 2rem; /* More padding */
     border-radius: 50px;
     display: flex;
     align-items: center;
-    gap: 0.8rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 1rem; /* More space */
+    border: 2px solid rgba(255, 255, 255, 0.08); /* Subtle border */
     transition: var(--transition);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    cursor: default; /* Not clickable */
 }
 
 .stat-item:hover {
-    background: rgba(0, 0, 0, 0.6);
-    transform: translateY(-4px) scale(1.03);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    border-color: rgba(var(--accent), 0.5);
+    background: rgba(42, 42, 42, 0.8); /* Darker on hover */
+    transform: translateY(-5px) scale(1.02); /* Enhanced hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    border-color: rgba(var(--accent), 0.3); /* Accent border on hover */
 }
 
 .stat-icon {
-    width: 24px;
-    height: 24px;
+    color: var(--accent); /* Accent color for icons */
+    font-size: 1.5rem; /* Larger icon */
     transition: transform 0.3s ease;
 }
 
 .stat-item:hover .stat-icon {
-    transform: scale(1.1);
+    transform: scale(1.2) rotate(5deg);
+    color: var(--primary); /* Change color on hover */
 }
 
 .stat-item span {
-    font-family: var(--minecraft-font);
-    font-size: 1rem;
+    font-family: var(--body-font); /* Use readable font */
+    font-size: 1.1rem; /* Larger text */
     letter-spacing: 0.5px;
+    font-weight: 500;
 }
 
-/* Main Content Styles */
+/* --- Main Content Styles --- */
 main {
-    padding: 4rem clamp(1rem, 5vw, 5%);
-    max-width: 1400px;
+    padding: 5rem clamp(1rem, 6vw, 6%); /* Responsive padding */
+    max-width: 1500px; /* Wider main content */
     margin: 0 auto;
 }
 
 .gallery-intro {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 5rem; /* Increased spacing */
     position: relative;
 }
 
 .gallery-intro h2 {
-    font-family: var(--minecraft-font);
-    font-size: clamp(2rem, 6vw, 2.8rem);
+    font-family: var(--minecraft-font); /* Use variable */
+    font-size: clamp(2.5rem, 7vw, 3.5rem); /* More responsive */
     color: var(--light);
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem; /* Increased spacing */
     position: relative;
     display: inline-block;
+    /* Gradient text */
     background: linear-gradient(to right, var(--primary), var(--accent));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .gallery-intro h2::after {
     content: '';
     position: absolute;
-    bottom: -15px;
+    bottom: -18px; /* Lower underline */
     left: 50%;
     transform: translateX(-50%);
-    width: 120px;
-    height: 4px;
+    width: 150px; /* Wider underline */
+    height: 5px; /* Thicker */
     background: linear-gradient(to right, var(--primary), var(--accent));
-    border-radius: 2px;
+    border-radius: 3px;
     opacity: 0.8;
 }
 
 .gallery-intro p {
-    font-size: 1.15rem;
+    font-size: 1.15rem; /* Slightly larger */
     color: #ccc;
-    max-width: 800px;
-    margin: 0 auto 2.5rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 900px; /* Wider text block */
+    margin: 0 auto 3rem; /* Adjusted margin */
+    font-family: var(--body-font); /* Readable font */
+    line-height: 1.8;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .season-info {
-    background: rgba(42, 42, 42, 0.6);
-    border-left: 5px solid var(--primary);
-    padding: 2rem 2.5rem;
-    margin: 3rem auto;
-    max-width: 900px;
-    border-radius: 0 10px 10px 0;
-    backdrop-filter: blur(6px);
+    background: rgba(42, 42, 42, 0.7); /* Slightly darker background */
+    border-left: 6px solid var(--primary); /* Thicker border */
+    padding: 2.5rem 3rem; /* More padding */
+    margin: 4rem auto; /* More vertical space */
+    max-width: 1000px; /* Wider info block */
+    border-radius: 0 15px 15px 0; /* Larger radius */
+    backdrop-filter: blur(8px); /* Enhance blur */
+    -webkit-backdrop-filter: blur(8px);
     transition: var(--transition);
     box-shadow: var(--shadow);
 }
 
 .season-info:hover {
-    transform: translateY(-6px) scale(1.01);
-    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.45);
-    border-left-color: var(--accent);
+    transform: translateY(-8px) scale(1.01); /* Enhanced scale and lift */
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+    border-left-color: var(--accent); /* Accent border on hover */
 }
 
 .season-info h3 {
     color: var(--primary);
-    margin-bottom: 1rem;
-    font-size: 1.8rem;
+    margin-bottom: 1.2rem; /* More space */
+    font-size: 2rem; /* Larger size */
     display: flex;
     align-items: center;
-    gap: 0.8rem;
-    font-family: var(--minecraft-font);
+    gap: 1rem; /* More gap */
+    font-family: var(--minecraft-font); /* Minecraft font */
     transition: color 0.3s ease;
 }
 
 .season-info:hover h3 {
-    color: var(--accent);
+    color: var(--accent); /* Accent color on hover */
 }
 
-.info-icon {
-    width: 24px;
-    height: 24px;
+.season-info h3 i {
+    color: var(--accent); /* Accent icon color */
+    font-size: 1.2em; /* Larger icon */
     transition: transform 0.3s ease;
 }
 
-.season-info:hover .info-icon {
-    transform: rotate(-10deg);
+.season-info:hover h3 i {
+    transform: rotate(-15deg) scale(1.1); /* More dramatic rotation and scale */
 }
 
 .season-info p {
     color: #bbb;
-    font-size: 1.05rem;
-    line-height: 1.8;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.1rem; /* Slightly larger */
+    line-height: 1.9; /* More space between lines */
+    font-family: var(--body-font); /* Readable font */
 }
 
-/* Season Filter */
+/* --- Season Filter --- */
 .season-filter {
     display: flex;
     justify-content: center;
-    gap: 1rem;
-    margin-bottom: 3rem;
+    gap: 1.5rem; /* More gap */
+    margin-bottom: 4rem; /* More space */
     flex-wrap: wrap;
 }
 
 .season-btn {
-    padding: 0.8rem 1.8rem;
-    background: rgba(94, 189, 94, 0.2);
+    padding: 1rem 2rem; /* More padding */
+    background: rgba(74, 111, 165, 0.1); /* Lighter initial background */
     color: var(--light);
     border: 2px solid var(--primary);
     border-radius: 50px;
-    font-family: var(--minecraft-font);
+    font-family: var(--minecraft-font); /* Minecraft font */
     font-size: 1.1rem;
     cursor: pointer;
     transition: var(--transition);
     letter-spacing: 1px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    min-width: 150px; /* Minimum width */
 }
 
 .season-btn:hover,
 .season-btn.active {
-    background: var(--primary);
+    background: var(--primary); /* Solid color */
     color: white;
-    transform: translateY(-4px) scale(1.05);
-    box-shadow: 0 8px 18px rgba(94, 189, 94, 0.4);
+    transform: translateY(-5px) scale(1.05); /* Enhanced hover */
+    box-shadow: 0 10px 20px rgba(90, 141, 116, 0.4); /* Thematic shadow color */
     border-color: var(--primary-dark);
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
 }
 
 .season-btn.active {
-    background: var(--primary-dark);
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(94, 189, 94, 0.4);
+    background: var(--primary-dark); /* Darker active state */
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.4), 0 6px 15px rgba(90, 141, 116, 0.5);
 }
 
-/* Gallery Styles */
+/* --- Gallery Styles --- */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 35px;
-    margin-top: 3rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjusted minmax */
+    gap: 40px; /* Increased gap */
+    margin-top: 4rem;
 }
 
 .gallery-item {
     position: relative;
-    border-radius: 12px;
+    border-radius: 15px; /* Larger radius */
     overflow: hidden;
     box-shadow: var(--shadow);
     transition: var(--transition);
     aspect-ratio: 16/9;
     background: var(--secondary);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    transform: perspective(1000px);
-    cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, 0.08); /* More visible border */
+    cursor: pointer; /* Indicate clickability */
 }
 
 .gallery-item:hover {
-    transform: translateY(-12px) scale(1.03) perspective(1000px) rotateY(2deg);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.55);
-    border-color: rgba(var(--accent), 0.4);
+    transform: translateY(-15px) scale(1.04) rotateZ(1deg); /* More dramatic hover */
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
+    border-color: var(--accent); /* Accent border on hover */
 }
 
 .gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease, filter 0.4s ease;
+    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), filter 0.5s ease; /* Smoother and slower */
     display: block;
+    filter: brightness(0.8) saturate(0.9); /* Slightly dimmed/desaturated initially */
 }
 
 .gallery-item:hover img {
-    transform: scale(1.12);
-    filter: brightness(1.15) saturate(1.1);
+    transform: scale(1.15); /* More zoom */
+    filter: brightness(1) saturate(1); /* Restore full brightness/saturation */
 }
 
 .gallery-item::before {
+    /* Darker, more thematic overlay */
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 70%);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7) 30%, transparent 80%);
     opacity: 0;
     transition: opacity 0.5s ease;
     z-index: 1;
@@ -355,269 +391,312 @@ main {
     opacity: 1;
 }
 
+/* Style the View Button (Icon Only) */
 .gallery-item .view-btn {
     position: absolute;
-    bottom: 20px;
+    bottom: 25px; /* Adjust position */
     left: 50%;
-    transform: translate(-50%, 20px) scale(0.9);
-    padding: 12px 28px;
-    background: linear-gradient(45deg, var(--primary), var(--accent));
+    transform: translate(-50%, 30px); /* Start lower */
+    background: rgba(227, 93, 106, 0.8); /* Accent with opacity */
     color: white;
-    border: none;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 1rem;
-    opacity: 0;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    z-index: 2;
-    cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%; /* Make it round */
+    width: 60px; /* Set size */
+    height: 60px; /* Set size */
     display: flex;
     align-items: center;
-    gap: 0.6rem;
+    justify-content: center;
+    font-size: 1.8rem; /* Larger icon */
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bounce animation */
+    z-index: 2;
+    cursor: pointer;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-    font-family: var(--minecraft-font);
-    letter-spacing: 0.5px;
-    pointer-events: none;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    pointer-events: none; /* Prevent button click interfering with item click */
 }
 
+/* Make button visible and interactive on item hover */
 .gallery-item:hover .view-btn {
     opacity: 1;
-    transform: translate(-50%, 0) scale(1);
+    transform: translate(-50%, 0);
     pointer-events: auto;
 }
 
 .gallery-item .view-btn:hover {
-    background: linear-gradient(45deg, var(--primary-dark), var(--accent-dark));
-    transform: translate(-50%, 0) scale(1.08);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    background: var(--accent); /* Solid accent on hover */
+    transform: translate(-50%, 0) scale(1.1); /* Pop effect */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    border-color: white;
 }
 
 .season-tag {
     position: absolute;
-    top: 15px;
-    right: 15px;
-    background: rgba(0, 0, 0, 0.75);
+    top: 20px; /* Adjust position */
+    right: 20px; /* Adjust position */
+    background: rgba(0, 0, 0, 0.85); /* Darker background */
     color: white;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 600;
+    padding: 8px 16px; /* More padding */
+    border-radius: 25px; /* More rounded */
+    font-size: 1rem; /* Larger size */
+    font-weight: 700; /* Bolder */
     z-index: 2;
-    font-family: var(--minecraft-font);
-    backdrop-filter: blur(3px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: var(--minecraft-font); /* Minecraft font */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2); /* More visible border */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
+/* Keep specific season colors for tags/borders */
 .season-s1 {
-    border-left: 4px solid #FFC107;
+    border-left: 5px solid var(--s1-color); /* Gold border */
 }
+.season-s1 .season-tag {
+     background: rgba(var(--s1-color), 0.3); /* Subtle gold background for tag */
+     border-color: var(--s1-color);
+     color: var(--s1-color); /* Gold text color */
+     text-shadow: 0 0 5px rgba(var(--s1-color), 0.5);
+}
+/* Add styles for S2, S3 etc. here */
+/*
+.season-s2 { border-left: 5px solid var(--s2-color); }
+.season-s2 .season-tag { background: rgba(var(--s2-color), 0.3); border-color: var(--s2-color); color: var(--s2-color); text-shadow: 0 0 5px rgba(var(--s2-color), 0.5); }
+*/
 
-/* Lightbox Styles */
+
+/* --- Lightbox Styles --- */
 .lightbox {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.95); /* Even darker overlay */
     justify-content: center;
     align-items: center;
     z-index: 1000;
     opacity: 0;
-    transition: opacity 0.5s ease;
-    backdrop-filter: blur(10px);
-    display: none;
+    visibility: hidden; /* Use visibility for better transition */
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    backdrop-filter: blur(15px); /* More blur */
+    -webkit-backdrop-filter: blur(15px);
+    display: flex; /* Keep flex for layout, control visibility/opacity */
 }
 
 .lightbox.active {
-    display: flex;
     opacity: 1;
+    visibility: visible; /* Show when active */
 }
 
 .lightbox-content {
     position: relative;
-    max-width: 90%;
-    max-height: 90%;
+    max-width: 95%; /* Wider max */
+    max-height: 95%; /* Taller max */
     display: flex;
     flex-direction: column;
     align-items: center;
-    animation: zoomIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-@keyframes zoomIn {
-    from {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
+    /* Removed initial animation here, let the lightbox opacity handle it */
 }
 
 .lightbox-img {
     max-width: 100%;
-    max-height: 75vh;
-    border-radius: 12px;
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
-    border: 2px solid rgba(255, 255, 255, 0.15);
-    transition: opacity 0.3s ease;
+    max-height: 80vh; /* Adjust max height */
+    border-radius: 15px; /* Larger radius */
+    box-shadow: 0 0 60px rgba(0, 0, 0, 1); /* Stronger shadow */
+    border: 3px solid rgba(255, 255, 255, 0.2); /* More visible border */
+    transition: opacity 0.4s ease; /* Transition for image change */
     display: block;
-    user-select: none;
+    user-select: none; /* Prevent image drag */
+    -webkit-user-select: none;
+    object-fit: contain; /* Ensure image fits without cropping */
 }
 
 .lightbox-caption {
     color: white;
-    margin-top: 20px;
-    font-size: 1.2rem;
+    margin-top: 25px; /* More space */
+    font-size: 1.25rem; /* Adjusted size */
     text-align: center;
-    max-width: 80%;
-    background: rgba(0, 0, 0, 0.75);
-    padding: 0.8rem 1.5rem;
+    max-width: 90%;
+    background: rgba(0, 0, 0, 0.85); /* Darker background */
+    padding: 1rem 2rem; /* More padding */
     border-radius: 50px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    backdrop-filter: blur(4px);
-    transition: opacity 0.3s ease;
+    font-family: var(--body-font); /* Readable font */
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transition: opacity 0.3s ease; /* Transition for caption change */
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.8rem; /* More space */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
 }
 
-.caption-icon {
-    width: 20px;
-    height: 20px;
+.lightbox-caption i {
+    color: var(--accent); /* Accent color */
+    font-size: 1.2em;
 }
 
-.lightbox-caption:empty {
+/* Hide caption if empty using CSS */
+.lightbox-caption:has(span:empty) {
     display: none;
 }
 
-.lightbox-close {
+
+.lightbox-counter {
     position: absolute;
-    top: 25px;
+    bottom: -35px; /* Position below caption */
+    color: rgba(255, 255, 255, 0.7); /* Subtle color */
+    font-size: 1.1rem;
+    font-family: var(--body-font);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+
+.lightbox-close {
+    position: fixed; /* Use fixed to keep it in viewport regardless of image size */
+    top: 30px;
     right: 30px;
     color: white;
-    font-size: 2.5rem;
+    font-size: 3rem; /* Larger size */
     cursor: pointer;
     transition: var(--transition);
-    background: rgba(0, 0, 0, 0.6);
-    width: 55px;
-    height: 55px;
+    background: rgba(0, 0, 0, 0.7); /* Darker background */
+    width: 60px; /* Set size */
+    height: 60px; /* Set size */
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.2); /* More visible border */
     z-index: 1001;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     user-select: none;
+    -webkit-user-select: none;
 }
 
 .lightbox-close:hover {
-    transform: rotate(180deg) scale(1.1);
-    color: var(--accent);
-    background: rgba(0, 0, 0, 0.8);
+    transform: rotate(270deg) scale(1.1); /* More rotation */
+    color: var(--accent); /* Accent color */
+    background: rgba(0, 0, 0, 0.9);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
 }
 
 .lightbox-nav {
-    position: absolute;
+    position: fixed; /* Use fixed */
     top: 50%;
-    width: calc(100% + 100px);
-    left: -50px;
+    left: 0; /* Span full width */
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 0 10px;
+    padding: 0 40px; /* More padding */
     transform: translateY(-50%);
     z-index: 1001;
-    pointer-events: none;
+    pointer-events: none; /* Allow clicks through container */
 }
 
 .lightbox-nav-btn {
     color: white;
-    font-size: 2.8rem;
+    font-size: 3rem; /* Larger icons */
     cursor: pointer;
-    background: rgba(0, 0, 0, 0.5);
-    width: 60px;
-    height: 60px;
+    background: rgba(0, 0, 0, 0.6); /* Darker background */
+    width: 70px; /* Larger size */
+    height: 70px; /* Larger size */
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: var(--transition);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.15); /* More visible border */
     pointer-events: auto;
-    opacity: 0.7;
+    opacity: 0.8;
     user-select: none;
+    -webkit-user-select: none;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 .lightbox-nav-btn:hover {
-    background: var(--primary);
-    transform: scale(1.15);
+    background: var(--primary); /* Primary color on hover */
+    transform: scale(1.15); /* Pop effect */
     opacity: 1;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+    border-color: var(--accent);
 }
 
-/* Footer Styles */
+
+/* --- Footer Styles --- */
 footer {
-    background: linear-gradient(to top, rgba(42, 42, 42, 0.8), rgba(26, 26, 26, 0.9));
-    padding: 4rem 1rem;
+    background: linear-gradient(to top, rgba(18, 18, 18, 0.95), rgba(26, 26, 26, 0.9)); /* Reverse gradient */
+    padding: 4rem 1rem; /* Adjust padding */
     text-align: center;
-    margin-top: 5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(8px);
+    margin-top: 6rem; /* More space */
+    border-top: 2px solid rgba(255, 255, 255, 0.08); /* Subtle border */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: relative;
+    box-shadow: 0 -15px 35px rgba(0, 0, 0, 0.5); /* Shadow on top */
 }
 
 .footer-container {
-    max-width: 1200px;
+    max-width: 1300px; /* Wider container */
     margin: 0 auto;
     padding: 0 20px;
 }
 
 .footer-container>p:first-of-type {
-    color: #bbb;
+    /* Target the intro paragraph */
+    color: #ccc; /* Slightly lighter gray */
     font-size: 1.05rem;
-    margin-bottom: 2.5rem;
-    max-width: 700px;
+    margin-bottom: 3rem; /* More space */
+    max-width: 800px; /* Wider text block */
     margin-left: auto;
     margin-right: auto;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: var(--body-font); /* Consistent readable font */
+    line-height: 1.8;
 }
 
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    margin-bottom: 3rem;
+    gap: 25px; /* More space */
+    margin-bottom: 3.5rem; /* More space */
     flex-wrap: wrap;
 }
 
 .social-btn {
     display: inline-flex;
     align-items: center;
-    padding: 14px 30px;
+    padding: 15px 35px; /* More padding */
     color: white;
     text-decoration: none;
     border-radius: 50px;
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1.15rem; /* Larger text */
     transition: var(--transition);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    min-width: 220px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    min-width: 240px; /* Wider button */
     justify-content: center;
-    font-family: var(--minecraft-font);
-    letter-spacing: 1px;
-    border: 1px solid transparent;
+    font-family: var(--minecraft-font); /* Minecraft font */
+    letter-spacing: 1.2px; /* More spacing */
+    border: 2px solid transparent; /* More visible border */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-.social-icon {
-    width: 24px;
-    height: 24px;
-    margin-right: 12px;
+.social-btn i {
+    margin-right: 15px; /* More space */
+    font-size: 1.5rem; /* Larger icon */
     transition: transform 0.3s ease;
 }
 
-.social-btn:hover .social-icon {
-    transform: scale(1.1) rotate(-5deg);
+.social-btn:hover i {
+    transform: scale(1.2) rotate(5deg);
 }
 
+/* Specific button colors */
 .social-btn.discord {
     background: linear-gradient(135deg, #5865F2, #4752C4);
     border-color: #707cf3;
@@ -625,8 +704,8 @@ footer {
 
 .social-btn.discord:hover {
     background: linear-gradient(135deg, #4752C4, #5865F2);
-    transform: translateY(-5px) scale(1.03);
-    box-shadow: 0 15px 30px rgba(88, 101, 242, 0.4);
+    transform: translateY(-6px) scale(1.04);
+    box-shadow: 0 18px 35px rgba(88, 101, 242, 0.5);
 }
 
 .social-btn.whatsapp {
@@ -636,103 +715,58 @@ footer {
 
 .social-btn.whatsapp:hover {
     background: linear-gradient(135deg, #128C7E, #25D366);
-    transform: translateY(-5px) scale(1.03);
-    box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
+    transform: translateY(-6px) scale(1.04);
+    box-shadow: 0 18px 35px rgba(37, 211, 102, 0.5);
 }
 
 .social-btn.server {
-    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-    border-color: #64e4d8;
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark)); /* Use accent color */
+    border-color: #ff808c; /* Adjusted border color */
 }
 
 .social-btn.server:hover {
     background: linear-gradient(135deg, var(--accent-dark), var(--accent));
-    transform: translateY(-5px) scale(1.03);
-    box-shadow: 0 15px 30px rgba(0, 200, 150, 0.4);
+    transform: translateY(-6px) scale(1.04);
+    box-shadow: 0 18px 35px rgba(227, 93, 106, 0.5); /* Accent shadow */
 }
 
 .copyright {
-    color: #777;
-    font-size: 0.9rem;
-    margin-top: 2rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #999; /* Lighter gray */
+    font-size: 0.95rem; /* Slightly larger */
+    margin-top: 2.5rem; /* More space */
+    font-family: var(--body-font); /* Consistent readable font */
 }
 
-/* Back to Top Button */
-#back-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: var(--primary);
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 50%;
-    cursor: pointer;
-    opacity: 0.7;
-    transition: opacity 0.3s, transform 0.3s;
-    display: none;
-    z-index: 1000;
-}
 
-#back-to-top:hover {
-    opacity: 1;
-    transform: scale(1.1);
-}
-
-/* Music Control */
-.music-control {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    z-index: 1000;
-}
-
-#music-toggle {
-    background: var(--primary);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 50px;
-    cursor: pointer;
-    font-family: var(--minecraft-font);
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-#music-toggle:hover {
-    background: var(--primary-dark);
-    transform: scale(1.05);
-}
-
-/* Loading Animation */
+/* --- Loader Animation --- */
 .loader {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(18, 18, 18, 0.95);
+    background: rgba(18, 18, 18, 0.98); /* Very dark, almost opaque */
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 9999;
     flex-direction: column;
     opacity: 0;
-    transition: opacity 0.5s ease-out;
+    visibility: hidden; /* Use visibility */
+    transition: opacity 0.6s ease-out, visibility 0.6s ease-out; /* Smoother transition */
     pointer-events: none;
 }
 
 .loader.active {
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
 }
 
+/* Improved Minecraft Block Loader */
 .minecraft-block-loader {
-    width: 80px;
-    height: 80px;
+    width: 100px; /* Larger block */
+    height: 100px;
     position: relative;
     transform-style: preserve-3d;
     animation: rotate3D 4s infinite linear;
@@ -740,40 +774,79 @@ footer {
 
 .block-face {
     position: absolute;
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(45deg, var(--primary), var(--accent));
-    border: 2px solid var(--dark);
-    opacity: 0.8;
+    width: 100px; /* Match block size */
+    height: 100px;
+    background: linear-gradient(45deg, var(--primary), var(--primary-dark)); /* Primary colors */
+    border: 3px solid var(--darker); /* Thicker border */
+    opacity: 0.9; /* Slightly less opaque */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.face-front { transform: translateZ(40px); }
-.face-back { transform: translateZ(-40px) rotateY(180deg); }
-.face-right { transform: rotateY(90deg) translateZ(40px); }
-.face-left { transform: rotateY(-90deg) translateZ(40px); }
-.face-top { transform: rotateX(90deg) translateZ(40px); }
-.face-bottom { transform: rotateX(-90deg) translateZ(40px); }
+/* Position faces for a cube */
+.face-front {
+    transform: translateZ(50px); /* Half of width */
+}
+
+.face-back {
+    transform: translateZ(-50px) rotateY(180deg);
+}
+
+.face-right {
+    transform: rotateY(90deg) translateZ(50px);
+}
+
+.face-left {
+    transform: rotateY(-90deg) translateZ(50px);
+}
+
+.face-top {
+    transform: rotateX(90deg) translateZ(50px);
+}
+
+.face-bottom {
+    transform: rotateX(-90deg) translateZ(50px);
+}
 
 @keyframes rotate3D {
-    0% { transform: rotateX(0) rotateY(0); }
-    100% { transform: rotateX(360deg) rotateY(360deg); }
+    0% {
+        transform: rotateX(0) rotateY(0) rotateZ(0);
+    }
+     50% {
+        transform: rotateX(180deg) rotateY(180deg) rotateZ(90deg); /* More complex rotation */
+     }
+    100% {
+        transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+    }
 }
 
 .loading-text {
     color: white;
-    margin-top: 2.5rem;
-    font-size: 1.3rem;
+    margin-top: 3rem; /* More space */
+    font-size: 1.5rem; /* Larger text */
     text-align: center;
     font-weight: 500;
-    font-family: var(--minecraft-font);
-    letter-spacing: 1px;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    font-family: var(--minecraft-font); /* Minecraft font */
+    letter-spacing: 1.5px; /* More spacing */
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    animation: pulse 1.5s infinite ease-in-out alternate; /* Pulsing effect */
 }
 
-/* Particle Background */
+@keyframes pulse {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+
+
+/* --- Particle Background --- */
+/* Keeping your custom particle CSS */
 .particles {
     position: fixed;
     top: 0;
@@ -786,51 +859,301 @@ footer {
 
 .particle {
     position: absolute;
-    background-color: rgba(255, 255, 255, 0.6);
+    /* Subtle color based on theme */
+    background-color: rgba(90, 141, 116, 0.7); /* Primary with opacity */
     border-radius: 50%;
     pointer-events: none;
     animation: float 20s infinite linear alternate;
 }
 
 @keyframes float {
-    0% { transform: translate(0, 0) scale(1); opacity: 0.1; }
-    25% { transform: translate(calc(var(--x-drift) * 0.5), calc(var(--y-drift) * 0.5)) scale(1.1); }
-    50% { transform: translate(var(--x-drift), var(--y-drift)) scale(1); opacity: 0.6; }
-    75% { transform: translate(calc(var(--x-drift) * 0.5), calc(var(--y-drift) * 0.5)) scale(0.9); }
-    100% { transform: translate(0, 0) scale(1); opacity: 0.1; }
+    0% {
+        transform: translate(0, 0) scale(0.8);
+        opacity: 0.1;
+    }
+
+    25% {
+        transform: translate(calc(var(--x-drift) * 0.5), calc(var(--y-drift) * 0.5)) scale(1);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: translate(var(--x-drift), var(--y-drift)) scale(1.2);
+        opacity: 0.6;
+    }
+
+    75% {
+        transform: translate(calc(var(--x-drift) * 0.5), calc(var(--y-drift) * 0.5)) scale(1);
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: translate(0, 0) scale(0.8);
+        opacity: 0.1;
+    }
 }
 
-/* Responsive Styles */
-@media (max-width: 1024px) {
+/* --- Music Toggle Button --- */
+.music-toggle-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 55px;
+    height: 55px;
+    background: rgba(42, 42, 42, 0.8); /* Dark background with opacity */
+    color: var(--primary); /* Primary color */
+    border: 2px solid var(--primary);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    z-index: 900; /* Below loader and lightbox */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    opacity: 0.9;
+}
+
+.music-toggle-btn:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--accent);
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    opacity: 1;
+}
+
+.music-toggle-btn i {
+    transition: transform 0.3s ease;
+}
+
+.music-toggle-btn.playing i {
+    /* Default state */
+    transform: scale(1);
+}
+
+.music-toggle-btn:not(.playing) i {
+    /* State when paused (muted icon) */
+    transform: scale(0.8);
+    color: var(--accent); /* Indicate off state */
+}
+
+
+/* --- Responsive Styles --- */
+@media (max-width: 1200px) {
+    .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 30px;
+    }
+}
+
+@media (max-width: 992px) {
+    html {
+        font-size: 15px;
+    }
+
+    header {
+        padding: 3rem 1rem 2rem;
+    }
+
+    .logo {
+        font-size: clamp(3rem, 9vw, 4.5rem);
+    }
+
+    .subtitle {
+        font-size: clamp(1.2rem, 3.5vw, 1.5rem);
+    }
+
+    .server-stats {
+        gap: clamp(1rem, 4vw, 2rem);
+    }
+
+    .stat-item {
+        padding: 0.8rem 1.5rem;
+        gap: 0.8rem;
+    }
+
+    main {
+        padding: 4rem clamp(1rem, 5vw, 5%);
+    }
+
+    .gallery-intro h2 {
+        font-size: clamp(2rem, 6vw, 2.8rem);
+    }
+
+    .season-info {
+        padding: 2rem 2.5rem;
+    }
+
+    .season-info h3 {
+        font-size: 1.8rem;
+        gap: 0.8rem;
+    }
+
     .gallery {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 25px;
     }
 
-    .season-info {
-        padding: 1.8rem 2rem;
+    .gallery-item {
+        border-radius: 12px;
+    }
+
+    .gallery-item .view-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+
+    .season-tag {
+        top: 15px;
+        right: 15px;
+        padding: 6px 14px;
+        font-size: 0.9rem;
+    }
+
+    .lightbox-img {
+        max-height: 75vh;
+    }
+
+    .lightbox-caption {
+        font-size: 1.2rem;
+        margin-top: 20px;
+        padding: 0.8rem 1.5rem;
+    }
+    .lightbox-counter {
+        bottom: -30px;
+        font-size: 1rem;
+    }
+
+    .lightbox-close {
+        top: 25px;
+        right: 25px;
+        width: 55px;
+        height: 55px;
+        font-size: 2.5rem;
+    }
+
+    .lightbox-nav {
+        padding: 0 20px;
+    }
+
+    .lightbox-nav-btn {
+        width: 60px;
+        height: 60px;
+        font-size: 2.5rem;
+    }
+
+    footer {
+        padding: 3.5rem 1rem;
+    }
+
+    .social-links {
+        gap: 20px;
+    }
+
+    .social-btn {
+        min-width: 220px;
+        padding: 14px 30px;
+        font-size: 1.1rem;
     }
 }
 
 @media (max-width: 768px) {
-    html { font-size: 15px; }
+     html {
+        font-size: 14px;
+     }
 
-    header { padding: 2.5rem 1rem; }
-
-    .server-stats { gap: 1rem; }
-
-    .stat-item { padding: 0.7rem 1.2rem; }
-
-    .gallery {
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-        gap: 20px;
+    header {
+        padding: 2.5rem 1rem;
     }
 
-    .gallery-intro p { font-size: 1.1rem; }
+    .server-stats {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
 
-    .lightbox-img { max-height: 70vh; }
+    .stat-item {
+        width: 80%; /* Make items wider */
+        max-width: 300px;
+        justify-content: center;
+    }
 
-    .lightbox-caption { font-size: 1.1rem; }
+    main {
+        padding: 3rem clamp(1rem, 4vw, 4%);
+    }
+
+    .gallery-intro h2 {
+        font-size: clamp(1.8rem, 7vw, 2.5rem);
+        margin-bottom: 2rem;
+    }
+     .gallery-intro h2::after {
+        bottom: -12px;
+        height: 4px;
+        width: 100px;
+     }
+
+    .gallery-intro p {
+        font-size: 1rem;
+        max-width: 90%;
+        margin-bottom: 2rem;
+    }
+
+    .season-info {
+        padding: 1.8rem 2rem;
+        margin: 3rem auto;
+    }
+
+    .season-info h3 {
+        font-size: 1.5rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .season-info h3 i {
+        font-size: 1.1em;
+    }
+
+    .season-filter {
+        gap: 0.8rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .season-btn {
+        width: calc(50% - 0.4rem); /* Two buttons per row */
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+        min-width: unset; /* Override min-width */
+    }
+
+    .gallery {
+        grid-template-columns: 1fr; /* Single column */
+        gap: 25px;
+        margin-top: 2.5rem;
+    }
+
+    .gallery-item {
+        border-radius: 10px;
+    }
+
+    .lightbox-img {
+        max-height: 70vh;
+    }
+
+    .lightbox-caption {
+        font-size: 1rem;
+        margin-top: 15px;
+        padding: 0.6rem 1rem;
+        max-width: 95%;
+    }
+    .lightbox-counter {
+         bottom: -25px;
+         font-size: 0.9rem;
+    }
+
 
     .lightbox-close {
         top: 20px;
@@ -840,85 +1163,57 @@ footer {
         font-size: 2.2rem;
     }
 
-    .lightbox-nav {
-        width: calc(100% + 60px);
-        left: -30px;
+     .lightbox-nav {
+        display: none; /* Hide nav buttons on smaller screens */
+     }
+
+    footer {
+        padding: 3rem 1rem;
     }
 
-    .lightbox-nav-btn {
-        width: 50px;
-        height: 50px;
-        font-size: 2.2rem;
+    .social-links {
+        gap: 15px;
     }
 
     .social-btn {
-        min-width: 200px;
+        width: 90%; /* Make buttons wider */
+        max-width: 300px;
+        font-size: 1rem;
         padding: 12px 25px;
-        font-size: 1rem;
     }
 
-    footer { padding: 3rem 1rem; }
-}
-
-@media (max-width: 480px) {
-    html { font-size: 14px; }
-
-    header { padding: 2rem 1rem; }
-
-    .server-stats {
-        flex-direction: column;
-        align-items: center;
+    .copyright {
+        font-size: 0.85rem;
+        margin-top: 2rem;
     }
 
-    .gallery {
-        grid-template-columns: 1fr;
-        gap: 25px;
+    .loading-text {
+        font-size: 1.3rem;
+        margin-top: 2rem;
     }
-
-    .gallery-intro p { max-width: 95%; }
-
-    .season-info {
-        padding: 1.5rem;
-        border-left-width: 4px;
-    }
-
-    .season-info h3 { font-size: 1.6rem; }
-
-    .season-btn {
-        width: calc(50% - 0.5rem);
-        font-size: 1rem;
-    }
-
-    .lightbox-caption {
-        font-size: 1rem;
-        max-width: 90%;
-        padding: 0.6rem 1rem;
-    }
-
-    .lightbox-nav { display: none; }
-
-    .social-links { gap: 15px; }
-
-    .social-btn { width: 100%; }
-
-    .copyright { font-size: 0.85rem; }
-
-    .loading-text { font-size: 1.1rem; }
 
     .minecraft-block-loader {
-        width: 60px;
-        height: 60px;
+        width: 80px;
+        height: 80px;
     }
 
     .block-face {
-        width: 60px;
-        height: 60px;
+        width: 80px;
+        height: 80px;
     }
 
-    .face-front { transform: translateZ(30px); }
-    .face-back { transform: translateZ(-30px) rotateY(180deg); }
-    .face-right { transform: rotateY(90deg) translateZ(30px); }
-    .face-left { transform: rotateY(-90deg) translateZ(30px); }
-    .face-top { transform: rotateX(90deg) translateZ(30px); }
-    .face-bottom { transform: rotateX(-90deg) translateZ(30px); }
+    .face-front { transform: translateZ(40px); }
+    .face-back { transform: translateZ(-40px) rotateY(180deg); }
+    .face-right { transform: rotateY(90deg) translateZ(40px); }
+    .face-left { transform: rotateY(-90deg) translateZ(40px); }
+    .face-top { transform: rotateX(90deg) translateZ(40px); }
+    .face-bottom { transform: rotateX(-90deg) translateZ(40px); }
+
+    .music-toggle-btn {
+        bottom: 15px;
+        left: 15px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.6rem;
+    }
 }
