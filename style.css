@@ -6,7 +6,7 @@
     --dark: #1A1A1A;       /* Very dark gray */
     --darker: #121212;      /* Almost black */
     --light: #F0F0F0;      /* Light gray */
-    --accent: #E35D6A;     /* A reddish/crimson accent for "Nightmare" */
+    --accent: #BAFF29;     /* A reddish/crimson accent for "Nightmare" */
     --accent-dark: #D14B5C;
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Stronger shadow */
     --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Different easing */
