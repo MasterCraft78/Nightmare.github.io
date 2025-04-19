@@ -7,6 +7,7 @@ const lightboxCounter = document.getElementById('lightbox-counter'); // Get the 
 const galleryContainer = document.querySelector('.gallery'); // Get the gallery container
 const music = document.getElementById('background-music');
 const musicToggleBtn = document.getElementById('music-toggle');
+const songNotification = document.getElementById('song-notification'); // Get the new song notification element
 
 
 let currentVisibleItems = []; // Array to store currently visible gallery items
@@ -21,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
     updateCopyrightYear();
     initLightboxKeyboardNav();
     initMusicToggle(); // Initialize music toggle
+    // initScrollAnimations(); // Opsional: Jika nanti menambahkan scroll animations (butuh IntersectionObserver)
 
     // Update visible items initially (important for correct initial state)
     // This should happen AFTER initSeasonFilter potentially hides items
@@ -48,7 +50,7 @@ function initParticles() {
     if (!particlesContainer) return;
 
     // Reduce particle count on smaller screens for performance
-    const particleCount = window.innerWidth < 768 ? 20 : 35; // Adjusted count
+    const particleCount = window.innerWidth < 768 ? 15 : 25; // Adjusted count for performance
 
     for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
@@ -326,7 +328,7 @@ function initLightboxKeyboardNav() {
     });
 }
 
-// Initialize Music Toggle Functionality
+// Initialize Music Toggle Functionality and Song Notification
 function initMusicToggle() {
      if (!music || !musicToggleBtn) return;
 
@@ -334,18 +336,46 @@ function initMusicToggle() {
      // Set a default volume
      music.volume = 0.5;
 
-     // Update button state based on music pause state
+     // Function to extract and format song title from src
+     function getSongTitle(src) {
+         if (!src) return "Musik Latar";
+         // Get filename from path, remove extension, replace - with spaces
+         const filename = src.split('/').pop().split('\\').pop(); // Handle both / and \
+         const baseName = filename.split('.').slice(0, -1).join('.');
+         return baseName.replace(/-/g, ' '); // Replace hyphens with spaces
+     }
+
+     // Function to update notification text and visibility
+     function updateSongNotification(title, isPlaying) {
+         if (!songNotification) return;
+
+         if (isPlaying && title) {
+             songNotification.textContent = `▶ Sedang Diputar: ${title}`;
+             songNotification.classList.add('visible'); // Add class to show notification
+         } else {
+             // Use setTimeout to allow fade-out animation before clearing text
+             setTimeout(() => {
+                  songNotification.textContent = '';
+                  songNotification.classList.remove('visible'); // Remove class to hide notification
+             }, 500); // Match CSS fade-out duration
+         }
+     }
+
+     // Function to update button state (icon, class)
      function updateMusicButtonState() {
+        const currentSongTitle = getSongTitle(music.currentSrc || music.src); // Use currentSrc if available
         if (music.paused) {
             musicToggleBtn.classList.remove('playing'); // Remove class to stop CSS animation
             musicIcon.classList.remove('fa-volume-up');
             musicIcon.classList.add('fa-volume-mute');
             musicToggleBtn.title = 'Nyalakan Musik';
+            updateSongNotification(currentSongTitle, false); // Hide notification when paused
         } else {
             musicToggleBtn.classList.add('playing'); // Add class to start CSS animation
             musicIcon.classList.remove('fa-volume-mute');
             musicIcon.classList.add('fa-volume-up');
              musicToggleBtn.title = 'Matikan Musik';
+             updateSongNotification(currentSongTitle, true); // Show notification when playing
         }
      }
 
@@ -358,8 +388,8 @@ function initMusicToggle() {
                 // updateMusicButtonState is also called by 'play' event listener
              }).catch(error => {
                 console.error("Music playback failed:", error);
-                 // Optionally show a message to the user, e.g., "Please click anywhere on the page to enable music."
-                 // Or handle the error gracefully.
+                 // Handle the error gracefully, maybe show a temporary message
+                 // "Browser memblokir autoplay. Silakan klik lagi setelah berinteraksi dengan halaman."
              });
         } else {
             music.pause();
@@ -368,15 +398,16 @@ function initMusicToggle() {
         }
      });
 
-     // Also update state if music ends or is controlled externally
-     // These listeners ensure the button icon/class is correct even if playback status changes
+     // Listen for playback events to update UI state
      music.addEventListener('play', updateMusicButtonState);
      music.addEventListener('pause', updateMusicButtonState);
      music.addEventListener('ended', updateMusicButtonState);
      music.addEventListener('volumechange', updateMusicButtonState); // Optional: update if muted state changes
 
-     // Set initial state (will check if autoplay worked or if it's paused)
-     updateMusicButtonState(); // Check initial state of the audio element
+     // Set initial state based on whether autoplay succeeded or if it's paused initially
+     // Use a small delay to ensure the DOM is ready after initial load
+     setTimeout(updateMusicButtonState, 100); // Check initial state shortly after DOMContentLoaded
+
 }
 
 
@@ -398,4 +429,30 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+/*
+// Optional: Add basic scroll animation/fade-in using Intersection Observer
+// Add a class like .fade-in to elements you want to animate on scroll
+// Add this function call in DOMContentLoaded: initScrollAnimations();
+function initScrollAnimations() {
+    const elementsToAnimate = document.querySelectorAll('.gallery-item, .season-info'); // Add other selectors
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible'); // Add a class to trigger CSS animation
+                observer.unobserve(entry.target); // Stop observing once visible
+            }
+        });
+    }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
+
+    elementsToAnimate.forEach(element => {
+        element.classList.add('fade-in'); // Add base class for initial hidden state
+        observer.observe(element);
+    });
+}
+// Add necessary CSS:
+// .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+// .fade-in.is-visible { opacity: 1; transform: translateY(0); }
+*/
 
