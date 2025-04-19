@@ -1,6 +1,7 @@
 // --- Global Variables ---
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
+// Target the span inside the caption for text updates
 const lightboxCaptionSpan = document.querySelector('#lightbox-caption span');
 const lightboxCounter = document.getElementById('lightbox-counter'); // Get the counter element
 const galleryContainer = document.querySelector('.gallery'); // Get the gallery container
@@ -12,6 +13,7 @@ let currentVisibleItems = []; // Array to store currently visible gallery items
 let currentImageIndex = 0; // Index within the currentVisibleItems array
 
 // --- Initialization ---
+// Use DOMContentLoaded for quicker script execution on document structure readiness
 document.addEventListener('DOMContentLoaded', function() {
     initParticles(); // Initialize custom particles
     initSeasonFilter();
@@ -21,17 +23,19 @@ document.addEventListener('DOMContentLoaded', function() {
     initMusicToggle(); // Initialize music toggle
 
     // Update visible items initially (important for correct initial state)
+    // This should happen AFTER initSeasonFilter potentially hides items
     updateVisibleItems();
 });
 
 // Hide loader after a delay (simulated load time) and content is ready
 window.addEventListener('load', function() {
-    // Give a small minimum time for the animation to show
+    // Give a small minimum time for the animation to show (e.g., 800ms)
+    // Then hide the loader.
     const loader = document.getElementById('page-loader');
     if (loader) {
         setTimeout(() => {
             loader.classList.remove('active');
-        }, 800); // Reduced delay slightly, minimum 800ms visible
+        }, 800);
     }
 });
 
@@ -100,7 +104,7 @@ function initSeasonFilter() {
             updateVisibleItems();
 
             // Optional: Scroll back to the top of the gallery section after filtering
-            const gallerySection = document.querySelector('.gallery');
+            const gallerySection = document.querySelector('.gallery-intro'); // Scroll to intro or gallery
             if (gallerySection) {
                  gallerySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
@@ -121,12 +125,11 @@ function initGalleryItemListeners() {
         if (galleryItem && window.getComputedStyle(galleryItem).display !== 'none') {
             // Prevent opening if a specific interactive element *inside* the item was clicked
             // Check if the clicked target or its parent is the view button itself
+            // If the click is on the view button OR anywhere else inside the item, proceed
             if (event.target.closest('.view-btn')) {
-                 // If the click is on the view button, proceed to open lightbox
+                 // If it's the view button, just proceed
             } else {
-                 // If click is anywhere else inside the item (but not the view button), also proceed
-                 // This makes the whole item clickable except for other potential links/buttons
-                 // (though currently, only the view-btn is inside).
+                 // If click is anywhere else inside the item, proceed as well
             }
 
 
@@ -177,8 +180,14 @@ function openLightbox(imageSrc, caption) {
     // Apply fade-in effect for image/caption change if already open
     if (lightbox.classList.contains('active')) {
         lightboxImg.style.opacity = '0';
-        lightboxCaptionSpan.parentNode.style.opacity = '0'; // Fade out caption parent
-        lightboxCounter.style.opacity = '0'; // Fade out counter
+        // Check if caption parent exists before trying to access style
+        if (lightboxCaptionSpan && lightboxCaptionSpan.parentNode) {
+            lightboxCaptionSpan.parentNode.style.opacity = '0'; // Fade out caption parent
+        }
+        if (lightboxCounter) {
+            lightboxCounter.style.opacity = '0'; // Fade out counter
+        }
+
 
         setTimeout(() => {
             lightboxImg.src = imageSrc;
@@ -186,21 +195,22 @@ function openLightbox(imageSrc, caption) {
 
             // Update caption text and visibility
             lightboxCaptionSpan.textContent = caption;
-            if (caption) {
+            if (caption && lightboxCaptionSpan && lightboxCaptionSpan.parentNode) {
                 lightboxCaptionSpan.parentNode.style.display = 'flex'; // Show parent
                 // Use setTimeout for slight delay after display: flex
                 setTimeout(() => { lightboxCaptionSpan.parentNode.style.opacity = '1'; }, 50);
-            } else {
-                lightboxCaptionSpan.parentNode.style.display = 'none'; // Hide parent if no caption
+            } else if (lightboxCaptionSpan && lightboxCaptionSpan.parentNode) {
+                lightboxCaptionSpan.parentNode.style.display = 'none';
+                lightboxCaptionSpan.parentNode.style.opacity = '0';
             }
 
             // Update counter text and visibility
-            if (currentVisibleItems.length > 1) {
-                lightboxCounter.textContent = `${currentImageIndex + 1} / ${currentVisibleItems.length}`;
+            if (currentVisibleItems.length > 1 && lightboxCounter) {
+                 lightboxCounter.textContent = `${currentImageIndex + 1} / ${currentVisibleItems.length}`;
                  lightboxCounter.style.display = 'block'; // Show counter
                  setTimeout(() => { lightboxCounter.style.opacity = '1'; }, 50); // Slight delay
-            } else {
-                 lightboxCounter.style.display = 'none'; // Hide counter
+            } else if (lightboxCounter) {
+                 lightboxCounter.style.display = 'none';
                  lightboxCounter.style.opacity = '0';
             }
 
@@ -216,20 +226,20 @@ function openLightbox(imageSrc, caption) {
 
         // Set caption text and visibility for first open
         lightboxCaptionSpan.textContent = caption;
-        if (caption) {
+        if (caption && lightboxCaptionSpan && lightboxCaptionSpan.parentNode) {
             lightboxCaptionSpan.parentNode.style.display = 'flex';
             lightboxCaptionSpan.parentNode.style.opacity = '1'; // Ensure opacity is 1
-        } else {
+        } else if (lightboxCaptionSpan && lightboxCaptionSpan.parentNode) {
             lightboxCaptionSpan.parentNode.style.display = 'none';
             lightboxCaptionSpan.parentNode.style.opacity = '0';
         }
 
         // Set counter text and visibility for first open
-        if (currentVisibleItems.length > 1) {
+        if (currentVisibleItems.length > 1 && lightboxCounter) {
              lightboxCounter.textContent = `${currentImageIndex + 1} / ${currentVisibleItems.length}`;
              lightboxCounter.style.display = 'block';
              lightboxCounter.style.opacity = '1';
-        } else {
+        } else if (lightboxCounter) {
              lightboxCounter.style.display = 'none';
              lightboxCounter.style.opacity = '0';
         }
@@ -244,13 +254,13 @@ function openLightbox(imageSrc, caption) {
 function closeLightbox(event) {
     // Check if the click was directly on the overlay background or the close button
     // Stop propagation was added to navigateLightbox, so check event target is sufficient
-    if (!event || event.target === lightbox || event.target.classList.contains('lightbox-close') || event.target.parentElement.classList.contains('lightbox-close')) {
+    if (!event || event.target === lightbox || event.target.classList.contains('lightbox-close') || (event.target.parentElement && event.target.parentElement.classList.contains('lightbox-close'))) {
         if (lightbox) {
             lightbox.classList.remove('active');
             // Wait for fade-out transition to complete before restoring scroll
             setTimeout(() => {
                  document.body.style.overflow = ''; // Restore background scrolling
-            }, 500); // Match lightbox opacity transition duration
+            }, 600); // Match lightbox opacity transition duration
         }
     }
 }
@@ -321,24 +331,18 @@ function initMusicToggle() {
      if (!music || !musicToggleBtn) return;
 
      const musicIcon = musicToggleBtn.querySelector('i');
-     // Check initial state (if autoplay was enabled and succeeded, or if music starts later)
-     // A common pattern is to start muted and let the user toggle on.
-     music.volume = 0.5; // Set a default volume
-
-
-     // REMOVE OR COMMENT OUT THIS LINE to let 'autoplay' attribute try to work
-     // music.pause(); // Start paused by default for better compatibility
-
+     // Set a default volume
+     music.volume = 0.5;
 
      // Update button state based on music pause state
      function updateMusicButtonState() {
         if (music.paused) {
-            musicToggleBtn.classList.remove('playing');
+            musicToggleBtn.classList.remove('playing'); // Remove class to stop CSS animation
             musicIcon.classList.remove('fa-volume-up');
             musicIcon.classList.add('fa-volume-mute');
             musicToggleBtn.title = 'Nyalakan Musik';
         } else {
-            musicToggleBtn.classList.add('playing');
+            musicToggleBtn.classList.add('playing'); // Add class to start CSS animation
             musicIcon.classList.remove('fa-volume-mute');
             musicIcon.classList.add('fa-volume-up');
              musicToggleBtn.title = 'Matikan Musik';
@@ -351,26 +355,28 @@ function initMusicToggle() {
             // Try to play. Play might fail if not initiated by user gesture.
              music.play().then(() => {
                 console.log("Music playing");
-                updateMusicButtonState();
+                // updateMusicButtonState is also called by 'play' event listener
              }).catch(error => {
                 console.error("Music playback failed:", error);
-                 // Optionally show a message to the user
+                 // Optionally show a message to the user, e.g., "Please click anywhere on the page to enable music."
+                 // Or handle the error gracefully.
              });
         } else {
             music.pause();
             console.log("Music paused");
-            updateMusicButtonState();
+             // updateMusicButtonState is also called by 'pause' event listener
         }
      });
 
      // Also update state if music ends or is controlled externally
+     // These listeners ensure the button icon/class is correct even if playback status changes
      music.addEventListener('play', updateMusicButtonState);
      music.addEventListener('pause', updateMusicButtonState);
      music.addEventListener('ended', updateMusicButtonState);
+     music.addEventListener('volumechange', updateMusicButtonState); // Optional: update if muted state changes
 
-     // Update the button state based on whether the music is playing or not
-     // (This will reflect if 'autoplay' actually succeeded)
-     updateMusicButtonState();
+     // Set initial state (will check if autoplay worked or if it's paused)
+     updateMusicButtonState(); // Check initial state of the audio element
 }
 
 
@@ -384,7 +390,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             targetElement.scrollIntoView({
                 behavior: 'smooth'
             });
-        } else if (targetId === '#') { // Handle href="#"
+        } else if (targetId === '#') { // Handle href="#" to scroll to top
              window.scrollTo({
                  top: 0,
                  behavior: 'smooth'
