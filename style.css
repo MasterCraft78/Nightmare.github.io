@@ -918,6 +918,22 @@ footer {
     opacity: 0.9;
 }
 
+/* Tambahkan ini di mana saja di style.css, misalnya di dekat Music Toggle Button styles */
+
+/* Keyframes untuk animasi denyut/napas */
+@keyframes pulse-music-icon {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; } /* Sedikit membesar dan pudar di tengah */
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Aturan ini mengaplikasikan animasi ke ikon (i) di dalam tombol (#music-toggle) */
+/* Hanya ketika tombol tersebut memiliki kelas 'playing' */
+#music-toggle.playing i {
+    animation: pulse-music-icon 1.5s infinite ease-in-out alternate; /* Animasi: nama, durasi, jumlah putaran (tak terbatas), timing, arah (bolak-balik) */
+    transform-origin: center; /* Pastikan animasi scale dari tengah ikon */
+}
+
 .music-toggle-btn:hover {
     background: var(--primary-dark); /* Background primary dark */
     color: white;
