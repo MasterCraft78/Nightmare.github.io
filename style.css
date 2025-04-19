@@ -1,24 +1,16 @@
 /* Modern CSS Variables */
 :root {
-    --primary: #4A6FA5;
-    /* Slightly desaturated blue */
-    --primary-dark: #3A5A8A;
-    --secondary: #2A2A2A;
-    /* Dark gray */
-    --dark: #1A1A1A;
-    /* Very dark gray */
-    --darker: #121212;
-    /* Almost black */
-    --light: #F0F0F0;
-    /* Light gray */
-    --accent: #4ECDC4;
-    /* Teal accent */
+    --primary: #5EBD5E; /* Minecraft grass green */
+    --primary-dark: #4A9C4A;
+    --secondary: #2A2A2A; /* Dark gray */
+    --dark: #1A1A1A; /* Very dark gray */
+    --darker: #121212; /* Almost black */
+    --light: #F0F0F0; /* Light gray */
+    --accent: #4ECDC4; /* Teal accent */
     --accent-dark: #3EB8B0;
     --shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
     --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
-    /* Smoother easing */
     --minecraft-font: 'Minecraft', sans-serif;
-    /* Define font stack */
 }
 
 /* Base Reset & Styles */
@@ -31,12 +23,10 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
-    /* Base font size */
 }
 
 body {
     font-family: Arial, sans-serif;
-    /* Fallback font */
     background-color: var(--darker);
     color: var(--light);
     line-height: 1.7;
@@ -53,15 +43,11 @@ body::before {
     width: 100%;
     height: 100%;
     background:
-        radial-gradient(circle at 15% 25%, rgba(74, 111, 165, 0.1) 0%, transparent 30%),
-        /* Softer primary glow */
+        radial-gradient(circle at 15% 25%, rgba(94, 189, 94, 0.1) 0%, transparent 30%),
         radial-gradient(circle at 85% 75%, rgba(78, 205, 196, 0.1) 0%, transparent 30%),
-        /* Softer accent glow */
         linear-gradient(170deg, var(--darker) 0%, var(--dark) 100%);
-    /* Slightly angled gradient */
     z-index: -2;
     opacity: 0.8;
-    /* Tone down the effect slightly */
 }
 
 /* Scrollbar Styling */
@@ -77,7 +63,6 @@ body::before {
     background: var(--primary);
     border-radius: 5px;
     border: 2px solid var(--dark);
-    /* Add border for definition */
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -88,15 +73,11 @@ body::before {
 header {
     background: linear-gradient(135deg, rgba(42, 42, 42, 0.7), rgba(26, 26, 26, 0.8));
     padding: 3rem 1rem;
-    /* Adjust padding */
     text-align: center;
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(8px);
-    /* Enhance blur */
-    -webkit-backdrop-filter: blur(8px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    /* Subtle border */
     box-shadow: var(--shadow);
 }
 
@@ -110,13 +91,10 @@ header {
 
 .logo {
     font-family: var(--minecraft-font);
-    /* Use variable */
     font-size: clamp(3rem, 8vw, 4.5rem);
-    /* Responsive font size */
     font-weight: 700;
     color: var(--primary);
-    text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.6), 0 0 15px rgba(74, 111, 165, 0.3);
-    /* Refined shadow */
+    text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.6), 0 0 15px rgba(94, 189, 94, 0.3);
     letter-spacing: 3px;
     margin-bottom: 0.5rem;
     transition: var(--transition);
@@ -129,20 +107,16 @@ header {
 
 .logo:hover {
     transform: scale(1.03);
-    /* Subtle scale */
-    text-shadow: 6px 6px 0 rgba(0, 0, 0, 0.7), 0 0 25px rgba(74, 111, 165, 0.5);
+    text-shadow: 6px 6px 0 rgba(0, 0, 0, 0.7), 0 0 25px rgba(94, 189, 94, 0.5);
 }
 
 .subtitle {
     font-family: var(--minecraft-font);
-    /* Use variable */
     font-size: clamp(1.2rem, 3vw, 1.5rem);
-    /* Responsive font size */
     font-weight: 300;
     color: var(--light);
     opacity: 0.85;
     margin-bottom: 2rem;
-    /* Increased spacing */
     letter-spacing: 1px;
 }
 
@@ -150,10 +124,8 @@ header {
     display: flex;
     justify-content: center;
     gap: clamp(1rem, 4vw, 2rem);
-    /* Responsive gap */
     margin-top: 1.5rem;
     flex-wrap: wrap;
-    /* Allow wrapping on smaller screens */
 }
 
 .stat-item {
@@ -171,15 +143,13 @@ header {
 .stat-item:hover {
     background: rgba(0, 0, 0, 0.6);
     transform: translateY(-4px) scale(1.03);
-    /* Enhanced hover */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     border-color: rgba(var(--accent), 0.5);
 }
 
 .stat-icon {
-    color: var(--accent);
-    font-size: 1.3rem;
-    /* Slightly larger icon */
+    width: 24px;
+    height: 24px;
     transition: transform 0.3s ease;
 }
 
@@ -196,7 +166,6 @@ header {
 /* Main Content Styles */
 main {
     padding: 4rem clamp(1rem, 5vw, 5%);
-    /* Responsive padding */
     max-width: 1400px;
     margin: 0 auto;
 }
@@ -204,7 +173,6 @@ main {
 .gallery-intro {
     text-align: center;
     margin-bottom: 4rem;
-    /* Increased spacing */
     position: relative;
 }
 
@@ -213,7 +181,6 @@ main {
     font-size: clamp(2rem, 6vw, 2.8rem);
     color: var(--light);
     margin-bottom: 2.5rem;
-    /* Increased spacing */
     position: relative;
     display: inline-block;
     background: linear-gradient(to right, var(--primary), var(--accent));
@@ -230,7 +197,6 @@ main {
     left: 50%;
     transform: translateX(-50%);
     width: 120px;
-    /* Wider underline */
     height: 4px;
     background: linear-gradient(to right, var(--primary), var(--accent));
     border-radius: 2px;
@@ -239,35 +205,26 @@ main {
 
 .gallery-intro p {
     font-size: 1.15rem;
-    /* Slightly larger */
     color: #ccc;
     max-width: 800px;
     margin: 0 auto 2.5rem;
-    /* Adjusted margin */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* More readable font for paragraph */
 }
 
 .season-info {
     background: rgba(42, 42, 42, 0.6);
-    /* Less opaque */
     border-left: 5px solid var(--primary);
-    /* Thicker border */
     padding: 2rem 2.5rem;
-    /* More padding */
     margin: 3rem auto;
     max-width: 900px;
     border-radius: 0 10px 10px 0;
-    /* Slightly larger radius */
     backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
     transition: var(--transition);
     box-shadow: var(--shadow);
 }
 
 .season-info:hover {
     transform: translateY(-6px) scale(1.01);
-    /* Subtle scale */
     box-shadow: 0 18px 35px rgba(0, 0, 0, 0.45);
     border-left-color: var(--accent);
 }
@@ -287,12 +244,13 @@ main {
     color: var(--accent);
 }
 
-.season-info h3 i {
-    color: var(--accent);
+.info-icon {
+    width: 24px;
+    height: 24px;
     transition: transform 0.3s ease;
 }
 
-.season-info:hover h3 i {
+.season-info:hover .info-icon {
     transform: rotate(-10deg);
 }
 
@@ -301,7 +259,6 @@ main {
     font-size: 1.05rem;
     line-height: 1.8;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* Match intro paragraph */
 }
 
 /* Season Filter */
@@ -310,13 +267,12 @@ main {
     justify-content: center;
     gap: 1rem;
     margin-bottom: 3rem;
-    /* More space */
     flex-wrap: wrap;
 }
 
 .season-btn {
     padding: 0.8rem 1.8rem;
-    background: rgba(74, 111, 165, 0.2);
+    background: rgba(94, 189, 94, 0.2);
     color: var(--light);
     border: 2px solid var(--primary);
     border-radius: 50px;
@@ -333,15 +289,13 @@ main {
     background: var(--primary);
     color: white;
     transform: translateY(-4px) scale(1.05);
-    /* Enhanced hover */
-    box-shadow: 0 8px 18px rgba(74, 111, 165, 0.4);
+    box-shadow: 0 8px 18px rgba(94, 189, 94, 0.4);
     border-color: var(--primary-dark);
 }
 
 .season-btn.active {
     background: var(--primary-dark);
-    /* Darker active state */
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(74, 111, 165, 0.4);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3), 0 5px 15px rgba(94, 189, 94, 0.4);
 }
 
 /* Gallery Styles */
@@ -349,7 +303,6 @@ main {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 35px;
-    /* Slightly increased gap */
     margin-top: 3rem;
 }
 
@@ -363,13 +316,11 @@ main {
     background: var(--secondary);
     border: 1px solid rgba(255, 255, 255, 0.05);
     transform: perspective(1000px);
-    /* Prepare for 3D effect */
-    cursor: pointer; /* Make the whole item clickable */
+    cursor: pointer;
 }
 
 .gallery-item:hover {
-    transform: translateY(-12px) scale(1.03) perspective(1000px) rotateY(1deg);
-    /* Enhanced hover */
+    transform: translateY(-12px) scale(1.03) perspective(1000px) rotateY(2deg);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.55);
     border-color: rgba(var(--accent), 0.4);
 }
@@ -380,18 +331,14 @@ main {
     object-fit: cover;
     transition: transform 0.5s ease, filter 0.4s ease;
     display: block;
-    /* Remove potential bottom space */
 }
 
 .gallery-item:hover img {
     transform: scale(1.12);
-    /* Slightly more zoom */
     filter: brightness(1.15) saturate(1.1);
-    /* Enhance colors on hover */
 }
 
 .gallery-item::before {
-    /* Overlay */
     content: '';
     position: absolute;
     top: 0;
@@ -411,14 +358,10 @@ main {
 .gallery-item .view-btn {
     position: absolute;
     bottom: 20px;
-    /* Adjust position */
     left: 50%;
     transform: translate(-50%, 20px) scale(0.9);
-    /* Start lower */
     padding: 12px 28px;
-    /* Slightly larger */
     background: linear-gradient(45deg, var(--primary), var(--accent));
-    /* Use accent */
     color: white;
     border: none;
     border-radius: 50px;
@@ -426,7 +369,6 @@ main {
     font-size: 1rem;
     opacity: 0;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    /* Add bounce */
     z-index: 2;
     cursor: pointer;
     display: flex;
@@ -435,22 +377,18 @@ main {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
     font-family: var(--minecraft-font);
     letter-spacing: 0.5px;
-    pointer-events: none; /* Prevent button click interfering with item click */
+    pointer-events: none;
 }
 
-/* Make button visible for hover effect on the item */
 .gallery-item:hover .view-btn {
-  opacity: 1;
-  transform: translate(-50%, 0) scale(1);
-  pointer-events: auto; /* Enable clicks on button when visible */
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+    pointer-events: auto;
 }
-
 
 .gallery-item .view-btn:hover {
     background: linear-gradient(45deg, var(--primary-dark), var(--accent-dark));
-    /* Darker hover */
     transform: translate(-50%, 0) scale(1.08);
-    /* Pop effect */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
@@ -459,49 +397,40 @@ main {
     top: 15px;
     right: 15px;
     background: rgba(0, 0, 0, 0.75);
-    /* Slightly darker */
     color: white;
     padding: 6px 14px;
-    /* Adjust padding */
     border-radius: 20px;
     font-size: 0.9rem;
     font-weight: 600;
     z-index: 2;
     font-family: var(--minecraft-font);
     backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Keep specific season colors for tags/borders */
 .season-s1 {
-    border-left: 4px solid #FFC107; /* Changed to a more "gold" or "initial" color */
+    border-left: 4px solid #FFC107;
 }
-/* Removed S2/S3 specific styles */
-
 
 /* Lightbox Styles */
 .lightbox {
-    /* display: none; */ /* Handled by JS active class */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.9);
-    /* Darker overlay */
     justify-content: center;
     align-items: center;
     z-index: 1000;
     opacity: 0;
     transition: opacity 0.5s ease;
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    display: none; /* Hidden by default, shown with .active */
+    display: none;
 }
 
 .lightbox.active {
-    display: flex; /* Show when active */
+    display: flex;
     opacity: 1;
 }
 
@@ -513,7 +442,6 @@ main {
     flex-direction: column;
     align-items: center;
     animation: zoomIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    /* Zoom effect */
 }
 
 @keyframes zoomIn {
@@ -521,7 +449,6 @@ main {
         transform: scale(0.8);
         opacity: 0;
     }
-
     to {
         transform: scale(1);
         opacity: 1;
@@ -531,46 +458,36 @@ main {
 .lightbox-img {
     max-width: 100%;
     max-height: 75vh;
-    /* Adjust max height */
     border-radius: 12px;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
-    /* Stronger shadow */
     border: 2px solid rgba(255, 255, 255, 0.15);
     transition: opacity 0.3s ease;
-    /* Transition for image change */
     display: block;
-    user-select: none; /* Prevent image drag */
-    -webkit-user-select: none;
+    user-select: none;
 }
 
 .lightbox-caption {
     color: white;
     margin-top: 20px;
     font-size: 1.2rem;
-    /* Adjusted size */
     text-align: center;
     max-width: 80%;
     background: rgba(0, 0, 0, 0.75);
     padding: 0.8rem 1.5rem;
     border-radius: 50px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* Readable font */
     backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
     transition: opacity 0.3s ease;
-    /* Transition for caption change */
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
 
-.lightbox-caption i {
-    color: var(--accent);
-    /* Icon color */
-    font-size: 1.1em;
+.caption-icon {
+    width: 20px;
+    height: 20px;
 }
 
-/* Hide caption if empty */
 .lightbox-caption:empty {
     display: none;
 }
@@ -578,35 +495,26 @@ main {
 .lightbox-close {
     position: absolute;
     top: 25px;
-    /* Adjust position */
     right: 30px;
-    /* Adjust position */
     color: white;
     font-size: 2.5rem;
-    /* Adjusted size */
     cursor: pointer;
     transition: var(--transition);
     background: rgba(0, 0, 0, 0.6);
     width: 55px;
-    /* Adjust size */
     height: 55px;
-    /* Adjust size */
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     border: 1px solid rgba(255, 255, 255, 0.15);
     z-index: 1001;
-    /* Ensure it's above content */
-    user-select: none; /* Prevent selection */
-    -webkit-user-select: none;
+    user-select: none;
 }
 
 .lightbox-close:hover {
     transform: rotate(180deg) scale(1.1);
-    /* Rotate and scale */
     color: var(--accent);
-    /* Change color */
     background: rgba(0, 0, 0, 0.8);
 }
 
@@ -614,18 +522,13 @@ main {
     position: absolute;
     top: 50%;
     width: calc(100% + 100px);
-    /* Make wider for easier clicking */
     left: -50px;
-    /* Offset left */
     display: flex;
     justify-content: space-between;
     padding: 0 10px;
-    /* Inner padding */
     transform: translateY(-50%);
     z-index: 1001;
-    /* Ensure above content */
     pointer-events: none;
-    /* Allow clicks through container */
 }
 
 .lightbox-nav-btn {
@@ -634,9 +537,7 @@ main {
     cursor: pointer;
     background: rgba(0, 0, 0, 0.5);
     width: 60px;
-    /* Adjust size */
     height: 60px;
-    /* Adjust size */
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -644,34 +545,24 @@ main {
     transition: var(--transition);
     border: 1px solid rgba(255, 255, 255, 0.1);
     pointer-events: auto;
-    /* Enable clicks on buttons */
     opacity: 0.7;
-    user-select: none; /* Prevent selection */
-    -webkit-user-select: none;
+    user-select: none;
 }
 
 .lightbox-nav-btn:hover {
     background: var(--primary);
     transform: scale(1.15);
-    /* Pop effect */
     opacity: 1;
 }
 
 /* Footer Styles */
 footer {
     background: linear-gradient(to top, rgba(42, 42, 42, 0.8), rgba(26, 26, 26, 0.9));
-    /* Reverse gradient */
     padding: 4rem 1rem;
-    /* Adjust padding */
     text-align: center;
     margin-top: 5rem;
-    /* More space */
     border-top: 1px solid rgba(255, 255, 255, 0.08);
-    /* Subtle border */
     backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    position: relative;
-    /* Needed for potential absolute elements */
 }
 
 .footer-container {
@@ -681,12 +572,9 @@ footer {
 }
 
 .footer-container>p:first-of-type {
-    /* Target the intro paragraph */
     color: #bbb;
-    /* Lighter than copyright */
     font-size: 1.05rem;
     margin-bottom: 2.5rem;
-    /* More space */
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
@@ -698,7 +586,6 @@ footer {
     justify-content: center;
     gap: 20px;
     margin-bottom: 3rem;
-    /* More space */
     flex-wrap: wrap;
 }
 
@@ -718,18 +605,16 @@ footer {
     font-family: var(--minecraft-font);
     letter-spacing: 1px;
     border: 1px solid transparent;
-    /* Prepare for border transition */
 }
 
-.social-btn i {
+.social-icon {
+    width: 24px;
+    height: 24px;
     margin-right: 12px;
-    /* More space */
-    font-size: 1.4rem;
-    /* Larger icon */
     transition: transform 0.3s ease;
 }
 
-.social-btn:hover i {
+.social-btn:hover .social-icon {
     transform: scale(1.1) rotate(-5deg);
 }
 
@@ -768,11 +653,58 @@ footer {
 
 .copyright {
     color: #777;
-    /* Slightly lighter gray */
     font-size: 0.9rem;
     margin-top: 2rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* Consistent readable font */
+}
+
+/* Back to Top Button */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s, transform 0.3s;
+    display: none;
+    z-index: 1000;
+}
+
+#back-to-top:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Music Control */
+.music-control {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+#music-toggle {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: var(--minecraft-font);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#music-toggle:hover {
+    background: var(--primary-dark);
+    transform: scale(1.05);
 }
 
 /* Loading Animation */
@@ -783,24 +715,21 @@ footer {
     width: 100%;
     height: 100%;
     background: rgba(18, 18, 18, 0.95);
-    /* Use --darker with opacity */
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 9999;
     flex-direction: column;
-    opacity: 0; /* Hidden by default, shown with .active */
+    opacity: 0;
     transition: opacity 0.5s ease-out;
-    pointer-events: none; /* Do not block clicks when not active */
+    pointer-events: none;
 }
 
 .loader.active {
     opacity: 1;
-    pointer-events: auto; /* Block clicks when active */
+    pointer-events: auto;
 }
 
-
-/* Improved Minecraft Block Loader */
 .minecraft-block-loader {
     width: 80px;
     height: 80px;
@@ -821,47 +750,22 @@ footer {
     align-items: center;
 }
 
-/* Position faces for a cube */
-.face-front {
-    transform: translateZ(40px);
-}
-
-.face-back {
-    transform: translateZ(-40px) rotateY(180deg);
-}
-
-.face-right {
-    transform: rotateY(90deg) translateZ(40px);
-}
-
-.face-left {
-    transform: rotateY(-90deg) translateZ(40px);
-}
-
-.face-top {
-    transform: rotateX(90deg) translateZ(40px);
-}
-
-.face-bottom {
-    transform: rotateX(-90deg) translateZ(40px);
-}
+.face-front { transform: translateZ(40px); }
+.face-back { transform: translateZ(-40px) rotateY(180deg); }
+.face-right { transform: rotateY(90deg) translateZ(40px); }
+.face-left { transform: rotateY(-90deg) translateZ(40px); }
+.face-top { transform: rotateX(90deg) translateZ(40px); }
+.face-bottom { transform: rotateX(-90deg) translateZ(40px); }
 
 @keyframes rotate3D {
-    0% {
-        transform: rotateX(0) rotateY(0);
-    }
-
-    100% {
-        transform: rotateX(360deg) rotateY(360deg);
-    }
+    0% { transform: rotateX(0) rotateY(0); }
+    100% { transform: rotateX(360deg) rotateY(360deg); }
 }
 
 .loading-text {
     color: white;
     margin-top: 2.5rem;
-    /* More space */
     font-size: 1.3rem;
-    /* Larger text */
     text-align: center;
     font-weight: 500;
     font-family: var(--minecraft-font);
@@ -883,37 +787,17 @@ footer {
 .particle {
     position: absolute;
     background-color: rgba(255, 255, 255, 0.6);
-    /* Slightly brighter */
     border-radius: 50%;
     pointer-events: none;
     animation: float 20s infinite linear alternate;
-    /* Use alternate for smoother drift */
 }
 
-/* Moved particle animation here */
 @keyframes float {
-    0% {
-        transform: translate(0, 0) scale(1);
-        opacity: 0.1;
-    }
-
-    25% {
-        transform: translate(calc(var(--x-drift) * 0.5), calc(var(--y-drift) * 0.5)) scale(1.1);
-    }
-
-    50% {
-        transform: translate(var(--x-drift), var(--y-drift)) scale(1);
-        opacity: 0.6;
-    }
-
-    75% {
-        transform: translate(calc(var(--x-drift) * 0.5), calc(var(--y-drift) * 0.5)) scale(0.9);
-    }
-
-    100% {
-        transform: translate(0, 0) scale(1);
-        opacity: 0.1;
-    }
+    0% { transform: translate(0, 0) scale(1); opacity: 0.1; }
+    25% { transform: translate(calc(var(--x-drift) * 0.5), calc(var(--y-drift) * 0.5)) scale(1.1); }
+    50% { transform: translate(var(--x-drift), var(--y-drift)) scale(1); opacity: 0.6; }
+    75% { transform: translate(calc(var(--x-drift) * 0.5), calc(var(--y-drift) * 0.5)) scale(0.9); }
+    100% { transform: translate(0, 0) scale(1); opacity: 0.1; }
 }
 
 /* Responsive Styles */
@@ -929,39 +813,24 @@ footer {
 }
 
 @media (max-width: 768px) {
-    html {
-        font-size: 15px;
-    }
+    html { font-size: 15px; }
 
-    /* Adjust base font size */
-    header {
-        padding: 2.5rem 1rem;
-    }
+    header { padding: 2.5rem 1rem; }
 
-    .server-stats {
-        gap: 1rem;
-    }
+    .server-stats { gap: 1rem; }
 
-    .stat-item {
-        padding: 0.7rem 1.2rem;
-    }
+    .stat-item { padding: 0.7rem 1.2rem; }
 
     .gallery {
         grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
         gap: 20px;
     }
 
-    .gallery-intro p {
-        font-size: 1.1rem;
-    }
+    .gallery-intro p { font-size: 1.1rem; }
 
-    .lightbox-img {
-        max-height: 70vh;
-    }
+    .lightbox-img { max-height: 70vh; }
 
-    .lightbox-caption {
-        font-size: 1.1rem;
-    }
+    .lightbox-caption { font-size: 1.1rem; }
 
     .lightbox-close {
         top: 20px;
@@ -988,20 +857,13 @@ footer {
         font-size: 1rem;
     }
 
-    footer {
-        padding: 3rem 1rem;
-    }
+    footer { padding: 3rem 1rem; }
 }
 
 @media (max-width: 480px) {
-    html {
-        font-size: 14px;
-    }
+    html { font-size: 14px; }
 
-    /* Further adjust base font size */
-    header {
-        padding: 2rem 1rem;
-    }
+    header { padding: 2rem 1rem; }
 
     .server-stats {
         flex-direction: column;
@@ -1011,25 +873,19 @@ footer {
     .gallery {
         grid-template-columns: 1fr;
         gap: 25px;
-        /* Ensure gap for single column */
     }
 
-    .gallery-intro p {
-        max-width: 95%;
-    }
+    .gallery-intro p { max-width: 95%; }
 
     .season-info {
         padding: 1.5rem;
         border-left-width: 4px;
     }
 
-    .season-info h3 {
-        font-size: 1.6rem;
-    }
+    .season-info h3 { font-size: 1.6rem; }
 
     .season-btn {
         width: calc(50% - 0.5rem);
-        /* Two buttons per row */
         font-size: 1rem;
     }
 
@@ -1039,65 +895,30 @@ footer {
         padding: 0.6rem 1rem;
     }
 
-    .lightbox-nav {
-        display: none;
-        /* Hide nav buttons on smallest screens, rely on swipe/keyboard */
-    }
+    .lightbox-nav { display: none; }
 
-    .social-links {
-        gap: 15px;
-    }
+    .social-links { gap: 15px; }
 
-    .social-btn {
-        width: 100%;
-        /* Full width buttons */
-    }
+    .social-btn { width: 100%; }
 
-    .copyright {
-        font-size: 0.85rem;
-    }
+    .copyright { font-size: 0.85rem; }
 
-    .loading-text {
-        font-size: 1.1rem;
-    }
+    .loading-text { font-size: 1.1rem; }
 
     .minecraft-block-loader {
         width: 60px;
         height: 60px;
     }
 
-    /* Smaller loader */
     .block-face {
         width: 60px;
         height: 60px;
     }
 
-    .face-front {
-        transform: translateZ(30px);
-    }
-
-    .face-back {
-        transform: translateZ(-30px) rotateY(180deg);
-    }
-
-    .face-right {
-        transform: rotateY(90deg) translateZ(30px);
-    }
-
-    .face-left {
-        transform: rotateY(-90deg) translateZ(30px);
-    }
-
-    .face-top {
-        transform: rotateX(90deg) translateZ(30px);
-    }
-
-    .face-bottom {
-        transform: rotateX(-90deg) translateZ(30px);
-    }
-
-#audio {
-    display: none;
+    .face-front { transform: translateZ(30px); }
+    .face-back { transform: translateZ(-30px) rotateY(180deg); }
+    .face-right { transform: rotateY(90deg) translateZ(30px); }
+    .face-left { transform: rotateY(-90deg) translateZ(30px); }
+    .face-top { transform: rotateX(90deg) translateZ(30px); }
+    .face-bottom { transform: rotateX(-90deg) translateZ(30px); }
 }
-
-
