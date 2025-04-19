@@ -927,6 +927,71 @@ footer {
     opacity: 0.9;
 }
 
+/* --- Song Notification Style (Tambahkan ini di style.css) --- */
+.song-notification {
+    position: fixed;
+    bottom: 25px; /* Sesuaikan dengan posisi tombol musik */
+    right: 25px; /* Sesuaikan dengan posisi tombol musik */
+    background: rgba(var(--dark), 0.85); /* Background gelap dengan opacity */
+    color: var(--light); /* Warna teks terang */
+    padding: 10px 20px;
+    border-radius: 25px; /* Sudut membulat */
+    font-family: var(--body-font);
+    font-size: 0.95rem;
+    z-index: 899; /* Di bawah tombol musik, loader, dan lightbox */
+    opacity: 0; /* Default tersembunyi */
+    visibility: hidden; /* Default tersembunyi */
+    transition: opacity 0.5s ease, visibility 0.5s ease; /* Transisi fade */
+    backdrop-filter: blur(5px); /* Blur background */
+    -webkit-backdrop-filter: blur(5px);
+    pointer-events: none; /* Jangan blokir klik di bawahnya */
+    max-width: 300px; /* Batasi lebar */
+    white-space: nowrap; /* Jangan wrap teks */
+    overflow: hidden; /* Sembunyikan jika terlalu panjang */
+    text-overflow: ellipsis; /* Tambahkan ... jika terpotong */
+}
+
+.song-notification.visible {
+    opacity: 1; /* Tampilkan saat kelas visible ada */
+    visibility: visible;
+}
+
+/* Sesuaikan posisi di layar kecil */
+@media (max-width: 768px) {
+    .song-notification {
+        bottom: 15px;
+        right: 15px;
+        max-width: calc(100% - 30px); /* Lebih lebar di layar kecil */
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+}
+
+/* --- Polesan Aesthetic Tambahan --- */
+/* Kustomisasi warna highlight seleksi teks */
+::selection {
+    background: var(--primary-light); /* Warna background saat teks disorot */
+    color: var(--darker); /* Warna teks saat disorot */
+    text-shadow: none; /* Hilangkan shadow teks saat disorot */
+}
+::-moz-selection { /* Untuk Firefox */
+    background: var(--primary-light);
+    color: var(--darker);
+    text-shadow: none;
+}
+
+/* Kursor Pointer pada elemen interaktif */
+.season-btn,
+.gallery-item,
+.view-btn,
+.lightbox-close,
+.lightbox-nav-btn,
+.social-btn,
+.music-toggle-btn {
+    cursor: pointer;
+}
+
+
 /* Keyframes untuk animasi denyut/napas (ikon musik) */
 @keyframes pulse-music-icon {
     0% { transform: scale(1); opacity: 1; }
