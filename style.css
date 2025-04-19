@@ -1,69 +1,72 @@
 body {
-  font-family: Arial, sans-serif;
-  background: #f4f8f7;
+  background-color: #000; /* Dark background for Nightmare theme */
+  color: #fff; /* White text for contrast */
+  font-family: 'Arial', sans-serif; /* Default font */
   margin: 0;
   padding: 0;
-  color: #222;
 }
 
 header {
-  background: white;
-  padding: 15px 30px;
-  font-size: 24px;
-  font-weight: bold;
-  border-bottom: 1px solid #ddd;
-}
-
-main {
-  max-width: 900px;
-  margin: auto;
+  background-color: #333; /* Dark header */
   padding: 20px;
-  background: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  text-align: center;
 }
 
-h2, h3 {
+.logo {
+  font-family: 'Creepster', cursive; /* Spooky font for logo */
+  font-size: 36px;
+  color: #ff0000; /* Bright red for logo */
+}
+
+h2 {
   text-align: center;
-  margin-top: 30px;
+  margin: 20px 0;
+}
+
+.season {
+  margin-bottom: 20px;
 }
 
 .gallery {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
-  margin-top: 15px;
 }
 
 .gallery img {
-  width: 250px;
+  max-width: 100%;
   height: auto;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease; /* Add transition for hover effect */
+  margin: 5px;
+  flex: 1 1 calc(25% - 10px); /* 4 images per row */
+  transition: transform 0.3s; /* Smooth hover effect */
 }
 
 .gallery img:hover {
-  transform: scale(1.05); /* Scale effect on hover */
+  transform: scale(1.05); /* Slight zoom on hover */
 }
 
 footer {
   text-align: center;
-  padding: 20px;
-  background: #222;
-  color: white;
-  margin-top: 40px;
+  padding: 10px 0;
+  background-color: #f1f1f1; /* Light footer */
+  color: #000; /* Dark text for footer */
 }
 
 footer a {
-  color: #00aaff;
-  text-decoration: none;
-  margin: 0 5px;
+  margin: 0 10px;
+  color: #000; /* Dark links */
+  text-decoration: none; /* Remove underline */
 }
 
-@media (max-width: 600px) {
+/* Responsive styles */
+@media (max-width: 768px) {
   .gallery img {
-    width: 100%; /* Make images full width on small screens */
+    flex: 1 1 calc(50% - 10px); /* 2 images per row on tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery img {
+    flex: 1 1 100%; /* 1 image per row on mobile */
   }
 }
