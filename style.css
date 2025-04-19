@@ -1,4 +1,4 @@
-/* --- Global Variables (New Aesthetic Palette) --- */
+/* --- Global Variables (Final Aesthetic Palette) --- */
 :root {
     /* Warna Primer: Dasar UI, tombol, border. Nuansa Biru-Ungu tua */
     --primary: #6a5acd; /* Medium Slate Blue */
@@ -18,8 +18,12 @@
 
     /* Warna Khusus Season */
     --s1-color: #FFD700; /* Gold untuk Season 1 (ikonik) */
+    --s1-color-rgb: 255, 215, 0; /* RGB untuk fallback rgba() dan filter */
     /* --s2-color: #C0C0C0; Silver */
+    /* --s2-color-rgb: 192, 192, 192; */
     /* --s3-color: #CD7F32; Bronze */
+    /* --s3-color-rgb: 205, 127, 50; */
+
 
     /* Efek Bayangan & Glow */
     --shadow: 0 10px 40px rgba(0, 0, 0, 0.6); /* Lebih besar, lebih gelap */
@@ -36,8 +40,8 @@
     --minecraft-font: 'Minecraft', sans-serif;
     --body-font: 'Roboto', sans-serif; /* Readable font for body text */
 
-    /* Texture Overlay (sedikit diubah opasitasnya) */
-    --texture-overlay: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAFklEQVQYV2NkYGD4z8DAwMAEQgEFGAAj9wL+0y2aXwAAAABJRU5ErkJggg==');
+    /* Texture Overlay */
+    --texture-overlay: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAFklEQVQYV2NkYGD4z8DAwMAEQgEFGAAj9wL+0y2aXwAAAABJRU5BUkJggg==');
 }
 
 /* --- Base Reset & Styles --- */
@@ -196,13 +200,13 @@ header {
     color: var(--accent); /* Ikon aksen */
     font-size: 1.6rem; /* Ukuran lebih besar */
     transition: transform 0.4s ease;
-    filter: drop-shadow(0 0 5px rgba(var(--accent), 0.8)); /* Drop shadow ikon */
+    filter: drop-shadow(0 0 5px rgba(0, 255, 255, 0.8)); /* Drop shadow ikon (menggunakan nilai hardcoded accent untuk compatibility) */
 }
 
 .stat-item:hover .stat-icon {
     transform: scale(1.3) rotate(8deg); /* Rotasi dan scale lebih terasa */
     color: var(--primary-light); /* Warna berubah pada hover */
-    filter: drop-shadow(0 0 8px rgba(var(--primary-light), 0.9));
+    filter: drop-shadow(0 0 8px rgba(139, 129, 216, 0.9)); /* Drop shadow (menggunakan nilai hardcoded primary-light) */
 }
 
 .stat-item span {
@@ -265,7 +269,7 @@ main {
 }
 
 .season-info {
-    background: rgba(var(--secondary), 0.8); /* Background info dari secondary */
+    background: rgba(41, 33, 64, 0.8); /* Background info dari hardcoded secondary */
     border-left: 8px solid var(--primary); /* Border lebih tebal */
     padding: 3rem 3.5rem; /* Padding lebih besar */
     margin: 4.5rem auto; /* Spacing lebih besar */
@@ -301,12 +305,7 @@ main {
 .season-info h3 i {
     color: var(--accent); /* Ikon aksen */
     font-size: 1.3em;
-    transition: transform 0.4s ease;
-    filter: drop-shadow(0 0 5px rgba(var(--accent), 0.7));
-}
-
-.season-info:hover h3 i {
-    transform: rotate(-15deg) scale(1.2);
+    filter: drop-shadow(0 0 5px rgba(0, 255, 255, 0.7)); /* Drop shadow ikon (menggunakan nilai hardcoded accent) */
 }
 
 .season-info p {
@@ -327,7 +326,7 @@ main {
 
 .season-btn {
     padding: 1.2rem 2.5rem; /* Padding lebih besar */
-    background: rgba(var(--primary), 0.1); /* Background dari primary dengan opacity */
+    background: rgba(106, 90, 205, 0.1); /* Background dari hardcoded primary dengan opacity */
     color: var(--light);
     border: 2px solid var(--primary);
     border-radius: 50px;
@@ -346,39 +345,42 @@ main {
     background: var(--primary);
     color: white;
     transform: translateY(-6px) scale(1.06); /* Hover lebih terasa */
-    box-shadow: 0 12px 25px rgba(var(--primary), 0.5), var(--glow-primary); /* Tambah glow primary */
+    box-shadow: 0 12px 25px rgba(106, 90, 205, 0.5), var(--glow-primary); /* Tambah glow primary (menggunakan hardcoded primary) */
     border-color: var(--primary-light);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .season-btn.active {
     background: var(--primary-dark); /* Darker active state */
-    box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.5), 0 8px 20px rgba(var(--primary-dark), 0.6); /* Shadow inset dan luar */
+    box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.5), 0 8px 20px rgba(82, 72, 163, 0.6); /* Shadow inset dan luar (menggunakan hardcoded primary-dark) */
 }
 
-/* --- Gallery Styles --- */
+/* --- Gallery Styles (Enhanced Aesthetic) --- */
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Ukuran item lebih besar */
     gap: 45px; /* Gap lebih besar */
     margin-top: 4rem;
+    padding: 0 clamp(1rem, 3vw, 3%); /* Tambah padding horizontal untuk grid */
 }
 
 .gallery-item {
     position: relative;
     border-radius: 18px; /* Radius lebih besar */
     overflow: hidden;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-    aspect-ratio: 16/9;
-    background: var(--secondary);
-    border: 2px solid rgba(var(--light), 0.08); /* Border subtle */
+    box-shadow: var(--shadow); /* Gunakan shadow variabel */
+    transition: var(--transition); /* Gunakan transisi variabel */
+    aspect-ratio: 16/9; /* Rasio tetap */
+    background: var(--secondary); /* Background item dari secondary */
+    border: 3px solid rgba(224, 223, 240, 0.1); /* Border subtle, sedikit lebih tebal (menggunakan hardcoded light) */
     cursor: pointer;
+    transform: perspective(1000px) rotateX(0deg); /* Siapkan untuk efek 3D kecil */
+    will-change: transform, box-shadow; /* Optimasi performa transisi */
 }
 
 .gallery-item:hover {
-    transform: translateY(-20px) scale(1.05) rotateZ(1deg); /* Hover lebih dramatis */
-    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8), var(--glow-primary); /* Shadow & glow primary */
+    transform: translateY(-20px) scale(1.05) rotateZ(1deg) perspective(1000px) rotateX(3deg); /* Hover lebih dramatis + tilt 3D */
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8), var(--glow-primary); /* Shadow sangat kuat + glow primary */
     border-color: var(--primary-light); /* Border pada hover */
 }
 
@@ -420,9 +422,9 @@ main {
     bottom: 30px; /* Posisi lebih tinggi */
     left: 50%;
     transform: translate(-50%, 40px); /* Mulai lebih rendah */
-    background: rgba(var(--accent), 0.8); /* Background dari aksen dengan opacity */
-    color: white;
-    border: 2px solid rgba(var(--light), 0.4); /* Border lebih terlihat */
+    background: rgba(0, 255, 255, 0.9); /* Background dari hardcoded aksen dengan opacity yang lebih tinggi */
+    color: var(--darker); /* Warna ikon dari darker */
+    border: 2px solid rgba(224, 223, 240, 0.6); /* Border lebih terlihat dan solid (menggunakan hardcoded light) */
     border-radius: 50%;
     width: 65px; /* Ukuran lebih besar */
     height: 65px;
@@ -435,8 +437,8 @@ main {
     z-index: 2;
     cursor: pointer;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5), var(--glow-accent); /* Shadow & glow aksen */
-    backdrop-filter: blur(8px); /* Blur lebih kuat */
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(10px); /* Blur lebih kuat */
+    -webkit-backdrop-filter: blur(10px);
     pointer-events: none;
 }
 
@@ -458,7 +460,7 @@ main {
     position: absolute;
     top: 25px; /* Posisi lebih rendah */
     right: 25px; /* Posisi lebih ke kiri */
-    background: rgba(var(--dark), 0.9); /* Background gelap dari dark */
+    background: rgba(31, 26, 48, 0.95); /* Background gelap dari hardcoded dark, opacity lebih tinggi */
     color: white;
     padding: 10px 18px; /* Padding lebih besar */
     border-radius: 30px; /* Lebih membulat */
@@ -466,28 +468,35 @@ main {
     font-weight: 700;
     z-index: 2;
     font-family: var(--minecraft-font);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    border: 2px solid rgba(var(--light), 0.3); /* Border lebih terlihat */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 2px solid rgba(224, 223, 240, 0.4); /* Border lebih terlihat (menggunakan hardcoded light) */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
 }
 
-/* Keep specific season colors for tags/borders */
-.season-s1 {
-    border-left: 6px solid var(--s1-color); /* Border lebih tebal */
-}
+/* Style for season tags using specific colors */
+/* Pastikan variabel seperti --s1-color, --s2-color, dll. sudah didefinisikan di :root */
+.season-s1 { border-left: 6px solid var(--s1-color); }
 .season-s1 .season-tag {
-     background: rgba(var(--s1-color), 0.2); /* Background tag dari s1 dengan opacity */
+     /* Menggunakan fallback aman dengan hardcoded rgba jika variabel rgb tidak didefinisikan atau didukung */
+     background: rgba(255, 215, 0, 0.2); /* Fallback aman untuk Gold */
      border-color: var(--s1-color);
-     color: var(--s1-color); /* Warna teks dari s1 */
-     text-shadow: 0 0 8px rgba(var(--s1-color), 0.8); /* Glow teks dari s1 */
+     color: var(--s1-color);
+     text-shadow: 0 0 8px rgba(255, 215, 0, 0.8); /* Fallback aman */
+     filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.6)); /* Fallback aman */
 }
-/* Add styles for S2, S3 etc. here */
+
+/* Add styles for S2, S3 etc. here following the S1 pattern */
 /*
 .season-s2 { border-left: 6px solid var(--s2-color); }
-.season-s2 .season-tag { background: rgba(var(--s2-color), 0.2); border-color: var(--s2-color); color: var(--s2-color); text-shadow: 0 0 8px rgba(var(--s2-color), 0.8); }
+.season-s2 .season-tag {
+     background: rgba(192, 192, 192, 0.2); // Fallback safe for Silver
+     border-color: var(--s2-color);
+     color: var(--s2-color);
+      text-shadow: 0 0 8px rgba(192, 192, 192, 0.8); // Fallback safe
+      filter: drop-shadow(0 0 5px rgba(192, 192, 192, 0.6)); // Fallback safe
+}
 */
-
 
 /* --- Lightbox Styles --- */
 .lightbox {
@@ -541,7 +550,7 @@ main {
     font-size: 1.3rem; /* Ukuran lebih besar */
     text-align: center;
     max-width: 90%;
-    background: rgba(var(--dark), 0.9); /* Background caption dari dark */
+    background: rgba(31, 26, 48, 0.9); /* Background caption dari hardcoded dark */
     padding: 1.2rem 2.5rem; /* Padding lebih besar */
     border-radius: 50px;
     font-family: var(--body-font);
@@ -557,7 +566,7 @@ main {
 .lightbox-caption i {
     color: var(--accent); /* Ikon aksen */
     font-size: 1.3em;
-    filter: drop-shadow(0 0 4px rgba(var(--accent), 0.8));
+    filter: drop-shadow(0 0 4px rgba(0, 255, 255, 0.8)); /* Drop shadow (menggunakan hardcoded accent) */
 }
 
 /* Hide caption if empty using CSS */
@@ -569,7 +578,7 @@ main {
 .lightbox-counter {
     position: absolute;
     bottom: -45px; /* Posisi lebih rendah */
-    color: rgba(var(--light), 0.8); /* Warna counter dari light */
+    color: rgba(224, 223, 240, 0.8); /* Warna counter dari hardcoded light */
     font-size: 1.2rem; /* Ukuran lebih besar */
     font-family: var(--body-font);
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
@@ -584,14 +593,14 @@ main {
     font-size: 3.2rem; /* Ukuran lebih besar */
     cursor: pointer;
     transition: var(--transition);
-    background: rgba(var(--secondary), 0.8); /* Background close dari secondary */
+    background: rgba(41, 33, 64, 0.8); /* Background close dari hardcoded secondary */
     width: 70px; /* Ukuran lebih besar */
     height: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    border: 2px solid rgba(var(--light), 0.3); /* Border lebih terlihat */
+    border: 2px solid rgba(224, 223, 240, 0.3); /* Border lebih terlihat (menggunakan hardcoded light) */
     z-index: 1001;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(8px);
@@ -624,7 +633,7 @@ main {
     color: white;
     font-size: 3.5rem; /* Ikon lebih besar */
     cursor: pointer;
-    background: rgba(var(--dark), 0.7); /* Background nav dari dark */
+    background: rgba(31, 26, 48, 0.7); /* Background nav dari hardcoded dark */
     width: 75px; /* Ukuran lebih besar */
     height: 75px;
     border-radius: 50%;
@@ -632,7 +641,7 @@ main {
     align-items: center;
     justify-content: center;
     transition: var(--transition);
-    border: 2px solid rgba(var(--light), 0.2); /* Border lebih terlihat */
+    border: 2px solid rgba(224, 223, 240, 0.2); /* Border lebih terlihat (menggunakan hardcoded light) */
     pointer-events: auto;
     opacity: 0.9;
     user-select: none;
@@ -750,7 +759,7 @@ footer {
 .social-btn.server:hover {
     background: linear-gradient(135deg, var(--accent-dark), var(--accent));
     transform: translateY(-8px) scale(1.05);
-    box-shadow: 0 20px 40px rgba(0, 255, 255, 0.6), var(--glow-accent); /* Tambah glow aksen */
+    box-shadow: 0 20px 40px rgba(0, 255, 255, 0.6), var(--glow-accent); /* Tambah glow aksen (menggunakan hardcoded accent) */
     border-color: var(--light);
 }
 
@@ -769,7 +778,7 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(var(--darker), 0.98); /* Background loader dari darker */
+    background: rgba(22, 17, 32, 0.98); /* Background loader dari hardcoded darker */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -834,13 +843,13 @@ footer {
     font-weight: 500;
     font-family: var(--minecraft-font);
     letter-spacing: 1.8px; /* Spacing lebih lebar */
-    text-shadow: 0 0 20px rgba(var(--light), 0.6); /* Glow teks lebih kuat */
+    text-shadow: 0 0 20px rgba(224, 223, 240, 0.6); /* Glow teks lebih kuat (menggunakan hardcoded light) */
     animation: pulse 1.8s infinite ease-in-out alternate; /* Animasi pulse lebih lambat */
 }
 
 @keyframes pulse {
-    from { opacity: 1; transform: scale(1); text-shadow: 0 0 15px rgba(var(--light), 0.6); }
-    to { opacity: 0.8; transform: scale(1.05); text-shadow: 0 0 25px rgba(var(--accent-light), 0.8); } /* Pulse dengan glow aksen */
+    from { opacity: 1; transform: scale(1); text-shadow: 0 0 15px rgba(224, 223, 240, 0.6); } /* Menggunakan hardcoded light */
+    to { opacity: 0.8; transform: scale(1.05); text-shadow: 0 0 25px rgba(0, 238, 255, 0.8); } /* Pulse dengan glow aksen (menggunakan hardcoded accent-light) */
 }
 
 
@@ -901,7 +910,7 @@ footer {
     left: 25px; /* Posisi lebih ke kanan */
     width: 60px; /* Ukuran lebih besar */
     height: 60px;
-    background: rgba(var(--dark), 0.8); /* Background dari dark */
+    background: rgba(31, 26, 48, 0.8); /* Background dari hardcoded dark */
     color: var(--primary); /* Warna ikon primary */
     border: 2px solid var(--primary-light); /* Border dari primary light */
     border-radius: 50%;
@@ -918,9 +927,7 @@ footer {
     opacity: 0.9;
 }
 
-/* Tambahkan ini di mana saja di style.css, misalnya di dekat Music Toggle Button styles */
-
-/* Keyframes untuk animasi denyut/napas */
+/* Keyframes untuk animasi denyut/napas (ikon musik) */
 @keyframes pulse-music-icon {
     0% { transform: scale(1); opacity: 1; }
     50% { transform: scale(1.1); opacity: 0.8; } /* Sedikit membesar dan pudar di tengah */
@@ -933,6 +940,7 @@ footer {
     animation: pulse-music-icon 1.5s infinite ease-in-out alternate; /* Animasi: nama, durasi, jumlah putaran (tak terbatas), timing, arah (bolak-balik) */
     transform-origin: center; /* Pastikan animasi scale dari tengah ikon */
 }
+
 
 .music-toggle-btn:hover {
     background: var(--primary-dark); /* Background primary dark */
@@ -949,12 +957,12 @@ footer {
 
 .music-toggle-btn.playing i {
     color: var(--accent); /* Warna ikon playing dari aksen */
-    filter: drop-shadow(0 0 5px rgba(var(--accent), 0.8)); /* Glow ikon playing */
+    filter: drop-shadow(0 0 5px rgba(0, 255, 255, 0.8)); /* Glow ikon playing (menggunakan hardcoded accent) */
 }
 
 .music-toggle-btn:not(.playing) i {
     color: var(--light); /* Warna ikon muted dari light */
-    filter: drop-shadow(0 0 3px rgba(var(--light), 0.6));
+    filter: drop-shadow(0 0 3px rgba(224, 223, 240, 0.6)); /* Glow ikon muted (menggunakan hardcoded light) */
 }
 
 
@@ -988,7 +996,7 @@ footer {
     .season-filter { gap: 1.5rem; margin-bottom: 3.5rem; }
     .season-btn { padding: 1rem 2rem; font-size: 1.1rem; letter-spacing: 1px;}
 
-    .gallery { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 30px; margin-top: 3rem;}
+    .gallery { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 30px; margin-top: 3rem; padding: 0 clamp(1rem, 3vw, 3%);}
     .gallery-item { border-radius: 15px; }
     .gallery-item .view-btn { width: 60px; height: 60px; font-size: 1.8rem;}
     .season-tag { top: 20px; right: 20px; padding: 8px 16px; font-size: 1rem;}
@@ -1044,7 +1052,7 @@ footer {
     .season-filter { gap: 0.8rem; margin-bottom: 2.5rem; justify-content: space-between;}
     .season-btn { width: calc(50% - 0.4rem); padding: 0.8rem 1.5rem; font-size: 0.95rem; min-width: unset; letter-spacing: 1px;}
 
-    .gallery { grid-template-columns: 1fr; gap: 25px; margin-top: 2.5rem;}
+    .gallery { grid-template-columns: 1fr; gap: 25px; margin-top: 2.5rem; padding: 0 clamp(1rem, 5vw, 5%);}
     .gallery-item { border-radius: 12px; }
     .gallery-item .view-btn { width: 50px; height: 50px; font-size: 1.6rem; bottom: 20px;}
     .season-tag { top: 15px; right: 15px; padding: 6px 14px; font-size: 0.9rem;}
@@ -1077,3 +1085,4 @@ footer {
 
     .music-toggle-btn { bottom: 15px; left: 15px; width: 50px; height: 50px; font-size: 1.6rem;}
 }
+
