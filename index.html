@@ -36,15 +36,17 @@
 
             <div class="server-stats">
                 <div class="stat-item">
-                    <i class="fas fa-users stat-icon"></i>
+                    <img src="steve-icon.svg" class="stat-icon" alt="Pemain">
                     <span>100+ Pemain Aktif</span>
                 </div>
                 <div class="stat-item">
-                    <i class="fas fa-server stat-icon"></i>
-                    <span>1 Season Berlalu</span> </div>
+                    <img src="clock-icon.svg" class="stat-icon" alt="Season">
+                    <span>1 Season Berlalu</span>
+                </div>
                 <div class="stat-item">
-                    <i class="fas fa-cube stat-icon"></i>
-                    <span>Banyak Bangunan</span> </div>
+                    <img src="house-icon.svg" class="stat-icon" alt="Bangunan">
+                    <span>Banyak Bangunan</span>
+                </div>
             </div>
         </div>
     </header>
@@ -55,7 +57,7 @@
             <p>Selamat datang di galeri resmi server Minecraft Nightmare! Jelajahi kumpulan momen terbaik, bangunan kreatif, dan petualangan seru dari setiap season yang telah kami lalui bersama.</p>
 
             <div class="season-info">
-                <h3><i class="fas fa-book-open"></i> Cerita Server Kami</h3>
+                <h3><img src="book-icon.svg" class="info-icon" alt="Cerita"> Cerita Server Kami</h3>
                 <p>Server Nightmare adalah rumah bagi komunitas yang dinamis dan kreatif. Setiap season membawa tema unik, tantangan baru, dan cerita tak terlupakan. Galeri ini adalah monumen digital untuk dedikasi, kerja keras, dan persahabatan yang terjalin di dunia balok kami.</p>
             </div>
 
@@ -66,34 +68,34 @@
         </section>
 
         <section class="gallery">
-            <div class="gallery-item season-s1" data-season="s1" data-src="IMG-20250419-WA0054.jpg" data-caption="">
+            <div class="gallery-item season-s1" data-season="s1" data-src="IMG-20250419-WA0054.jpg" data-caption="Bangunan Epik oleh PlayerX di Season 1">
                 <span class="season-tag">S1</span>
-                <img src="IMG-20250419-WA0054.jpg" alt="Gambar Galeri Nightmare Season 1" loading="lazy">
+                <img src="IMG-20250419-WA0054.jpg" alt="Bangunan Epik Season 1" loading="lazy">
                 <button class="view-btn">
                     <i class="fas fa-eye"></i> Lihat
                 </button>
             </div>
-            <div class="gallery-item season-s1" data-season="s1" data-src="IMG-20250419-WA0055.jpg" data-caption="">
+            <div class="gallery-item season-s1" data-season="s1" data-src="IMG-20250419-WA0055.jpg" data-caption="Momen Petualangan Seru di Season 1">
                 <span class="season-tag">S1</span>
-                <img src="IMG-20250419-WA0055.jpg" alt="Gambar Galeri Nightmare Season 1" loading="lazy">
+                <img src="IMG-20250419-WA0055.jpg" alt="Petualangan Season 1" loading="lazy">
                 <button class="view-btn">
                     <i class="fas fa-eye"></i> Lihat
                 </button>
             </div>
-            </section>
+        </section>
     </main>
 
     <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
-        <span class="lightbox-close" onclick="closeLightbox(event)">&times;</span>
+        <span class="lightbox-close" onclick="closeLightbox(event)">×</span>
         <div class="lightbox-content">
             <img class="lightbox-img" id="lightbox-img" src="" alt="Gambar Galeri Diperbesar">
             <p class="lightbox-caption" id="lightbox-caption">
-                <i class="fas fa-comment-alt"></i><span></span>
+                <img src="comment-icon.svg" class="caption-icon" alt="Komentar"><span></span>
             </p>
         </div>
         <div class="lightbox-nav">
-            <button class="lightbox-nav-btn prev" onclick="navigateLightbox(-1, event)">&#10094;</button>
-            <button class="lightbox-nav-btn next" onclick="navigateLightbox(1, event)">&#10095;</button>
+            <button class="lightbox-nav-btn prev" onclick="navigateLightbox(-1, event)">❮</button>
+            <button class="lightbox-nav-btn next" onclick="navigateLightbox(1, event)">❯</button>
         </div>
     </div>
 
@@ -101,27 +103,34 @@
         <div class="footer-container">
             <div class="social-links">
                 <a href="https://discord.gg/B3kKb6HDMm" target="_blank" rel="noopener noreferrer" class="social-btn discord">
-                    <i class="fab fa-discord"></i> Gabung Discord
+                    <img src="discord-icon.svg" class="social-icon" alt="Discord"> Gabung Discord
                 </a>
                 <a href="https://chat.whatsapp.com/JBmrFjfuaFz0j8z6PW4p4H" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp">
-                    <i class="fab fa-whatsapp"></i> Grup WhatsApp
+                    <img src="whatsapp-icon.svg" class="social-icon" alt="WhatsApp"> Grup WhatsApp
                 </a>
                 <a href="https://minecraftpocket-servers.com/server/130585/" target="_blank" rel="noopener noreferrer" class="social-btn server">
-                    <i class="fas fa-vote-yea"></i> Vote Server
+                    <img src="vote-icon.svg" class="social-icon" alt="Vote"> Vote Server
                 </a>
             </div>
             <p>Bergabunglah dengan komunitas kami untuk mendapatkan pembaruan terbaru, berinteraksi dengan pemain lain, dan ikut serta dalam event-event seru di server Nightmare!</p>
-            <p class="copyright">&copy; <span id="copyright-year"></span> Nightmare Minecraft. Semua hak cipta dilindungi. | Tidak berafiliasi dengan Mojang Studios atau Microsoft.</p>
+            <p class="copyright">© <span id="copyright-year"></span> Nightmare Minecraft. Semua hak cipta dilindungi. | Tidak berafiliasi dengan Mojang Studios atau Microsoft.</p>
         </div>
     </footer>
 
-<audio id="background-music" controls autoplay loop>
-    <source src="Yung Kai - blue.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-</audio>
+    <button id="back-to-top" title="Kembali ke Atas">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <div class="music-control">
+        <button id="music-toggle"><i class="fas fa-music"></i> Putar Musik</button>
+    </div>
+
+    <audio id="background-music" loop>
+        <source src="Yung Kai - blue.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung elemen audio.
+    </audio>
 
     <script src="script.js"></script>
 </body>
 
 </html>
-
