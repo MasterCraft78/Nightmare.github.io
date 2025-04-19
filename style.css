@@ -1,13 +1,13 @@
 /* --- Global Variables --- */
 :root {
-    --primary: #5A8D74; /* Muted Teal/Green, like warped wood */
+    --primary: #ff1414; /* Muted Teal/Green, like warped wood */
     --primary-dark: #623CEA;
-    --secondary: #2A2A2A;    /* Dark gray */
+    --secondary: #c70404;    /* Dark gray */
     --dark: #1A1A1A;       /* Very dark gray */
     --darker: #121212;      /* Almost black */
     --light: #F0F0F0;      /* Light gray */
-    --accent: #BAFF29;     /* A reddish/crimson accent for "Nightmare" */
-    --accent-dark: #D14B5C;
+    --accent: #3bed41;     /* A reddish/crimson accent for "Nightmare" */
+    --accent-dark: #1d9908;
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Stronger shadow */
     --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Different easing */
     --minecraft-font: 'Minecraft', sans-serif; /* Define font stack */
