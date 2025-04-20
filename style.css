@@ -1,5 +1,9 @@
+/* ===============================
+   NIGHTMARE SERVER GALLERY CSS
+   Cyber Grid Palette + Extra Effects
+   =============================== */
 
-/* --- 1. Global Variables (NEW Cyber Grid Palette) --- */
+/* --- 1. Global Variables (Cyber Grid Palette) --- */
 :root {
     /* Core Colors - Deep Space, Electric Accents */
     --primary: #00ffff;        /* Electric Cyan */
@@ -34,7 +38,6 @@
     --light-darker: #64748b;   /* Darker Slate */
     --light-darker-rgb: 100, 116, 139;
 
-
     /* Status Colors - Vibrant & Clear */
     --status-online: var(--accent);      /* Lime Green */
     --status-online-rgb: var(--accent-rgb);
@@ -57,49 +60,40 @@
     --s4-color: var(--secondary); /* Magenta */
     --s4-color-rgb: var(--secondary-rgb);
 
-
     /* Effects - Modernized Shadows, Glows, Glass */
-    --shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Deeper base shadow */
-    --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.4); /* Stronger shadow */
-    --glow-primary: 0 0 15px rgba(var(--primary-rgb), 0.6), 0 0 25px rgba(var(--primary-rgb), 0.3); /* Stronger primary glow */
-    --glow-secondary: 0 0 15px rgba(var(--secondary-rgb), 0.6), 0 0 25px rgba(var(--secondary-rgb), 0.3); /* Magenta glow */
-    --glow-accent: 0 0 15px rgba(var(--accent-rgb), 0.6), 0 0 25px rgba(var(--accent-rgb), 0.3); /* Lime glow */
-    --text-glow-primary: 0 0 8px rgba(var(--primary-light-rgb), 0.8); /* Brighter text glow */
+    --shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.4);
+    --glow-primary: 0 0 15px rgba(var(--primary-rgb), 0.6), 0 0 25px rgba(var(--primary-rgb), 0.3);
+    --glow-secondary: 0 0 15px rgba(var(--secondary-rgb), 0.6), 0 0 25px rgba(var(--secondary-rgb), 0.3);
+    --glow-accent: 0 0 15px rgba(var(--accent-rgb), 0.6), 0 0 25px rgba(var(--accent-rgb), 0.3);
+    --text-glow-primary: 0 0 8px rgba(var(--primary-light-rgb), 0.8);
     --text-glow-secondary: 0 0 8px rgba(var(--secondary-light-rgb), 0.8);
     --text-glow-accent: 0 0 8px rgba(var(--accent-light-rgb), 0.8);
 
-    --glass-bg: rgba(var(--dark-rgb), 0.6); /* Translucent dark bg for glass */
+    --glass-bg: rgba(var(--dark-rgb), 0.6);
     --glass-border: rgba(var(--primary-light-rgb), 0.2);
-    --glass-blur: 12px; /* Increased blur */
+    --glass-blur: 12px;
     --glass-shadow: inset 0 1px 0 rgba(var(--light-rgb), 0.05), 0 2px 8px rgba(0,0,0, 0.3);
 
-    --button-cyber-shadow: 0 1px 1px rgba(var(--darker-rgb), 0.5), /* Subtle top shadow */
-                           0 3px 0 0 rgba(var(--primary-dark-rgb), 0.8), /* Colored base */
-                           0 5px 8px rgba(0, 0, 0, 0.3); /* Outer shadow */
-    --button-cyber-shadow-active: 0 1px 2px rgba(0, 0, 0, 0.4), /* Inset effect */
-                                 inset 0 2px 4px rgba(var(--darker-rgb), 0.6);
-
+    --button-cyber-shadow: 0 1px 1px rgba(var(--darker-rgb), 0.5), 0 3px 0 0 rgba(var(--primary-dark-rgb), 0.8), 0 5px 8px rgba(0, 0, 0, 0.3);
+    --button-cyber-shadow-active: 0 1px 2px rgba(0, 0, 0, 0.4), inset 0 2px 4px rgba(var(--darker-rgb), 0.6);
 
     /* Transitions - Smoother Easing */
     --transition-default: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-fast: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.1); /* Subtle bounce */
+    --transition-bounce: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.1);
 
-
-    /* Fonts - Keep core, maybe add a cleaner UI option */
+    /* Fonts */
     --minecraft-font: 'Minecraft', 'Poppins', sans-serif;
-    --body-font: 'Poppins', 'Roboto', sans-serif; /* Consider 'Inter' or 'Lexend' */
+    --body-font: 'Poppins', 'Roboto', sans-serif;
     --ui-font: 'Poppins', sans-serif;
 
-
     /* Texture - Subtle Grid/Scanline Overlay */
-    --texture-overlay: linear-gradient(rgba(var(--primary-rgb), 0.02) 1px, transparent 1px),
-                       linear-gradient(90deg, rgba(var(--primary-rgb), 0.02) 1px, transparent 1px);
-    --texture-size: 30px 30px; /* Larger grid size */
+    --texture-overlay: linear-gradient(rgba(var(--primary-rgb), 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(var(--primary-rgb), 0.02) 1px, transparent 1px);
+    --texture-size: 30px 30px;
 
-
-    /* Spacing Units - Kept similar */
+    /* Spacing Units */
     --space-xs: 0.5rem;
     --space-sm: 1rem;
     --space-md: 1.5rem;
@@ -107,51 +101,43 @@
     --space-xl: 4rem;
 }
 
-/* --- 2. Base Reset & Styles - Enhanced Background & Glassmorphism --- */
+/* --- 2. Base Reset & Styles --- */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
 html { scroll-behavior: smooth; font-size: 16px; line-height: 1.6; }
-
 body {
     font-family: var(--body-font);
-    background-color: var(--darker); /* Base fallback */
+    background-color: var(--darker);
     color: var(--light);
     line-height: 1.7;
     overflow-x: hidden;
     position: relative;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
 }
-
-/* Enhanced Background Layers - Deep Space Aurora */
 body::before {
     content: '';
     position: fixed;
     inset: 0;
-    /* More complex radial gradient */
     background: radial-gradient(ellipse at 30% 20%, rgba(var(--primary-rgb), 0.15) 0%, transparent 50%),
                 radial-gradient(ellipse at 70% 80%, rgba(var(--secondary-rgb), 0.15) 0%, transparent 50%),
                 radial-gradient(ellipse at 50% 50%, rgba(var(--dark-rgb), 0.8) 0%, var(--darker) 80%);
     z-index: -3;
     opacity: 1;
     pointer-events: none;
-    /* Subtle animation for aurora effect */
     animation: background-shift 60s infinite alternate ease-in-out;
 }
-
 @keyframes background-shift {
     0% { background-position: 0% 0%; }
     100% { background-position: 10% 5%; }
 }
-
-/* Grid/Scanline Texture Overlay */
 body::after {
     content: '';
     position: fixed;
     inset: 0;
     background-image: var(--texture-overlay);
     background-size: var(--texture-size);
-    opacity: 0.3; /* Slightly more visible grid */
+    opacity: 0.3;
     z-index: -2;
     pointer-events: none;
     mix-blend-mode: overlay;
@@ -162,12 +148,11 @@ body::after {
     to { background-position: calc(var(--texture-size) * 4) calc(var(--texture-size) * 4); }
 }
 
-
-/* Consistent Scrollbar Styling - Modernized */
+/* Scrollbar & Selection */
 ::-webkit-scrollbar { width: 12px; height: 12px; }
 ::-webkit-scrollbar-track { background: var(--darker); }
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, var(--primary), var(--secondary)); /* Gradient thumb */
+    background: linear-gradient(180deg, var(--primary), var(--secondary));
     border-radius: 6px;
     border: 2px solid var(--darker);
 }
@@ -175,58 +160,33 @@ body::after {
     background: linear-gradient(180deg, var(--primary-light), var(--secondary-light));
     box-shadow: var(--glow-primary);
 }
-html { scrollbar-color: var(--primary) var(--darker); scrollbar-width: auto; } /* Auto better than thin */
-
-
-/* Text Selection Highlight - Vibrant */
+html { scrollbar-color: var(--primary) var(--darker); scrollbar-width: auto; }
 ::selection { background: var(--primary); color: var(--darker); text-shadow: none; }
 ::-moz-selection { background: var(--primary); color: var(--darker); text-shadow: none; }
 
-/* Common Interactive Elements Cursor */
+/* Accessibility: Focus & Cursors */
 button, a:not(.social-btn):not([href^="#"]), [role="button"], input[type="button"], input[type="submit"], input[type="reset"], select, .gallery-item, .lightbox-close, .lightbox-nav-btn, .music-toggle-btn, .copy-ip-button.stylish, .season-btn {
     cursor: pointer;
 }
 button { border: none; background: none; color: inherit; font: inherit; }
-
-/* Custom Focus Outline - Neon Glow */
 *:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(var(--darker-rgb), 0.8), 0 0 0 5px var(--primary); /* Double ring */
-    outline-offset: 1px; /* Closer offset */
-    border-radius: 4px; /* Consistent radius */
-}
-/* Keep original focus for buttons that have complex styles, merge effects */
-.copy-ip-button.stylish:focus-visible,
-.season-btn:focus-visible,
-.social-btn:focus-visible {
-     box-shadow: var(--button-cyber-shadow), 0 0 0 3px rgba(var(--darker-rgb), 0.8), 0 0 0 5px var(--primary);
-}
-.view-btn:focus-visible {
-    box-shadow: var(--button-cyber-shadow), 0 0 0 3px rgba(var(--darker-rgb), 0.8), 0 0 0 5px var(--accent);
-}
-.lightbox-close:focus-visible,
-.lightbox-nav-btn:focus-visible,
-.music-toggle-btn:focus-visible {
-     box-shadow: var(--glass-shadow), 0 0 0 3px rgba(var(--darker-rgb), 0.8), 0 0 0 5px var(--primary);
-}
-.gallery-item:focus-within {
-     box-shadow: 0 18px 35px rgba(0, 0, 0, 0.5), 0 0 0 3px rgba(var(--darker-rgb), 0.8), 0 0 0 5px var(--primary);
+    box-shadow: 0 0 0 3px rgba(var(--darker-rgb), 0.8), 0 0 0 5px var(--primary);
+    outline-offset: 1px;
+    border-radius: 4px;
 }
 
-
-/* --- 3. Header Styles - Glassmorphic Header, Neon Logo --- */
+/* --- 3. Header --- */
 .site-header {
-    background: rgba(var(--darker-rgb), 0.5); /* More transparent base */
+    background: rgba(var(--darker-rgb), 0.5);
     padding: var(--space-xl) var(--space-sm) var(--space-lg);
     text-align: center;
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(var(--glass-blur));
-    -webkit-backdrop-filter: blur(var(--glass-blur));
     border-bottom: 1px solid var(--glass-border);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
-/* Add inner glow/border effect */
 .site-header::before {
     content: '';
     position: absolute;
@@ -235,28 +195,19 @@ button { border: none; background: none; color: inherit; font: inherit; }
     pointer-events: none;
     z-index: 1;
 }
-
-
-.header-container {
-    position: relative;
-    z-index: 2;
-    max-width: 1400px;
-    margin-inline: auto;
-    padding-inline: var(--space-md);
-}
-
+.header-container { max-width: 1400px; margin: 0 auto; padding-inline: var(--space-md); position: relative; z-index: 2; }
 .logo {
     font-family: var(--minecraft-font);
-    font-size: clamp(4.5rem, 13vw, 8rem); /* Slightly larger */
+    font-size: clamp(4.5rem, 13vw, 8rem);
     font-weight: 700;
     background: linear-gradient(45deg, var(--primary-light), var(--secondary-light), var(--primary-light));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    color: transparent; /* Fallback */
-    text-shadow: 0 0 15px rgba(var(--primary-rgb), 0.8), /* Main Glow */
-                 0 0 25px rgba(var(--secondary-rgb), 0.5), /* Secondary Glow */
-                 5px 5px 0 rgba(var(--darker-rgb), 0.6); /* Sharp Offset Shadow */
+    color: transparent;
+    text-shadow: 0 0 15px rgba(var(--primary-rgb), 0.8),
+                 0 0 25px rgba(var(--secondary-rgb), 0.5),
+                 5px 5px 0 rgba(var(--darker-rgb), 0.6);
     letter-spacing: 5px;
     margin-bottom: var(--space-sm);
     transition: transform var(--transition-fast), text-shadow var(--transition-default);
@@ -264,1282 +215,225 @@ button { border: none; background: none; color: inherit; font: inherit; }
     background-size: 200% auto;
     animation: logo-gradient-anim 5s linear infinite alternate;
 }
-
 @keyframes logo-gradient-anim {
     from { background-position: 0% center; }
     to { background-position: 200% center; }
 }
-
-.logo:hover,
-.logo:focus-visible {
+.logo:hover, .logo:focus-visible {
     transform: scale(1.03) rotate(-1deg);
     text-shadow: 0 0 20px rgba(var(--primary-rgb), 1),
                  0 0 35px rgba(var(--secondary-rgb), 0.7),
                  6px 6px 0 rgba(var(--darker-rgb), 0.7);
 }
-
 .subtitle {
     font-family: var(--ui-font);
-    font-size: clamp(1.5rem, 4vw, 2rem); /* Slightly larger */
+    font-size: clamp(1.5rem, 4vw, 2rem);
     font-weight: 400;
     color: var(--light-muted);
     opacity: 0.9;
     margin-bottom: var(--space-lg);
     letter-spacing: 1px;
-    text-shadow: 0 0 5px rgba(var(--light-muted-rgb), 0.5); /* Subtle glow */
+    text-shadow: 0 0 5px rgba(var(--light-muted-rgb), 0.5);
     max-width: 70ch;
     margin-inline: auto;
 }
 
-/* --- 4. Server Status Section - Modernized Info Box & Button --- */
-.server-status-container {
-    margin-top: var(--space-lg);
-    text-align: center;
-}
+/* --- 4. Server Status Section --- */
+/* ...[KEEP YOUR PREVIOUS SERVER STATUS CSS HERE]... */
 
-.server-status-container h2 {
-    font-family: var(--minecraft-font);
-    font-size: clamp(2rem, 5.5vw, 2.8rem);
-    color: var(--light);
-    text-shadow: var(--text-glow-primary);
-    margin-bottom: var(--space-md);
-    letter-spacing: 1.5px;
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-sm); /* Increased gap */
-}
+/* --- 5. Main Content Styles --- */
+/* ...[KEEP YOUR PREVIOUS MAIN CONTENT, GALLERY, SEASON FILTER, ETC. CSS HERE]... */
 
-.live-indicator {
-    width: 14px; /* Larger */
-    height: 14px;
-    border-radius: 50%;
-    display: inline-block;
-    vertical-align: middle;
-    transition: background-color 0.4s ease, box-shadow 0.4s ease;
-    position: relative;
-    flex-shrink: 0;
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
-}
+/* --- 6. Gallery Styles --- */
+/* ...[KEEP YOUR PREVIOUS GALLERY, GALLERY-ITEM, OVERLAY, VIEW-BTN, SEASON TAG CSS HERE]... */
 
-/* Status Classes - Electric Colors */
-.live-indicator.loading { background-color: var(--status-loading); box-shadow: 0 0 12px var(--status-loading), inset 0 0 4px rgba(var(--darker-rgb), 0.5); }
-.live-indicator.online { background-color: var(--status-online); box-shadow: 0 0 15px var(--status-online), inset 0 0 4px rgba(var(--darker-rgb), 0.5); }
-.live-indicator.offline,
-.live-indicator.error { background-color: var(--status-offline); box-shadow: 0 0 12px var(--status-offline), inset 0 0 4px rgba(var(--darker-rgb), 0.5); }
+/* --- 7. Lightbox Styles --- */
+/* ...[KEEP YOUR PREVIOUS LIGHTBOX, LIGHTBOX-CONTENT, LIGHTBOX-IMAGE, ETC. CSS HERE]... */
 
-/* Pulsing Animation - More energetic */
-.live-indicator.pulsing::after {
-    content: '';
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%; height: 100%;
-    border-radius: 50%;
-    background-color: inherit;
-    box-shadow: 0 0 18px inherit;
-    opacity: 0.7;
-    animation: pulse-indicator 1.2s infinite cubic-bezier(0.4, 0, 0.2, 1); /* Faster, smoother */
-    z-index: -1;
-}
+/* --- 8. Footer Styles --- */
+/* ...[KEEP YOUR PREVIOUS FOOTER, SOCIAL BUTTONS, ETC. CSS HERE]... */
 
-@keyframes pulse-indicator {
-    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
-    70% { transform: translate(-50%, -50%) scale(3.5); opacity: 0; } /* Larger pulse */
-    100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
-}
+/* ===============================
+   NIGHTMARE SERVER GALLERY
+   Extra Effects & Animations
+   =============================== */
 
-/* Indicator Text - Vibrant Colors */
-#live-indicator-text { font-family: var(--ui-font); font-weight: 700; transition: color 0.4s ease, text-shadow 0.4s ease; }
-#live-indicator-text.loading { color: var(--status-loading); text-shadow: 0 0 5px var(--status-loading); }
-#live-indicator-text.online { color: var(--status-online); text-shadow: 0 0 8px var(--status-online); }
-#live-indicator-text.offline,
-#live-indicator-text.error { color: var(--status-offline); text-shadow: 0 0 5px var(--status-offline); }
-
-.server-info-box {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 12px; /* More rounded */
-    padding: var(--space-lg); /* More padding */
-    max-width: 650px;
-    margin-inline: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: var(--space-md) var(--space-lg);
-    box-shadow: var(--glass-shadow);
-    backdrop-filter: blur(var(--glass-blur));
-    -webkit-backdrop-filter: blur(var(--glass-blur));
-    transition: border-color var(--transition-default), box-shadow var(--transition-default);
-}
-
-.server-info-box:hover {
-    border-color: rgba(var(--primary-light-rgb), 0.5);
-    box-shadow: var(--glass-shadow), 0 5px 15px rgba(0,0,0, 0.4);
-}
-
-.info-item {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm); /* More gap */
-    font-family: var(--ui-font);
-    font-size: 1.1rem; /* Slightly larger */
-    color: var(--light-muted);
-}
-
-.info-item .stat-icon {
-    color: var(--primary); /* Icon color */
-    font-size: 1.5rem; /* Larger icon */
-    flex-shrink: 0;
-    transition: color var(--transition-fast), transform var(--transition-fast), filter var(--transition-fast);
-    filter: drop-shadow(0 0 5px rgba(var(--primary-rgb), 0.5));
-}
-.info-item:hover .stat-icon {
-    color: var(--primary-light);
-    transform: scale(1.15);
-    filter: drop-shadow(0 0 10px rgba(var(--primary-rgb), 0.8));
-}
-
-.info-item .info-value { color: var(--light); font-weight: 600; }
-#server-ip-display {
-    font-weight: 700;
-    user-select: none;
-    color: var(--secondary); /* Magenta for IP */
-    letter-spacing: 0.8px;
-    text-shadow: var(--text-glow-secondary);
-}
-#player-count { min-width: auto; text-align: left; }
-
-.status-last-updated {
-    width: 100%;
-    text-align: center;
-    margin-top: var(--space-md); /* More margin */
-    font-size: 0.9rem;
-    color: var(--light-muted);
-    opacity: 0.6;
-    font-style: normal; /* Remove italic */
-}
-
-/* Copy IP Button - Cyber Style Redesign */
-.copy-ip-button.stylish {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    padding: 12px 24px; /* Adjusted padding */
-    margin-left: var(--space-lg);
-    min-width: 140px;
-    vertical-align: middle;
-    overflow: hidden;
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    color: var(--darker);
-    border: none;
-    border-radius: 6px; /* Slightly rounded */
-    font-family: var(--ui-font);
-    font-size: 1rem;
-    font-weight: 700;
-    letter-spacing: 0.8px; /* More spacing */
-    text-shadow: 1px 1px 1px rgba(var(--primary-light-rgb), 0.3);
-    box-shadow: var(--button-cyber-shadow);
-    transition: background var(--transition-fast), color var(--transition-fast),
-                box-shadow var(--transition-fast), transform var(--transition-fast);
-    user-select: none;
-    -webkit-user-select: none;
-    transform: perspective(500px); /* Prepare for 3D effect */
-}
-
-.copy-ip-button.stylish .button-content { display: flex; align-items: center; transition: transform 0.3s ease; }
-.copy-ip-button.stylish i { font-size: 1.2em; margin-right: 10px; transition: opacity 0.2s ease, transform 0.3s ease, color var(--transition-fast); flex-shrink: 0; color: inherit; }
-.copy-ip-button.stylish .icon-check { opacity: 0; position: absolute; transform: scale(0.7); left: 18px; } /* Adjusted */
-.copy-ip-button.stylish .copy-text, .copy-ip-button.stylish .copied-text { display: inline-block; transition: transform 0.3s ease, opacity 0.2s ease; white-space: nowrap; }
-.copy-ip-button.stylish .copied-text { position: absolute; left: 50%; transform: translate(-50%, 25px); opacity: 0; padding-left: 1.4em; margin-left: -0.7em; }
-
-/* Hover state - Brighter, slight 3D tilt */
-.copy-ip-button.stylish:hover,
-.copy-ip-button.stylish:focus-visible {
-    background: linear-gradient(135deg, var(--primary-light), var(--primary));
-    color: var(--darker);
-    box-shadow: var(--button-cyber-shadow), var(--glow-primary); /* Add glow */
-    transform: translateY(-2px) rotateX(5deg);
-}
-
-/* Active state - Press down effect */
-.copy-ip-button.stylish:active {
-    transform: translateY(2px) rotateX(0deg); /* Simulate press down */
-    box-shadow: var(--button-cyber-shadow-active);
-    background: var(--primary-dark);
-    color: var(--primary-light);
-}
-
-/* Copied state - Accent color feedback */
-.copy-ip-button.stylish.copied {
-    background: linear-gradient(135deg, var(--accent-light), var(--accent));
-    color: var(--darker);
-    pointer-events: none;
-    box-shadow: var(--button-cyber-shadow), var(--glow-accent);
-    transform: translateY(0px) rotateX(0deg); /* Reset transform */
-}
-
-.copy-ip-button.stylish.copied .icon-copy { opacity: 0; transform: scale(0.7); }
-.copy-ip-button.stylish.copied .icon-check { opacity: 1; transform: scale(1); position: relative; left: auto; }
-.copy-ip-button.stylish.copied .copy-text { transform: translateY(-25px); opacity: 0; }
-.copy-ip-button.stylish.copied .copied-text { transform: translate(-50%, 0); opacity: 1; position: relative; left: auto; padding-left: 0; margin-left: 0; }
-
-
-/* --- 5. Main Content Styles - Sharp & Contrasting --- */
-.main-content {
-    padding: var(--space-xl) clamp(2rem, 8vw, 8%);
-    max-width: 1800px;
-    margin-inline: auto;
-    position: relative; /* For potential future pseudo-elements */
-}
-
-.gallery-intro {
-    text-align: center;
-    margin-bottom: calc(var(--space-xl) * 1.5); /* More space */
-    position: relative;
-}
-
-.gallery-intro h2 {
-    font-family: var(--minecraft-font);
-    font-size: clamp(3.5rem, 9vw, 6rem); /* Larger */
-    margin-bottom: var(--space-lg);
-    position: relative;
-    display: inline-block;
-    background: linear-gradient(90deg, var(--primary-light), var(--secondary-light), var(--primary-light));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent; /* Fallback */
-    letter-spacing: 4px;
-    text-shadow: 0 0 10px rgba(var(--primary-rgb), 0.6), 0 0 20px rgba(var(--secondary-rgb), 0.4), 3px 3px 5px rgba(0, 0, 0, 0.4);
-    background-size: 200% auto;
-    animation: logo-gradient-anim 6s linear infinite; /* Re-use logo animation */
-}
-
-/* Underline effect - Animated Gradient */
-.gallery-intro h2::after {
-    content: '';
-    position: absolute;
-    bottom: -25px; /* Lower */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 200px; /* Wider */
-    height: 4px; /* Thinner */
-    border-radius: 2px;
-    background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent), var(--primary));
-    background-size: 300% 100%;
-    animation: underline-flow 8s linear infinite;
-}
-
-@keyframes underline-flow {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 300% 50%; }
-}
-
-.gallery-intro p {
-    font-size: 1.2rem; /* Slightly larger */
-    color: var(--light); /* Brighter text */
-    max-width: 750px;
-    margin-inline: auto;
-    margin-bottom: var(--space-lg);
-    line-height: 1.8;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-}
-
-.season-info {
-    background: rgba(var(--dark-rgb), 0.4); /* More transparent */
-    padding: var(--space-lg);
-    margin: var(--space-xl) auto;
-    max-width: 1000px;
-    border-radius: 10px; /* Consistent radius */
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    position: relative;
-    overflow: hidden; /* Clip gradient border */
-    transition: transform var(--transition-default), box-shadow var(--transition-default);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-}
-/* Gradient Border Effect */
-.season-info::before {
-    content: '';
-    position: absolute;
-    inset: -3px; /* Outside border */
-    border-radius: 12px; /* Slightly larger radius */
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    z-index: -1;
-    filter: blur(5px);
-    opacity: 0.6;
-    transition: opacity var(--transition-default), filter var(--transition-default);
-}
-
-
-.season-info:hover {
-    transform: scale(1.01); /* Subtle scale */
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
-}
-.season-info:hover::before {
-    opacity: 1;
-    filter: blur(8px);
-}
-
-.season-info h3 {
-    color: var(--primary-light);
-    margin-bottom: var(--space-md);
-    font-size: clamp(2rem, 5.5vw, 2.6rem);
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    font-family: var(--minecraft-font);
-    transition: color var(--transition-fast);
-    text-shadow: var(--text-glow-primary);
-}
-
-.season-info:hover h3 {
-    color: var(--light);
-}
-
-.season-info h3 i {
-    color: var(--secondary); /* Magenta icon */
-    font-size: 1.3em; /* Larger icon */
-    filter: drop-shadow(0 0 10px rgba(var(--secondary-rgb), 0.8));
-    transition: transform var(--transition-fast), filter var(--transition-fast);
-}
-.season-info:hover h3 i {
-    transform: rotate(5deg) scale(1.15);
-    filter: drop-shadow(0 0 15px rgba(var(--secondary-rgb), 1));
-}
-
-.season-info p {
-    color: var(--light);
-    font-size: 1.1rem;
-    line-height: 1.8;
-}
-
-
-/* --- 6. Season Filter - Button Redesign (Cyber Style) --- */
-.season-filter {
-    display: flex;
-    justify-content: center;
-    gap: var(--space-md);
-    margin-bottom: calc(var(--space-xl) * 1.5); /* More space */
-    flex-wrap: wrap;
-}
-
-.season-btn {
-    padding: 10px 22px;
-    min-width: 160px;
-    text-align: center;
-    background: linear-gradient(135deg, var(--dark), #2a3140); /* Dark gradient */
-    color: var(--light-muted);
-    border: 1px solid rgba(var(--primary-rgb), 0.3); /* Subtle primary border */
-    border-radius: 6px;
-    font-family: var(--ui-font);
-    font-size: 1rem;
-    font-weight: 600; /* Slightly less bold */
-    letter-spacing: 0.6px;
-    text-shadow: 1px 1px 2px rgba(var(--darker-rgb), 0.4);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(var(--light-rgb), 0.05);
-    transition: all var(--transition-fast);
-    transform: perspective(500px);
-}
-
-.season-btn:hover,
-.season-btn:focus-visible {
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    color: var(--darker);
-    border-color: var(--primary);
-    transform: translateY(-3px) rotateX(5deg);
-    box-shadow: 0 5px 15px rgba(var(--primary-rgb), 0.3), inset 0 1px 0 rgba(var(--primary-light-rgb), 0.2);
-    text-shadow: none;
-}
-
-.season-btn.active {
-    background: linear-gradient(135deg, var(--secondary), var(--secondary-dark)); /* Active color: Magenta */
-    color: var(--light);
-    border-color: var(--secondary);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), inset 0 2px 5px rgba(var(--darker-rgb), 0.5);
-    transform: translateY(1px) rotateX(0deg);
-    pointer-events: none;
-    cursor: default;
-    text-shadow: 1px 1px 2px rgba(var(--darker-rgb), 0.5);
-}
-
-
-/* --- 7. Gallery Styles - Enhanced 3D & Neon Touches --- */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Slightly larger min size */
-    gap: 35px; /* Increased gap */
-    margin-top: var(--space-lg);
-    padding-inline: clamp(1rem, 3vw, 3%);
-}
-
-.gallery-item {
-    position: relative;
-    border-radius: 10px;
-    overflow: hidden;
-    aspect-ratio: 16 / 10;
-    background-color: var(--dark);
-    border: 1px solid rgba(var(--primary-light-rgb), 0.15);
-    box-shadow: var(--shadow-strong);
-    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1.1), /* Smoother, bouncier */
-                box-shadow var(--transition-default),
-                border-color var(--transition-default);
-    transform-style: preserve-3d;
-    will-change: transform, box-shadow;
-}
-/* Inner shine effect */
-.gallery-item::after {
-    content: '';
-    position: absolute;
-    top: 0; left: -75%;
-    width: 50%; height: 100%;
-    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0) 100%);
-    transform: skewX(-25deg);
-    transition: left 0.6s ease-in-out;
-    z-index: 1;
-    pointer-events: none;
-}
-
-
-.gallery-item:hover,
-.gallery-item:focus-within {
-    transform: perspective(1200px) translateY(-12px) rotateX(5deg) rotateY(-4deg) scale(1.04); /* Enhanced 3D */
-    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.5); /* Increased shadow */
-    border-color: var(--primary);
-    z-index: 10;
-}
-.gallery-item:hover::after {
-    left: 125%; /* Swipe shine effect */
-}
-
-
-.gallery-item img {
-    display: block;
-    width: 100%; height: 100%;
-    object-fit: cover;
-    filter: brightness(0.8) saturate(1) contrast(1.1); /* Slightly more contrast */
-    transition: transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.5s ease; /* Smoother zoom */
-}
-
-.gallery-item:hover img,
-.gallery-item:focus-within img {
-    transform: scale(1.12); /* Increased scale */
-    filter: brightness(1) saturate(1.1) contrast(1.05); /* Enhance vibrancy */
-}
-
-/* Overlay - Gradient reveal */
-.gallery-item .item-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(var(--darker-rgb), 0.95) 10%, rgba(var(--darker-rgb), 0.7) 45%, transparent 85%);
+/* --- 1. FADE-IN ON LOAD (for main sections) --- */
+.fade-in {
     opacity: 0;
-    transition: opacity var(--transition-default); /* Smooth fade */
-    z-index: 1; /* Below shine */
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    padding-bottom: 25px;
-    pointer-events: none;
+    transform: translateY(30px) scale(0.98);
+    animation: fadeInUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: none;
+    }
 }
 
-.gallery-item:hover .item-overlay,
-.gallery-item:focus-within .item-overlay {
-    opacity: 1;
-    pointer-events: auto;
+/* --- 2. FLOATING ANIMATION (for images, tags, or icons) --- */
+.floating {
+    animation: floating 3.5s ease-in-out infinite alternate;
+}
+@keyframes floating {
+    0%   { transform: translateY(0px); }
+    100% { transform: translateY(-14px); }
 }
 
-/* View Button (within overlay) - Neon Accent */
-.gallery-item .view-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 55px; /* Slightly larger */
-    height: 55px;
-    background: var(--accent); /* Use Accent (Lime) */
-    color: var(--darker);
-    border: none;
-    border-radius: 50%; /* Circular button */
-    font-size: 1.8rem;
-    box-shadow: 0 3px 0 0 rgba(var(--accent-dark-rgb), 0.8), 0 5px 10px rgba(0,0,0,0.4); /* Cyber shadow */
+/* --- 3. FADE-IN DELAYED (for gallery grid) --- */
+.gallery .gallery-item {
     opacity: 0;
-    transform: translateY(40px) scale(0.7);
-    transition: opacity 0.3s ease 0.1s, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.1s, /* Bounce in */
-                background var(--transition-fast), box-shadow var(--transition-fast);
-    z-index: 3; /* Above overlay */
-    pointer-events: none;
+    transform: scale(0.96) translateY(40px);
+    animation: galleryFadeIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.gallery .gallery-item:nth-child(1) { animation-delay: 0.1s; }
+.gallery .gallery-item:nth-child(2) { animation-delay: 0.2s; }
+.gallery .gallery-item:nth-child(3) { animation-delay: 0.3s; }
+.gallery .gallery-item:nth-child(4) { animation-delay: 0.4s; }
+.gallery .gallery-item:nth-child(5) { animation-delay: 0.5s; }
+.gallery .gallery-item:nth-child(6) { animation-delay: 0.6s; }
+@keyframes galleryFadeIn {
+    to {
+        opacity: 1;
+        transform: none;
+    }
 }
 
-.gallery-item:hover .view-btn,
-.gallery-item:focus-within .view-btn {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    pointer-events: auto;
-}
-
-.gallery-item .view-btn:hover,
-.gallery-item .view-btn:focus-visible {
-    background: var(--accent-light);
-    transform: scale(1.1) !important; /* Pop */
-    box-shadow: 0 3px 0 0 rgba(var(--accent-dark-rgb), 0.8), 0 8px 15px rgba(var(--accent-rgb), 0.5); /* Glow */
-}
-.gallery-item .view-btn:active {
-    transform: translateY(2px) scale(1.05) !important;
-    box-shadow: inset 0 2px 4px rgba(var(--darker-rgb), 0.6), 0 2px 5px rgba(0,0,0,0.3);
-    background: var(--accent-dark);
-    color: var(--accent-light);
-}
-
-
-/* Season Tag - Sharp Angled Style */
-.season-tag {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 8px 18px 8px 25px; /* Asymmetric padding */
-    color: var(--darker); /* Dark text for contrast */
-    font-family: var(--ui-font);
-    font-size: 0.9rem;
-    font-weight: 700; /* Bold */
-    text-shadow: none;
-    z-index: 2; /* Below shine */
-    clip-path: polygon(0 0, 100% 0, calc(100% - 15px) 100%, 0 100%); /* Angled cut */
-    box-shadow: 2px 2px 5px rgba(0,0,0, 0.3);
-}
-
-/* Specific Season Tag Styles - Vibrant Colors */
-.season-tag.s1 { background: var(--s1-color); color: #6f4e00; }
-.season-tag.s2 { background: var(--s2-color); color: #444; }
-.season-tag.s3 { background: var(--s3-color); color: var(--darker); box-shadow: 2px 2px 8px rgba(var(--s3-color-rgb), 0.4); }
-.season-tag.s4 { background: var(--s4-color); color: var(--darker); box-shadow: 2px 2px 8px rgba(var(--s4-color-rgb), 0.4); }
-
-
-/* --- 8. Lightbox Styles - Sleek Glassmorphism --- */
+/* --- 4. LIGHTBOX FADE EFFECTS --- */
 .lightbox {
-    position: fixed;
-    inset: 0;
-    background-color: rgba(var(--darker-rgb), 0.7); /* Less opaque base */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
     opacity: 0;
     visibility: hidden;
-    transition: opacity var(--transition-default), visibility 0s linear var(--transition-default);
-    backdrop-filter: blur(var(--glass-blur));
-    -webkit-backdrop-filter: blur(var(--glass-blur));
+    transition: opacity 0.45s cubic-bezier(0.4,0,0.2,1), visibility 0s linear 0.45s;
 }
-
 .lightbox.active {
     opacity: 1;
     visibility: visible;
     transition-delay: 0s;
 }
-
 .lightbox-content {
-    position: relative;
-    max-width: 90%; /* Wider allowed */
-    max-height: 95%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-md);
-}
-
-.lightbox-image-wrapper {
-    position: relative;
-    max-width: 100%;
-    max-height: 85vh; /* Slightly taller image area */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.lightbox-img {
-    display: block;
-    max-width: 100%;
-    max-height: 85vh;
-    object-fit: contain;
-    border-radius: 8px;
-    box-shadow: var(--shadow-strong), 0 0 30px rgba(0,0,0, 0.5); /* Stronger shadow */
-    border: 1px solid rgba(var(--primary-light-rgb), 0.2); /* Subtle border */
-    transition: opacity 0.4s ease;
-    user-select: none;
-    -webkit-user-select: none;
-}
-
-/* Lightbox Loader (Spinner) - Vibrant */
-.lightbox-loader {
-    position: absolute; inset: 0; display: flex; justify-content: center; align-items: center; z-index: 1; opacity: 0; transition: opacity 0.3s ease; pointer-events: none;
-}
-.lightbox-img.loading + .lightbox-loader { opacity: 1; }
-.lightbox-img.loading { opacity: 0; }
-
-/* Spinner element - Dual color */
-.lightbox-loader::after {
-    content: '';
-    width: 50px; /* Larger spinner */
-    height: 50px;
-    border: 5px solid rgba(var(--primary-rgb), 0.3);
-    border-top-color: var(--primary);
-    border-left-color: var(--secondary); /* Add second color */
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite; /* Faster spin */
-}
-@keyframes spin { to { transform: rotate(360deg); } }
-
-
-.lightbox-caption {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    padding: 0.8rem 1.8rem; /* More padding */
-    max-width: 70%;
-    color: var(--light);
-    font-size: 1.1rem;
-    text-align: center;
-    background: var(--glass-bg); /* Glass effect */
-    border-radius: 30px; /* Pill shape */
-    font-family: var(--ui-font);
-    backdrop-filter: blur(8px); /* Less blur than main bg */
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid var(--glass-border);
-    box-shadow: var(--glass-shadow);
     opacity: 0;
-    visibility: hidden;
-    transform: translateY(15px);
-    transition: opacity var(--transition-fast), transform var(--transition-fast), visibility 0s linear var(--transition-fast);
+    transform: scale(0.97) translateY(30px);
+    transition: opacity 0.5s, transform 0.5s;
 }
-.lightbox-caption.visible { opacity: 1; transform: translateY(0); visibility: visible; transition-delay: 0s; }
-
-.lightbox-caption i {
-    color: var(--primary); /* Primary color */
-    font-size: 1.3em;
-    filter: drop-shadow(0 0 6px rgba(var(--primary-rgb), 0.7));
-    flex-shrink: 0;
-}
-
-.lightbox-counter {
-    position: absolute;
-    bottom: -35px; /* Lower */
-    left: 50%;
-    transform: translateX(-50%);
-    color: var(--light-muted);
-    font-size: 1rem;
-    font-family: var(--ui-font);
-    font-weight: 500; /* Slightly bolder */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity var(--transition-fast);
-}
-.lightbox-counter.visible { opacity: 1; visibility: visible; }
-
-
-/* Lightbox Close Button - Minimal & Clean */
-.lightbox-close {
-    position: fixed;
-    top: 25px;
-    right: 25px;
-    z-index: 1001;
-    width: 45px; /* Larger */
-    height: 45px;
-    display: flex; align-items: center; justify-content: center;
-    color: var(--light-muted);
-    font-size: 1.8rem; /* Smaller icon for cleaner look */
-    line-height: 1;
-    background: rgba(var(--dark-rgb), 0.7);
-    border-radius: 50%; /* Circular */
-    border: 1px solid var(--glass-border);
-    box-shadow: var(--glass-shadow);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    transition: all var(--transition-fast);
-    user-select: none; -webkit-user-select: none;
-}
-
-.lightbox-close:hover,
-.lightbox-close:focus-visible {
-    transform: rotate(90deg) scale(1.1);
-    color: var(--status-offline); /* Error red */
-    background: rgba(var(--dark-rgb), 0.9);
-    box-shadow: var(--glass-shadow), 0 0 15px rgba(var(--status-offline-rgb), 0.6);
-    border-color: rgba(var(--status-offline-rgb), 0.5);
-}
-.lightbox-close:active {
-     transform: rotate(90deg) scale(1.05) translateY(1px);
-     box-shadow: inset 0 1px 3px rgba(var(--darker-rgb), 0.6);
-}
-
-
-/* Lightbox Navigation Arrows - Minimal & Clean */
-.lightbox-nav {
-    position: fixed;
-    top: 50%; left: 0; width: 100%;
-    transform: translateY(-50%);
-    display: flex; justify-content: space-between;
-    padding-inline: 30px; /* More padding */
-    z-index: 1001;
-    pointer-events: none;
-    opacity: 0; visibility: hidden;
-    transition: opacity 0.3s ease 0.2s, visibility 0s linear 0.5s;
-}
-.lightbox.active .lightbox-nav.visible { opacity: 1; visibility: visible; }
-
-.lightbox-nav-btn {
-    width: 55px; /* Larger */
-    height: 55px;
-    display: flex; align-items: center; justify-content: center;
-    color: var(--light-muted);
-    font-size: 2.8rem;
-    background: rgba(var(--dark-rgb), 0.6);
-    border-radius: 50%;
-    border: 1px solid var(--glass-border);
-    opacity: 0.8;
-    box-shadow: var(--glass-shadow);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    pointer-events: auto;
-    transition: all var(--transition-fast);
-    user-select: none; -webkit-user-select: none;
-}
-
-.lightbox-nav-btn:hover,
-.lightbox-nav-btn:focus-visible {
-    background: rgba(var(--dark-rgb), 0.8);
-    transform: scale(1.08);
+.lightbox.active .lightbox-content {
     opacity: 1;
-    box-shadow: var(--glass-shadow), 0 0 15px rgba(var(--primary-rgb), 0.5);
-    border-color: rgba(var(--primary-rgb), 0.4);
-    color: var(--primary); /* Primary color */
-}
-.lightbox-nav-btn:active {
-     transform: scale(1.03) translateY(1px);
-     box-shadow: inset 0 1px 3px rgba(var(--darker-rgb), 0.6);
+    transform: none;
+    transition-delay: 0.15s;
 }
 
-.lightbox-nav-btn.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
-
-
-/* --- 9. Footer Styles - Glassmorphic Footer, Gradient Buttons --- */
-.site-footer {
-    background: rgba(var(--darker-rgb), 0.6); /* Glassmorphism base */
-    padding: var(--space-xl) var(--space-sm) var(--space-lg);
-    text-align: center;
-    margin-top: calc(var(--space-xl) * 1.5); /* More space */
-    border-top: 1px solid var(--glass-border);
-    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5);
+/* --- 5. BUTTON HOVER GLOW PULSE --- */
+.copy-ip-button.stylish,
+.season-btn,
+.social-btn,
+.gallery-item .view-btn {
     position: relative;
-    backdrop-filter: blur(var(--glass-blur));
-    -webkit-backdrop-filter: blur(var(--glass-blur));
-}
-/* Inner glow */
-.site-footer::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-top: 1px solid rgba(var(--primary-light-rgb), 0.1);
-    pointer-events: none;
     z-index: 1;
+    overflow: hidden;
 }
-
-.footer-container {
-    max-width: 1300px;
-    margin-inline: auto;
-    padding-inline: var(--space-md);
-    position: relative;
-    z-index: 2;
-}
-
-.footer-intro {
-    color: var(--light-muted);
-    font-size: 1rem;
-    margin-bottom: var(--space-lg);
-    max-width: 750px;
-    margin-inline: auto;
-    line-height: 1.7;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-}
-
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 25px; /* Increased gap */
-    margin-bottom: var(--space-xl);
-    flex-wrap: wrap;
-}
-
-/* Social Links - Gradient Cyber Buttons */
-.social-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14px 30px; /* More padding */
-    min-width: 220px; /* Wider */
-    color: var(--light);
-    text-decoration: none;
-    border-radius: 8px;
-    font-family: var(--ui-font);
-    font-weight: 700;
-    font-size: 1.1rem;
-    letter-spacing: 0.8px;
-    border: none;
-    text-shadow: 1px 1px 2px rgba(var(--darker-rgb), 0.4);
-    box-shadow: var(--button-cyber-shadow); /* Re-use cyber shadow base */
-    transition: all var(--transition-fast);
-    position: relative;
-    overflow: hidden; /* For pseudo-element effects */
-    transform: perspective(500px);
-}
-/* Default Gradient Background */
-.social-btn {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    box-shadow: 0 3px 0 0 rgba(var(--secondary-dark-rgb), 0.8), 0 5px 8px rgba(0, 0, 0, 0.3);
-}
-
-
-.social-btn i {
-    margin-right: 12px;
-    font-size: 1.4rem;
-    transition: transform 0.3s ease;
-}
-
-/* Hover/Focus - Brighter Gradient, Lift, Glow */
-.social-btn:hover,
-.social-btn:focus-visible {
-    transform: translateY(-4px) rotateX(6deg);
-    box-shadow: 0 3px 0 0 rgba(var(--secondary-dark-rgb), 0.8), 0 8px 20px rgba(var(--primary-rgb), 0.4);
-    background: linear-gradient(135deg, var(--primary-light), var(--secondary-light));
-    color: var(--darker);
-}
-.social-btn:hover i,
-.social-btn:focus-visible i {
-    transform: scale(1.1);
-}
-/* Active State - Press Down */
-.social-btn:active {
-    transform: translateY(2px) rotateX(0deg);
-    box-shadow: var(--button-cyber-shadow-active);
-    color: var(--light);
-}
-
-
-/* Specific button colors & hover effects - Override base gradient */
-.social-btn.discord {
-    background: linear-gradient(135deg, #5865F2, #7289DA);
-    box-shadow: 0 3px 0 0 #4752c4, 0 5px 8px rgba(0, 0, 0, 0.3);
-}
-.social-btn.discord:hover, .social-btn.discord:focus-visible {
-    background: linear-gradient(135deg, #7289DA, #99aab5);
-    box-shadow: 0 3px 0 0 #4752c4, 0 8px 20px rgba(88, 101, 242, 0.4);
-}
-
-.social-btn.whatsapp {
-    background: linear-gradient(135deg, #25D366, #128C7E);
-    box-shadow: 0 3px 0 0 #075e54, 0 5px 8px rgba(0, 0, 0, 0.3);
-}
-.social-btn.whatsapp:hover, .social-btn.whatsapp:focus-visible {
-    background: linear-gradient(135deg, #128C7E, #075e54);
-    box-shadow: 0 3px 0 0 #075e54, 0 8px 20px rgba(37, 211, 102, 0.4);
-}
-
-.social-btn.server {
-    background: linear-gradient(135deg, var(--accent), #50c878); /* Lime/Emerald */
-    color: var(--darker);
-    box-shadow: 0 3px 0 0 var(--accent-dark), 0 5px 8px rgba(0, 0, 0, 0.3);
-}
-.social-btn.server:hover, .social-btn.server:focus-visible {
-     background: linear-gradient(135deg, var(--accent-light), var(--accent));
-     color: var(--darker);
-     box-shadow: 0 3px 0 0 var(--accent-dark), 0 8px 20px rgba(var(--accent-rgb), 0.4);
-}
-.social-btn.server:active {
-    color: var(--accent-light);
-}
-
-.copyright {
-    color: var(--light-muted);
-    font-size: 0.9rem;
-    margin-top: var(--space-lg);
-    opacity: 0.6; /* Less prominent */
-}
-
-
-/* --- 10. Loader Animation - Modernized Cube --- */
-.loader {
-    position: fixed; inset: 0;
-    background: var(--darker); /* Solid dark background */
-    display: flex; flex-direction: column; justify-content: center; align-items: center;
-    z-index: 9999;
-    opacity: 0; visibility: hidden; pointer-events: none;
-    transition: opacity 0.5s ease-out, visibility 0s linear 0.5s; /* Slightly faster fade */
-    will-change: opacity;
-}
-.loader.active { opacity: 1; visibility: visible; transition-delay: 0s, 0s; pointer-events: auto; }
-
-/* Minecraft Block Loader - Modernized */
-.minecraft-block-loader {
-    width: 100px; height: 100px;
-    position: relative;
-    transform-style: preserve-3d;
-    animation: rotate3D-alt 6s infinite linear; /* Slower, smoother rotation */
-}
-
-@keyframes rotate3D-alt { /* Alternate rotation */
-    0%   { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
-    100% { transform: rotateX(360deg) rotateY(720deg) rotateZ(360deg); }
-}
-
-
-.block-face {
-    position: absolute;
-    width: 100px; height: 100px;
-    /* Gradient + subtle pattern */
-    background: linear-gradient(45deg, rgba(var(--primary-rgb), 0.5), rgba(var(--secondary-rgb), 0.5)),
-                radial-gradient(circle at center, rgba(var(--light-rgb), 0.1) 10%, transparent 70%);
-    border: 1px solid rgba(var(--primary-light-rgb), 0.3);
-    opacity: 0.85;
-    box-shadow: inset 0 0 15px rgba(var(--darker-rgb), 0.5);
-    backdrop-filter: blur(2px);
-    transition: background 0.3s ease;
-}
-/* Add wireframe effect */
-.block-face::before, .block-face::after {
+.copy-ip-button.stylish::after,
+.season-btn::after,
+.social-btn::after,
+.gallery-item .view-btn::after {
     content: '';
     position: absolute;
-    background-color: rgba(var(--primary-light-rgb), 0.4);
-    opacity: 0.6;
-}
-.block-face::before { /* Horizontal lines */
-    width: 100%; height: 1px; top: 33%; left: 0;
-    box-shadow: 0 33px 0 rgba(var(--primary-light-rgb), 0.4);
-}
-.block-face::after { /* Vertical lines */
-    width: 1px; height: 100%; left: 33%; top: 0;
-    box-shadow: 33px 0 0 rgba(var(--primary-light-rgb), 0.4);
-}
-
-
-/* Cube face positioning */
-.face-front  { transform: translateZ(50px); }
-.face-back   { transform: translateZ(-50px) rotateY(180deg); }
-.face-right  { transform: rotateY(90deg) translateZ(50px); }
-.face-left   { transform: rotateY(-90deg) translateZ(50px); }
-.face-top    { transform: rotateX(90deg) translateZ(50px); }
-.face-bottom { transform: rotateX(-90deg) translateZ(50px); }
-
-
-.loading-text {
-    color: var(--light);
-    margin-top: var(--space-xl); /* More space */
-    font-family: var(--minecraft-font);
-    font-size: 1.6rem; /* Larger */
-    font-weight: 600;
-    text-align: center;
-    letter-spacing: 2px;
-    text-shadow: 0 0 10px rgba(var(--primary-rgb), 0.7), 0 0 15px rgba(var(--primary-rgb), 0.5); /* Primary glow */
-    animation: pulse-text-alt 1.8s infinite ease-in-out alternate;
-    user-select: none; -webkit-user-select: none;
-}
-
-@keyframes pulse-text-alt {
-    from { opacity: 1; transform: scale(1); text-shadow: 0 0 10px rgba(var(--primary-rgb), 0.7), 0 0 15px rgba(var(--primary-rgb), 0.5); }
-    to   { opacity: 0.8; transform: scale(1.05); text-shadow: 0 0 15px rgba(var(--secondary-rgb), 0.7), 0 0 25px rgba(var(--secondary-rgb), 0.5); } /* Shift to secondary glow */
-}
-
-
-/* --- 11. Particle Background - Electric Grid Dust --- */
-.particle-background {
-    position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden;
-}
-
-.particle {
-    position: absolute;
-    /* Vibrant colors */
-    background-color: rgba(var(--primary-rgb), 0.6);
-    border-radius: 50%;
-    box-shadow: 0 0 8px rgba(var(--primary-rgb), 0.5), 0 0 12px rgba(var(--secondary-rgb), 0.3); /* Dual color glow */
+    inset: -10px;
+    border-radius: inherit;
+    background: radial-gradient(circle at 50% 50%, rgba(var(--primary-rgb),0.18) 0%, transparent 70%);
     opacity: 0;
-    transform: scale(0.1); /* Start very small */
     pointer-events: none;
-    /* Add variation possibility - JS can add classes .p-cyan, .p-magenta etc. */
+    transition: opacity 0.4s;
+    z-index: -1;
 }
-.particle.p-magenta { background-color: rgba(var(--secondary-rgb), 0.6); box-shadow: 0 0 8px rgba(var(--secondary-rgb), 0.5), 0 0 12px rgba(var(--primary-rgb), 0.3); }
-.particle.p-lime { background-color: rgba(var(--accent-rgb), 0.6); box-shadow: 0 0 8px rgba(var(--accent-rgb), 0.5), 0 0 12px rgba(var(--primary-rgb), 0.3); }
-
-/* Dynamic animation - Faster, more variation */
-@keyframes float {
-    0% { transform: translate(0, 0) scale(0.1); opacity: 0; }
-    15% { opacity: 0.8; } /* Fade in quickly */
-    50% { transform: translate(var(--x-mid), var(--y-mid)) scale(var(--scale-mid, 0.7)); opacity: 1; } /* JS can set --scale-mid */
-    85% { opacity: 0.4; } /* Fade out slower */
-    100% { transform: translate(var(--x-end), var(--y-end)) scale(0.1); opacity: 0; }
-}
-
-
-/* --- 12. Music Controls - Floating Glassmorphic Controls --- */
-.music-toggle-btn {
-    position: fixed;
-    bottom: 25px; /* Positioned slightly higher */
-    left: 25px;
-    z-index: 900;
-    width: 50px; /* Larger */
-    height: 50px;
-    display: flex; justify-content: center; align-items: center;
-    background: var(--glass-bg);
-    color: var(--light-muted);
-    border: 1px solid var(--glass-border);
-    border-radius: 50%; /* Circular */
-    font-size: 1.6rem;
-    box-shadow: var(--glass-shadow);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    opacity: 0.9;
-    transition: all var(--transition-fast);
-    user-select: none; -webkit-user-select: none;
-}
-
-.music-toggle-btn:hover,
-.music-toggle-btn:focus-visible {
-    background: rgba(var(--dark-rgb), 0.8);
-    color: var(--primary); /* Primary color */
-    border-color: rgba(var(--primary-rgb), 0.5);
-    transform: scale(1.12); /* More pop */
-    box-shadow: var(--glass-shadow), 0 0 15px rgba(var(--primary-rgb), 0.6); /* Glow */
+.copy-ip-button.stylish:hover::after,
+.copy-ip-button.stylish:focus-visible::after,
+.season-btn:hover::after,
+.season-btn:focus-visible::after,
+.social-btn:hover::after,
+.social-btn:focus-visible::after,
+.gallery-item .view-btn:hover::after,
+.gallery-item .view-btn:focus-visible::after {
     opacity: 1;
+    animation: btnPulse 1.3s infinite alternate;
 }
-.music-toggle-btn:active {
-     transform: scale(1.05) translateY(1px);
-     box-shadow: inset 0 1px 4px rgba(var(--darker-rgb), 0.7);
-}
-
-.music-toggle-btn i { transition: transform 0.1s ease-out, color 0.3s ease, filter 0.3s ease; will-change: transform; display: inline-block; }
-
-/* Style when music is playing - Neon Accent */
-.music-toggle-btn.playing i {
-    color: var(--accent); /* Lime green when playing */
-    filter: drop-shadow(0 0 10px rgba(var(--accent-rgb), 0.8));
+@keyframes btnPulse {
+    0%   { opacity: 0.7; }
+    100% { opacity: 0.2; }
 }
 
-.music-toggle-btn.pulsing-sync i { /* JS controls scale */ }
-.music-toggle-btn:not(.playing) .fa-volume-mute { color: var(--light-muted); }
-
-
-/* Song Notification - Glassmorphism */
-.song-notification {
-    position: fixed;
-    bottom: 25px; /* Match button */
-    right: 25px;
-    z-index: 899;
-    display: flex; align-items: center; gap: 10px;
-    padding: 12px 18px;
-    max-width: 300px;
-    background: var(--glass-bg);
-    color: var(--light-muted);
-    border-radius: 8px; /* Match other elements */
-    font-family: var(--ui-font);
-    font-size: 0.95rem;
-    box-shadow: var(--glass-shadow);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid var(--glass-border);
-    opacity: 0; visibility: hidden;
-    transform: translateX(30px);
-    transition: all var(--transition-fast);
-    pointer-events: none;
-}
-
-.song-notification.visible { opacity: 1; visibility: visible; transform: translateX(0); transition-delay: 0s; }
-
-.song-notification .song-status-icon {
-    font-size: 1.2em;
-    color: var(--accent); /* Lime icon */
-    flex-shrink: 0;
-    filter: drop-shadow(0 0 6px rgba(var(--accent-rgb), 0.6));
-}
-
-.song-notification .song-info { overflow: hidden; white-space: nowrap; }
-.song-notification .song-title { display: block; font-weight: 600; color: var(--light); text-overflow: ellipsis; overflow: hidden; }
-
-
-/* --- 13. Temporary Message Area - Glassmorphic Alerts --- */
-#temp-message-area {
-    position: fixed;
-    bottom: 85px; /* Above music controls */
-    left: 25px;
-    z-index: 950;
-    display: flex; flex-direction: column; gap: 10px;
-    pointer-events: none;
-    max-width: 320px;
-}
-
-.temp-message {
-    padding: 12px 18px;
-    background-color: var(--glass-bg);
-    color: var(--light);
-    border-radius: 6px;
-    font-family: var(--ui-font);
-    font-size: 1rem;
-    box-shadow: var(--glass-shadow);
-    border-left: 5px solid var(--status-info); /* Default info border */
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    border: 1px solid var(--glass-border);
-    border-left-width: 5px; /* Keep colored border prominent */
+/* --- 6. SEASON TAGS: FADE & FLOAT --- */
+.season-tag {
     opacity: 0;
-    transform: translateX(-30px) scale(0.95); /* Slide and scale in */
-    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bounce */
-    pointer-events: auto;
-    word-wrap: break-word; white-space: normal;
+    transform: translateY(-20px) scale(0.98);
+    animation: tagFadeIn 1.1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
-.temp-message.visible { opacity: 1; transform: translateX(0) scale(1); }
-
-/* Status variations - Vibrant Borders */
-.temp-message.error { border-left-color: var(--status-error); background-color: rgba(var(--status-error-rgb), 0.15); color: var(--status-offline); border-color: rgba(var(--status-error-rgb), 0.3); }
-.temp-message.success { border-left-color: var(--status-online); background-color: rgba(var(--status-online-rgb), 0.1); color: var(--status-online); border-color: rgba(var(--status-online-rgb), 0.3); }
-.temp-message.info { border-left-color: var(--status-info); }
-
-
-/* --- 14. Utility Classes - Smooth Animations --- */
-
-/* Fade-in Scroll Animation - Smoother Ease */
-.fade-in {
-    opacity: 0;
-    transform: translateY(40px); /* More translation */
-    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-                transform 0.9s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth ease-out */
-    will-change: opacity, transform;
-}
-.fade-in.is-visible { opacity: 1; transform: translateY(0); }
-
-/* --- 15. Responsive Styles - Adjustments for Modern Design --- */
-
-/* Medium Devices */
-@media (max-width: 992px) {
-    html { font-size: 15px; }
-
-    .logo { font-size: clamp(3.8rem, 11vw, 6.5rem); letter-spacing: 4px;}
-    .subtitle { font-size: clamp(1.4rem, 3.8vw, 1.8rem); }
-
-    .server-info-box { padding: var(--space-md); max-width: 90%; }
-    .info-item { font-size: 1rem; gap: var(--space-xs);}
-    .info-item .stat-icon { font-size: 1.3rem; }
-    .copy-ip-button.stylish { margin-left: auto; padding: 10px 20px; font-size: 0.95rem; min-width: 120px;}
-
-    .gallery-intro h2 { font-size: clamp(3rem, 8vw, 4.5rem); letter-spacing: 3px;}
-    .gallery-intro h2::after { width: 160px; bottom: -20px; }
-    .season-info { padding: var(--space-lg); }
-    .season-info h3 { font-size: clamp(1.8rem, 5vw, 2.4rem); }
-
-    .season-filter { gap: var(--space-sm); }
-    .season-btn { padding: 9px 20px; font-size: 0.95rem; min-width: 150px; }
-
-    .gallery { grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 30px; }
-    .gallery-item:hover, .gallery-item:focus-within { transform: perspective(1000px) translateY(-10px) rotateX(4deg) rotateY(-3deg) scale(1.03); }
-    .gallery-item .view-btn { width: 50px; height: 50px; font-size: 1.6rem; }
-    .season-tag { padding: 7px 16px 7px 22px; font-size: 0.85rem; clip-path: polygon(0 0, 100% 0, calc(100% - 12px) 100%, 0 100%); }
-
-    .lightbox-img { max-height: 80vh; }
-    .lightbox-caption { font-size: 1rem; max-width: 80%; }
-    .lightbox-close { width: 40px; height: 40px; font-size: 1.6rem; }
-    .lightbox-nav-btn { width: 50px; height: 50px; font-size: 2.5rem; }
-
-    .social-btn { min-width: 200px; padding: 12px 25px; font-size: 1.05rem; }
-
-    .music-toggle-btn { width: 45px; height: 45px; font-size: 1.5rem; bottom: 20px; left: 20px; }
-    .song-notification { bottom: 20px; right: 20px; max-width: calc(100% - 90px); font-size: 0.9rem; padding: 10px 15px; }
-    #temp-message-area { bottom: 75px; left: 20px; max-width: calc(100% - 40px); }
-    .temp-message { padding: 10px 15px; font-size: 0.95rem; }
-}
-
-/* Small Devices */
-@media (max-width: 768px) {
-    html { font-size: 14px; }
-
-    .site-header { padding: var(--space-md) var(--space-sm); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); } /* Less blur */
-    .logo { font-size: clamp(3rem, 13vw, 4.5rem); letter-spacing: 2px; text-shadow: 0 0 10px rgba(var(--primary-rgb), 0.7), 0 0 15px rgba(var(--secondary-rgb), 0.4), 3px 3px 0 rgba(var(--darker-rgb), 0.6);}
-    .subtitle { font-size: clamp(1.1rem, 4.5vw, 1.4rem); }
-
-    .server-status-container h2 { font-size: clamp(1.6rem, 5vw, 2rem); gap: var(--space-sm); }
-    .live-indicator { width: 12px; height: 12px;}
-    .server-info-box {
-        flex-direction: column; align-items: stretch; /* Stretch items */
-        padding: var(--space-md); gap: var(--space-sm); max-width: 90%;
-        backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); /* Less blur */
+.gallery-item:nth-child(1) .season-tag { animation-delay: 0.2s; }
+.gallery-item:nth-child(2) .season-tag { animation-delay: 0.3s; }
+.gallery-item:nth-child(3) .season-tag { animation-delay: 0.4s; }
+.gallery-item:nth-child(4) .season-tag { animation-delay: 0.5s; }
+@keyframes tagFadeIn {
+    to {
+        opacity: 1;
+        transform: none;
     }
-    .info-item { justify-content: space-between; font-size: 1rem;}
-    .info-item .stat-icon { font-size: 1.2rem; }
-    .copy-ip-button.stylish { margin-left: 0; margin-top: var(--space-sm); width: 100%; justify-content: center; padding: 10px 15px; font-size: 0.95rem; } /* Full width */
-
-    .gallery-intro h2 { font-size: clamp(2.5rem, 9vw, 3.5rem); letter-spacing: 2px;}
-    .gallery-intro h2::after { width: 120px; height: 3px; bottom: -18px; }
-    .gallery-intro p { font-size: 1rem; max-width: 95%; }
-    .season-info { padding: var(--space-md); margin: var(--space-lg) auto; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); } /* Less blur */
-    .season-info::before { filter: blur(4px); opacity: 0.5; }
-    .season-info h3 { font-size: clamp(1.6rem, 4.5vw, 2rem); gap: var(--space-sm);}
-
-    .season-filter { flex-direction: column; gap: var(--space-sm); align-items: stretch; } /* Stretch buttons */
-    .season-btn { width: auto; max-width: 350px; margin-inline: auto; font-size: 1rem; padding: 10px 18px; }
-
-    .gallery { grid-template-columns: 1fr; gap: 25px; padding-inline: clamp(0.8rem, 4vw, 4%); }
-    .gallery-item:hover, .gallery-item:focus-within { transform: perspective(800px) translateY(-8px) scale(1.02); } /* Less intense 3D */
-    .gallery-item .view-btn { width: 45px; height: 45px; font-size: 1.5rem; }
-    .season-tag { padding: 6px 14px 6px 20px; font-size: 0.8rem; clip-path: polygon(0 0, 100% 0, calc(100% - 10px) 100%, 0 100%); }
-
-    .lightbox-nav { display: none; } /* Hide nav */
-    .lightbox-img { max-height: 75vh; }
-    .lightbox-caption { max-width: 90%; font-size: 0.95rem; padding: 0.7rem 1.4rem; }
-    .lightbox-close { width: 38px; height: 38px; font-size: 1.5rem; top: 15px; right: 15px; }
-
-    .site-footer { padding: var(--space-md) var(--space-sm); margin-top: var(--space-xl); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
-    .social-links { gap: 15px; flex-direction: column; align-items: stretch; margin-bottom: var(--space-lg);} /* Stretch buttons */
-    .social-btn { width: auto; max-width: 300px; margin-inline: auto; font-size: 1rem; padding: 12px 22px; }
-
-    .music-toggle-btn { width: 40px; height: 40px; font-size: 1.4rem; bottom: 15px; left: 15px; }
-    .song-notification { bottom: 15px; right: 15px; max-width: calc(100% - 70px); font-size: 0.85rem; padding: 8px 12px; }
-    #temp-message-area { bottom: 65px; left: 15px; max-width: calc(100% - 30px); }
-    .temp-message { padding: 8px 14px; font-size: 0.9rem; }
 }
 
-/* Extra Small Devices */
-@media (max-width: 480px) {
-     html { font-size: 13px; }
+/* --- 7. HEADER & SUBTITLE: ENTRANCE --- */
+.logo, .subtitle {
+    opacity: 0;
+    transform: translateY(-40px) scale(0.97);
+    animation: headerFadeIn 1.1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.logo { animation-delay: 0.1s; }
+.subtitle { animation-delay: 0.35s; }
+@keyframes headerFadeIn {
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
 
-    .logo { font-size: clamp(2.8rem, 16vw, 4rem); letter-spacing: 1.5px; text-shadow: 0 0 8px rgba(var(--primary-rgb), 0.6), 0 0 12px rgba(var(--secondary-rgb), 0.3), 2px 2px 0 rgba(var(--darker-rgb), 0.6);}
-    .subtitle { font-size: 1rem; letter-spacing: 0.5px;}
-    .server-status-container h2 { font-size: 1.4rem; gap: var(--space-xs);}
-    .live-indicator { width: 10px; height: 10px;}
+/* --- 8. FOOTER: FADE UP --- */
+.site-footer {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeFooterUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: 0.7s;
+}
+@keyframes fadeFooterUp {
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
 
-    .server-info-box { padding: var(--space-sm); gap: var(--space-xs); }
-    .info-item { font-size: 0.9rem;}
-    .info-item .stat-icon { font-size: 1.1em;}
-    .copy-ip-button.stylish { padding: 8px 12px; font-size: 0.9rem; }
+/* --- 9. OPTIONAL: Add .fade-out utility for JS use --- */
+.fade-out {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1);
+}
 
-    .gallery-intro h2 { font-size: clamp(2.2rem, 9vw, 3rem); letter-spacing: 1.5px;}
-    .gallery-intro h2::after { width: 100px; height: 2px; bottom: -15px; }
-    .gallery-intro p { font-size: 0.9rem; }
-    .season-info { padding: var(--space-sm); margin: var(--space-md) auto; border-radius: 8px; }
-    .season-info h3 { font-size: clamp(1.4rem, 5vw, 1.8rem); }
-    .season-info p { font-size: 0.9rem; }
-
-    .season-btn { font-size: 0.9rem; padding: 9px 15px; }
-
-    .gallery { gap: 20px; padding-inline: clamp(0.5rem, 3vw, 3%); }
-    .gallery-item:hover, .gallery-item:focus-within { transform: perspective(600px) translateY(-5px) scale(1.01); } /* Minimal 3D */
-    .gallery-item .view-btn { width: 40px; height: 40px; font-size: 1.4rem; }
-    .season-tag { padding: 5px 12px 5px 18px; font-size: 0.75rem; clip-path: polygon(0 0, 100% 0, calc(100% - 8px) 100%, 0 100%); }
-
-    .lightbox-img { max-height: 70vh; }
-    .lightbox-close { width: 35px; height: 35px; font-size: 1.4rem; top: 10px; right: 10px;}
-    .lightbox-caption { font-size: 0.85rem; padding: 0.6rem 1.2rem; max-width: 95%; }
-
-    .social-btn { font-size: 0.95rem; padding: 10px 18px; }
-
-    .music-toggle-btn { width: 35px; height: 35px; font-size: 1.2rem; bottom: 10px; left: 10px;}
-    .song-notification { bottom: 10px; right: 10px; max-width: calc(100% - 55px); font-size: 0.8rem; padding: 6px 10px; }
-    #temp-message-area { bottom: 55px; left: 10px; max-width: calc(100% - 20px); }
-    .temp-message { padding: 6px 12px; font-size: 0.85rem; }
-
-    .fade-in { transform: translateY(25px); transition-duration: 0.6s, 0.7s; }
+/* --- 10. Responsive Tweaks (for mobile friendliness) --- */
+@media (max-width: 900px) {
+    .gallery {
+        grid-template-columns: 1fr 1fr;
+    }
+    .main-content {
+        padding: var(--space-lg) var(--space-sm);
+    }
+}
+@media (max-width: 600px) {
+    .gallery {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .site-header, .site-footer {
+        padding: var(--space-lg) var(--space-xs);
+    }
+    .gallery-intro h2 {
+        font-size: 2.2rem;
+    }
+    .logo {
+        font-size: 2.5rem;
+    }
 }
