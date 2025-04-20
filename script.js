@@ -1001,88 +1001,71 @@ function initMusicToggle() {
         console.warn("Music player elements incomplete. Feature disabled.");
         return;
     }
-    console.log("Initializing music player with song shuffling.");
+    console.log("Initializing music player.");
 
-    const songs = ["Yung Kai - blue.mp3", "Kerosene x Pluh.mp3"];
-    let currentSongIndex = 0;
     domElements.music.volume = 0.35;
     let userInteracted = false;
 
-    function loadAndPlaySong(index) {
-        const songPath = songs[index];
-        if (songPath) {
-            domElements.music.src = songPath;
-            domElements.music.load(); // Important to reload the new source
-            domElements.music.play().then(() => {
-                console.log(`Playing song: ${songPath}`);
-                updateMusicUI(true);
-            }).catch(error => {
-                console.warn(`Failed to play ${songPath}:`, error);
-                if (error.name !== 'NotAllowedError') {
-                    showTemporaryMessage(getTranslation('messageAudioPlayError'), 'error');
-                }
-                updateMusicUI(false);
-            });
-            currentSongIndex = index;
-        } else {
-            console.warn("Invalid song index:", index);
-            updateMusicUI(false);
-        }
-    }
-
+    // Function to attempt playback after first interaction
     const playMusicAfterInteraction = () => {
         if (!userInteracted) {
             userInteracted = true;
+            // Clean up interaction listeners
             document.removeEventListener('click', playMusicAfterInteraction, { capture: true });
             document.removeEventListener('touchstart', playMusicAfterInteraction, { capture: true });
-            console.log("User interaction detected. Attempting initial music playback...");
-            // Play a random song on initial interaction
-            const randomIndex = Math.floor(Math.random() * songs.length);
-            loadAndPlaySong(randomIndex);
+            console.log("User interaction detected. Attempting music playback...");
+            // Attempt to play, update UI based on success/failure
+            domElements.music.play().then(() => {
+                console.log("Music playback started successfully after interaction.");
+                updateMusicUI(true);
+            }).catch(error => {
+                console.warn("Music playback blocked or failed post-interaction:", error);
+                // Only show error if it's not an autoplay block
+                if (error.name !== 'NotAllowedError') {
+                    showTemporaryMessage(getTranslation('messageAudioPlayError'), 'error');
+                }
+                updateMusicUI(false); // Update UI to reflect paused state
+            });
         }
     };
 
-    document.addEventListener('click', playMusicAfterInteraction, { passive: true, capture: true, once: true });
-    document.addEventListener('touchstart', playMusicAfterInteraction, { passive: true, capture: true, once: true });
+    // Listen for first user interaction using capture phase
+    document.addEventListener('click', playMusicAfterInteraction, { passive: true, capture: true, once: true }); // Use once option
+    document.addEventListener('touchstart', playMusicAfterInteraction, { passive: true, capture: true, once: true }); // Use once option
 
+    // Toggle button listener
     domElements.musicToggleBtn.addEventListener('click', () => {
-        if (!userInteracted) {
+        if (!userInteracted) { // Ensure interaction flag is set if button is the first interaction
             userInteracted = true;
+            // Clean up listeners just in case (though 'once' should handle it)
             document.removeEventListener('click', playMusicAfterInteraction, { capture: true });
             document.removeEventListener('touchstart', playMusicAfterInteraction, { capture: true });
-            // If toggle is the first interaction, play a random song
-            const randomIndex = Math.floor(Math.random() * songs.length);
-            loadAndPlaySong(randomIndex);
-            return; // Exit to avoid immediate pause/play after initial play
         }
 
         if (domElements.music.paused || domElements.music.ended) {
             domElements.music.play().catch(error => {
                 console.error("Error playing music via toggle:", error);
-                if (error.name !== 'NotAllowedError') {
-                    showTemporaryMessage(getTranslation('messageAudioPlayError'), 'error');
-                }
-                updateMusicUI(false);
+                 if (error.name !== 'NotAllowedError') {
+                     showTemporaryMessage(getTranslation('messageAudioPlayError'), 'error');
+                 }
+                updateMusicUI(false); // Ensure UI reflects paused state on error
             });
         } else {
             domElements.music.pause();
         }
     });
 
-    domElements.music.addEventListener('ended', () => {
-        // Play the next song (looping back to the start)
-        currentSongIndex = (currentSongIndex + 1) % songs.length;
-        loadAndPlaySong(currentSongIndex);
-    });
-
-    domElements.music.addEventListener('play', () => updateMusicUI(true));
-    domElements.music.addEventListener('pause', () => updateMusicUI(false));
+    // Audio element event listeners
+    domElements.music.addEventListener('play', () => updateMusicUI(true)); // Show notification on play
+    domElements.music.addEventListener('pause', () => updateMusicUI(false)); // Hide notification on pause
+    domElements.music.addEventListener('ended', () => updateMusicUI(false)); // Hide notification on end
     domElements.music.addEventListener('error', (e) => {
         console.error("Audio Element Error:", e);
         showTemporaryMessage(getTranslation('messageAudioError'), 'error');
         updateMusicUI(false);
     });
 
+    // Initial UI setup (reflect paused state, no notification)
     setTimeout(() => updateMusicUI(false), 100);
 }
 
