@@ -1,38 +1,37 @@
 /* ==========================================================================
-   Table of Contents - Refactored (Modern Cyber Grid Theme)
+   Table of Contents - Refactored (Modern Cyber Grid Theme - Enhanced)
    ==========================================================================
    1. Global Variables (--*) - NEW Cyber Grid Palette
    2. Base Reset & Styles - Enhanced Background & Glassmorphism
-   3. Header Styles - Glassmorphic Header, Neon Logo
-   4. Server Status Section - Modernized Info Box & Button
-      - Live Indicator (Electric Colors)
-      - Info Box (Glassmorphism)
-      - Copy IP Button (Cyber Style)
-   5. Main Content Styles - Sharp & Contrasting
-      - Gallery Intro (Neon Heading)
-      - Season Info (Gradient Border Box)
-   6. Season Filter - Button Redesign (Cyber Style)
-   7. Gallery Styles - Enhanced 3D & Neon Touches
-      - Item Layout (Smoother 3D Hover)
-      - Image & Overlay (Gradient Overlay)
-      - View Button (Neon Accent)
-      - Season Tag (Sharp Angled Tag)
-   8. Lightbox Styles - Sleek Glassmorphism
-      - Container & Content
-      - Image & Loader (Vibrant Spinner)
-      - Caption & Counter
-      - Controls (Clean & Minimal)
-   9. Footer Styles - Glassmorphic Footer, Gradient Buttons
-      - Social Links (Gradient Cyber Buttons)
+   3. Header Styles - Glassmorphic Header, Neon Logo, Subtle Animations
+   4. Server Status Section - Modernized Info Box & Button, Enhanced 3D
+      - Live Indicator (Electric Colors, Dynamic Pulse)
+      - Info Box (Glassmorphism, Hover Tilt)
+      - Copy IP Button (Cyber Style, Enhanced Feedback)
+   5. Main Content Styles - Sharp & Contrasting, Animated Entry
+      - Gallery Intro (Neon Heading, Animated Underline)
+      - Season Info (Gradient Border Box, Hover Effects)
+   6. Season Filter - Button Redesign (Cyber Style, Staggered Entry)
+   7. Gallery Styles - Enhanced 3D & Neon Touches, Staggered Entry
+      - Item Layout (Deeper 3D Hover, Staggered Animation)
+      - Image & Overlay (Gradient Overlay, Subtle Effects)
+      - View Button (Neon Accent, Enhanced Bounce)
+      - Season Tag (Sharp Angled Tag, Subtle Pop-in)
+   8. Lightbox Styles - Sleek Glassmorphism, Smooth Transitions
+      - Container & Content (Fade/Scale Animation)
+      - Image & Loader (Vibrant Spinner, Image Settle)
+      - Caption & Counter (Slide-up Animation)
+      - Controls (Slide/Fade Animation, Enhanced Interaction)
+   9. Footer Styles - Glassmorphic Footer, Gradient Buttons, Subtle Animation
+      - Social Links (Gradient Cyber Buttons, Enhanced 3D)
       - Copyright
-   10. Loader Animation - Modernized Cube
-   11. Particle Background - Electric Grid Dust
-   12. Music Controls - Floating Glassmorphic Controls
-       - Toggle Button (Neon Active State)
-       - Song Notification (Glassmorphism)
-   13. Temporary Message Area - Glassmorphic Alerts
-   14. Utility Classes - Smooth Animations
-       - Fade-in Scroll Animation (Refined)
+   10. Loader Animation - Modernized Cube, Enhanced Visuals
+   11. Particle Background - Electric Grid Dust (JS Controlled)
+   12. Music Controls - Floating Glassmorphic Controls, Enhanced Feedback
+       - Toggle Button (Neon Active State, Hover Pop)
+       - Song Notification (Slide/Bounce Animation)
+   13. Temporary Message Area - Glassmorphic Alerts, Enhanced Entry/Exit
+   14. Utility Classes - Smooth Animations (Fade Variations, Staggering)
    15. Responsive Styles - Adjustments for Modern Design
    ========================================================================== */
 
@@ -98,12 +97,17 @@
     /* Effects - Modernized Shadows, Glows, Glass */
     --shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Deeper base shadow */
     --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+    --shadow-intense: 0 15px 45px rgba(0, 0, 0, 0.55); /* NEW Intense shadow */
     --glow-primary: 0 0 15px rgba(var(--primary-rgb), 0.6), 0 0 25px rgba(var(--primary-rgb), 0.3); /* Stronger primary glow */
+    --glow-primary-intense: 0 0 20px rgba(var(--primary-rgb), 0.8), 0 0 35px rgba(var(--primary-rgb), 0.4); /* NEW Intense primary glow */
     --glow-secondary: 0 0 15px rgba(var(--secondary-rgb), 0.6), 0 0 25px rgba(var(--secondary-rgb), 0.3); /* Magenta glow */
+    --glow-secondary-intense: 0 0 20px rgba(var(--secondary-rgb), 0.8), 0 0 35px rgba(var(--secondary-rgb), 0.4); /* NEW Intense magenta glow */
     --glow-accent: 0 0 15px rgba(var(--accent-rgb), 0.6), 0 0 25px rgba(var(--accent-rgb), 0.3); /* Lime glow */
+    --glow-accent-intense: 0 0 20px rgba(var(--accent-rgb), 0.8), 0 0 35px rgba(var(--accent-rgb), 0.4); /* NEW Intense lime glow */
     --text-glow-primary: 0 0 8px rgba(var(--primary-light-rgb), 0.8); /* Brighter text glow */
     --text-glow-secondary: 0 0 8px rgba(var(--secondary-light-rgb), 0.8);
     --text-glow-accent: 0 0 8px rgba(var(--accent-light-rgb), 0.8);
+    --text-glow-subtle: 0 0 5px rgba(var(--light-muted-rgb), 0.5); /* NEW subtle glow */
 
     --glass-bg: rgba(var(--dark-rgb), 0.6); /* Translucent dark bg for glass */
     --glass-border: rgba(var(--primary-light-rgb), 0.2);
@@ -122,6 +126,8 @@
     --transition-fast: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.1); /* Subtle bounce */
+    --transition-bounce-strong: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* NEW Stronger bounce */
+    --transition-extra-slow: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); /* NEW Slower transition */
 
 
     /* Fonts - Keep core, maybe add a cleaner UI option */
@@ -142,6 +148,12 @@
     --space-md: 1.5rem;
     --space-lg: 2.5rem;
     --space-xl: 4rem;
+
+    /* NEW Animation Variables */
+    --fade-in-translate: 50px; /* Default translation for fade-in */
+    --fade-duration: 0.8s;
+    --fade-easing: cubic-bezier(0.4, 0, 0.2, 1);
+    --stagger-delay: 80ms; /* Delay between staggered items */
 }
 
 /* --- 2. Base Reset & Styles - Enhanced Background & Glassmorphism --- */
@@ -172,13 +184,13 @@ body::before {
     z-index: -3;
     opacity: 1;
     pointer-events: none;
-    /* Subtle animation for aurora effect */
-    animation: background-shift 60s infinite alternate ease-in-out;
+    /* Subtle animation for aurora effect - ENHANCED speed */
+    animation: background-shift 45s infinite alternate ease-in-out;
 }
 
 @keyframes background-shift {
-    0% { background-position: 0% 0%; }
-    100% { background-position: 10% 5%; }
+    0% { background-position: 0% 0%; transform: scale(1); } /* ENHANCED add subtle scale */
+    100% { background-position: 10% 5%; transform: scale(1.03); }
 }
 
 /* Grid/Scanline Texture Overlay */
@@ -192,11 +204,13 @@ body::after {
     z-index: -2;
     pointer-events: none;
     mix-blend-mode: overlay;
-    animation: texture-scroll 120s linear infinite;
+    /* ENHANCED: Diagonal scroll and faster */
+    animation: texture-scroll 80s linear infinite;
 }
 @keyframes texture-scroll {
     from { background-position: 0 0; }
-    to { background-position: calc(var(--texture-size) * 4) calc(var(--texture-size) * 4); }
+    /* ENHANCED Diagonal movement */
+    to { background-position: calc(var(--texture-size) * -5) calc(var(--texture-size) * 3); }
 }
 
 
@@ -228,30 +242,36 @@ button { border: none; background: none; color: inherit; font: inherit; }
 /* Custom Focus Outline - Neon Glow */
 *:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(var(--darker-rgb), 0.8), 0 0 0 5px var(--primary); /* Double ring */
+    /* ENHANCED: Slightly thicker, more vibrant rings */
+    box-shadow: 0 0 0 2px rgba(var(--darker-rgb), 0.9), 0 0 0 5px var(--primary), 0 0 15px 3px rgba(var(--primary-rgb), 0.5);
     outline-offset: 1px; /* Closer offset */
     border-radius: 4px; /* Consistent radius */
+    transition: box-shadow 0.2s ease-in-out; /* NEW transition for focus */
 }
 /* Keep original focus for buttons that have complex styles, merge effects */
 .copy-ip-button.stylish:focus-visible,
 .season-btn:focus-visible,
 .social-btn:focus-visible {
-     box-shadow: var(--button-cyber-shadow), 0 0 0 3px rgba(var(--darker-rgb), 0.8), 0 0 0 5px var(--primary);
+     box-shadow: var(--button-cyber-shadow), 0 0 0 2px rgba(var(--darker-rgb), 0.9), 0 0 0 5px var(--primary), 0 0 15px 3px rgba(var(--primary-rgb), 0.5);
 }
 .view-btn:focus-visible {
-    box-shadow: var(--button-cyber-shadow), 0 0 0 3px rgba(var(--darker-rgb), 0.8), 0 0 0 5px var(--accent);
+    box-shadow: var(--button-cyber-shadow), 0 0 0 2px rgba(var(--darker-rgb), 0.9), 0 0 0 5px var(--accent), 0 0 15px 3px rgba(var(--accent-rgb), 0.5);
 }
 .lightbox-close:focus-visible,
 .lightbox-nav-btn:focus-visible,
 .music-toggle-btn:focus-visible {
-     box-shadow: var(--glass-shadow), 0 0 0 3px rgba(var(--darker-rgb), 0.8), 0 0 0 5px var(--primary);
+     box-shadow: var(--glass-shadow), 0 0 0 2px rgba(var(--darker-rgb), 0.9), 0 0 0 5px var(--primary), 0 0 15px 3px rgba(var(--primary-rgb), 0.5);
 }
 .gallery-item:focus-within {
-     box-shadow: 0 18px 35px rgba(0, 0, 0, 0.5), 0 0 0 3px rgba(var(--darker-rgb), 0.8), 0 0 0 5px var(--primary);
+     /* ENHANCED Focus Within */
+     box-shadow: 0 18px 35px rgba(0, 0, 0, 0.5), 0 0 0 2px rgba(var(--darker-rgb), 0.9), 0 0 0 5px var(--primary), 0 0 15px 3px rgba(var(--primary-rgb), 0.5);
+     transform: perspective(1200px) translateY(-12px) rotateX(5deg) rotateY(-4deg) scale(1.04); /* Apply hover transform */
+     border-color: var(--primary);
+     z-index: 10;
 }
 
 
-/* --- 3. Header Styles - Glassmorphic Header, Neon Logo --- */
+/* --- 3. Header Styles - Glassmorphic Header, Neon Logo, Subtle Animations --- */
 .site-header {
     background: rgba(var(--darker-rgb), 0.5); /* More transparent base */
     padding: var(--space-xl) var(--space-sm) var(--space-lg);
@@ -262,6 +282,7 @@ button { border: none; background: none; color: inherit; font: inherit; }
     -webkit-backdrop-filter: blur(var(--glass-blur));
     border-bottom: 1px solid var(--glass-border);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+    transition: background var(--transition-slow), backdrop-filter var(--transition-slow); /* NEW transition */
 }
 /* Add inner glow/border effect */
 .site-header::before {
@@ -271,8 +292,15 @@ button { border: none; background: none; color: inherit; font: inherit; }
     border-bottom: 1px solid rgba(var(--primary-light-rgb), 0.1);
     pointer-events: none;
     z-index: 1;
+    /* NEW Subtle pulse */
+    animation: header-glow-pulse 10s infinite alternate ease-in-out;
 }
 
+/* NEW Keyframe */
+@keyframes header-glow-pulse {
+    from { border-bottom-color: rgba(var(--primary-light-rgb), 0.1); box-shadow: inset 0 -2px 10px -5px rgba(var(--primary-rgb), 0.1); }
+    to { border-bottom-color: rgba(var(--primary-light-rgb), 0.2); box-shadow: inset 0 -3px 15px -5px rgba(var(--primary-rgb), 0.3); }
+}
 
 .header-container {
     position: relative;
@@ -296,10 +324,11 @@ button { border: none; background: none; color: inherit; font: inherit; }
                  5px 5px 0 rgba(var(--darker-rgb), 0.6); /* Sharp Offset Shadow */
     letter-spacing: 5px;
     margin-bottom: var(--space-sm);
-    transition: transform var(--transition-fast), text-shadow var(--transition-default);
+    transition: transform var(--transition-bounce), text-shadow var(--transition-default), filter var(--transition-default); /* ENHANCED transition */
     display: inline-block;
     background-size: 200% auto;
     animation: logo-gradient-anim 5s linear infinite alternate;
+    will-change: transform, text-shadow; /* Performance hint */
 }
 
 @keyframes logo-gradient-anim {
@@ -309,10 +338,12 @@ button { border: none; background: none; color: inherit; font: inherit; }
 
 .logo:hover,
 .logo:focus-visible {
-    transform: scale(1.03) rotate(-1deg);
+    /* ENHANCED hover: More rotation, stronger glow, subtle filter */
+    transform: scale(1.05) rotate(-2deg) translateZ(10px);
     text-shadow: 0 0 20px rgba(var(--primary-rgb), 1),
                  0 0 35px rgba(var(--secondary-rgb), 0.7),
                  6px 6px 0 rgba(var(--darker-rgb), 0.7);
+    filter: brightness(1.1);
 }
 
 .subtitle {
@@ -323,12 +354,16 @@ button { border: none; background: none; color: inherit; font: inherit; }
     opacity: 0.9;
     margin-bottom: var(--space-lg);
     letter-spacing: 1px;
-    text-shadow: 0 0 5px rgba(var(--light-muted-rgb), 0.5); /* Subtle glow */
+    text-shadow: var(--text-glow-subtle); /* Use subtle glow var */
     max-width: 70ch;
     margin-inline: auto;
+    /* NEW Add fade-in animation (using utility class) */
+    opacity: 0; /* Start hidden for animation */
+    transform: translateY(calc(var(--fade-in-translate) / 2));
+    animation: fade-in-up-anim var(--fade-duration) var(--fade-easing) 0.3s forwards; /* Delay slightly after logo */
 }
 
-/* --- 4. Server Status Section - Modernized Info Box & Button --- */
+/* --- 4. Server Status Section - Modernized Info Box & Button, Enhanced 3D --- */
 .server-status-container {
     margin-top: var(--space-lg);
     text-align: center;
@@ -344,6 +379,10 @@ button { border: none; background: none; color: inherit; font: inherit; }
     display: inline-flex;
     align-items: center;
     gap: var(--space-sm); /* Increased gap */
+    /* NEW Add fade-in animation */
+    opacity: 0;
+    transform: translateY(calc(var(--fade-in-translate) / 2));
+    animation: fade-in-up-anim var(--fade-duration) var(--fade-easing) 0.5s forwards;
 }
 
 .live-indicator {
@@ -375,13 +414,15 @@ button { border: none; background: none; color: inherit; font: inherit; }
     background-color: inherit;
     box-shadow: 0 0 18px inherit;
     opacity: 0.7;
-    animation: pulse-indicator 1.2s infinite cubic-bezier(0.4, 0, 0.2, 1); /* Faster, smoother */
+    /* ENHANCED pulse animation */
+    animation: pulse-indicator 1.1s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Faster, different ease */
     z-index: -1;
 }
 
 @keyframes pulse-indicator {
     0% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
-    70% { transform: translate(-50%, -50%) scale(3.5); opacity: 0; } /* Larger pulse */
+    /* ENHANCED Larger pulse, faster cycle */
+    50% { transform: translate(-50%, -50%) scale(4); opacity: 0.1; }
     100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
 }
 
@@ -407,12 +448,18 @@ button { border: none; background: none; color: inherit; font: inherit; }
     box-shadow: var(--glass-shadow);
     backdrop-filter: blur(var(--glass-blur));
     -webkit-backdrop-filter: blur(var(--glass-blur));
-    transition: border-color var(--transition-default), box-shadow var(--transition-default);
+    transition: border-color var(--transition-default), box-shadow var(--transition-default), transform var(--transition-default); /* ENHANCED Add transform */
+    /* NEW Add fade-in animation */
+    opacity: 0;
+    transform: translateY(var(--fade-in-translate));
+    animation: fade-in-up-anim var(--fade-duration) var(--fade-easing) 0.7s forwards;
+    will-change: transform, box-shadow; /* Performance hint */
 }
 
 .server-info-box:hover {
     border-color: rgba(var(--primary-light-rgb), 0.5);
-    box-shadow: var(--glass-shadow), 0 5px 15px rgba(0,0,0, 0.4);
+    box-shadow: var(--glass-shadow), 0 8px 25px rgba(0,0,0, 0.5); /* ENHANCED shadow */
+    transform: translateY(-5px) perspective(800px) rotateX(3deg); /* ENHANCED subtle 3D tilt */
 }
 
 .info-item {
@@ -422,19 +469,23 @@ button { border: none; background: none; color: inherit; font: inherit; }
     font-family: var(--ui-font);
     font-size: 1.1rem; /* Slightly larger */
     color: var(--light-muted);
+    transition: color var(--transition-fast); /* NEW transition for text */
+}
+.server-info-box:hover .info-item { /* ENHANCED subtle text color change on container hover */
+    color: var(--light);
 }
 
 .info-item .stat-icon {
     color: var(--primary); /* Icon color */
     font-size: 1.5rem; /* Larger icon */
     flex-shrink: 0;
-    transition: color var(--transition-fast), transform var(--transition-fast), filter var(--transition-fast);
+    transition: color var(--transition-fast), transform var(--transition-bounce), filter var(--transition-fast); /* ENHANCED use bounce */
     filter: drop-shadow(0 0 5px rgba(var(--primary-rgb), 0.5));
 }
-.info-item:hover .stat-icon {
+.info-item:hover .stat-icon { /* ENHANCED interaction */
     color: var(--primary-light);
-    transform: scale(1.15);
-    filter: drop-shadow(0 0 10px rgba(var(--primary-rgb), 0.8));
+    transform: scale(1.2) rotate(-5deg);
+    filter: drop-shadow(0 0 12px rgba(var(--primary-rgb), 0.8));
 }
 
 .info-item .info-value { color: var(--light); font-weight: 600; }
@@ -455,6 +506,10 @@ button { border: none; background: none; color: inherit; font: inherit; }
     color: var(--light-muted);
     opacity: 0.6;
     font-style: normal; /* Remove italic */
+    transition: opacity var(--transition-default);
+}
+.server-info-box:hover .status-last-updated { /* NEW subtle change */
+    opacity: 0.8;
 }
 
 /* Copy IP Button - Cyber Style Redesign */
@@ -479,14 +534,15 @@ button { border: none; background: none; color: inherit; font: inherit; }
     text-shadow: 1px 1px 1px rgba(var(--primary-light-rgb), 0.3);
     box-shadow: var(--button-cyber-shadow);
     transition: background var(--transition-fast), color var(--transition-fast),
-                box-shadow var(--transition-fast), transform var(--transition-fast);
+                box-shadow var(--transition-bounce), transform var(--transition-bounce); /* ENHANCED use bounce */
     user-select: none;
     -webkit-user-select: none;
-    transform: perspective(500px); /* Prepare for 3D effect */
+    transform: perspective(800px); /* ENHANCED perspective */
+    will-change: transform, box-shadow;
 }
 
 .copy-ip-button.stylish .button-content { display: flex; align-items: center; transition: transform 0.3s ease; }
-.copy-ip-button.stylish i { font-size: 1.2em; margin-right: 10px; transition: opacity 0.2s ease, transform 0.3s ease, color var(--transition-fast); flex-shrink: 0; color: inherit; }
+.copy-ip-button.stylish i { font-size: 1.2em; margin-right: 10px; transition: opacity 0.2s ease, transform var(--transition-bounce), color var(--transition-fast); flex-shrink: 0; color: inherit; } /* ENHANCED use bounce */
 .copy-ip-button.stylish .icon-check { opacity: 0; position: absolute; transform: scale(0.7); left: 18px; } /* Adjusted */
 .copy-ip-button.stylish .copy-text, .copy-ip-button.stylish .copied-text { display: inline-block; transition: transform 0.3s ease, opacity 0.2s ease; white-space: nowrap; }
 .copy-ip-button.stylish .copied-text { position: absolute; left: 50%; transform: translate(-50%, 25px); opacity: 0; padding-left: 1.4em; margin-left: -0.7em; }
@@ -496,16 +552,23 @@ button { border: none; background: none; color: inherit; font: inherit; }
 .copy-ip-button.stylish:focus-visible {
     background: linear-gradient(135deg, var(--primary-light), var(--primary));
     color: var(--darker);
-    box-shadow: var(--button-cyber-shadow), var(--glow-primary); /* Add glow */
-    transform: translateY(-2px) rotateX(5deg);
+    box-shadow: var(--button-cyber-shadow), var(--glow-primary-intense); /* ENHANCED glow */
+    transform: translateY(-4px) rotateX(8deg) scale(1.03); /* ENHANCED transform */
+}
+.copy-ip-button.stylish:hover i { /* ENHANCED icon animation */
+     transform: scale(1.1) rotate(-5deg);
 }
 
 /* Active state - Press down effect */
 .copy-ip-button.stylish:active {
-    transform: translateY(2px) rotateX(0deg); /* Simulate press down */
+    transform: translateY(2px) rotateX(2deg) scale(0.98); /* ENHANCED active state */
     box-shadow: var(--button-cyber-shadow-active);
     background: var(--primary-dark);
     color: var(--primary-light);
+    transition-duration: 0.1s; /* Faster transition for active */
+}
+.copy-ip-button.stylish:active i {
+    transform: scale(0.95); /* Icon press */
 }
 
 /* Copied state - Accent color feedback */
@@ -513,17 +576,33 @@ button { border: none; background: none; color: inherit; font: inherit; }
     background: linear-gradient(135deg, var(--accent-light), var(--accent));
     color: var(--darker);
     pointer-events: none;
-    box-shadow: var(--button-cyber-shadow), var(--glow-accent);
-    transform: translateY(0px) rotateX(0deg); /* Reset transform */
+    box-shadow: var(--button-cyber-shadow), var(--glow-accent-intense); /* ENHANCED glow */
+    transform: translateY(0px) rotateX(0deg) scale(1); /* Reset transform */
+    /* NEW Add subtle animation for copied state */
+    animation: copied-state-pulse 0.6s ease-out;
+}
+
+/* NEW Keyframe */
+@keyframes copied-state-pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
 }
 
 .copy-ip-button.stylish.copied .icon-copy { opacity: 0; transform: scale(0.7); }
-.copy-ip-button.stylish.copied .icon-check { opacity: 1; transform: scale(1); position: relative; left: auto; }
+.copy-ip-button.stylish.copied .icon-check { opacity: 1; transform: scale(1); position: relative; left: auto; animation: icon-check-pop 0.3s ease-out 0.1s; } /* NEW icon pop animation */
 .copy-ip-button.stylish.copied .copy-text { transform: translateY(-25px); opacity: 0; }
 .copy-ip-button.stylish.copied .copied-text { transform: translate(-50%, 0); opacity: 1; position: relative; left: auto; padding-left: 0; margin-left: 0; }
 
+/* NEW Keyframe */
+@keyframes icon-check-pop {
+    0% { transform: scale(0.7); }
+    70% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
 
-/* --- 5. Main Content Styles - Sharp & Contrasting --- */
+
+/* --- 5. Main Content Styles - Sharp & Contrasting, Animated Entry --- */
 .main-content {
     padding: var(--space-xl) clamp(2rem, 8vw, 8%);
     max-width: 1800px;
@@ -552,6 +631,10 @@ button { border: none; background: none; color: inherit; font: inherit; }
     text-shadow: 0 0 10px rgba(var(--primary-rgb), 0.6), 0 0 20px rgba(var(--secondary-rgb), 0.4), 3px 3px 5px rgba(0, 0, 0, 0.4);
     background-size: 200% auto;
     animation: logo-gradient-anim 6s linear infinite; /* Re-use logo animation */
+    /* NEW Add fade-in animation */
+    opacity: 0;
+    transform: translateY(var(--fade-in-translate));
+    animation: fade-in-up-anim var(--fade-duration) var(--fade-easing) 0.9s forwards;
 }
 
 /* Underline effect - Animated Gradient */
@@ -566,7 +649,18 @@ button { border: none; background: none; color: inherit; font: inherit; }
     border-radius: 2px;
     background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent), var(--primary));
     background-size: 300% 100%;
-    animation: underline-flow 8s linear infinite;
+    /* ENHANCED animation */
+    animation: underline-flow 6s linear infinite;
+    /* NEW scale animation */
+    transform-origin: center;
+    opacity: 0; /* Start hidden */
+    animation: underline-flow 6s linear infinite, scale-in-underline 0.8s ease-out 1.2s forwards; /* Add delayed scale animation */
+}
+
+/* NEW Keyframe */
+@keyframes scale-in-underline {
+    from { transform: translateX(-50%) scaleX(0.1); opacity: 0; }
+    to { transform: translateX(-50%) scaleX(1); opacity: 1; }
 }
 
 @keyframes underline-flow {
@@ -582,6 +676,10 @@ button { border: none; background: none; color: inherit; font: inherit; }
     margin-bottom: var(--space-lg);
     line-height: 1.8;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    /* NEW Add fade-in animation */
+    opacity: 0;
+    transform: translateY(var(--fade-in-translate));
+    animation: fade-in-up-anim var(--fade-duration) var(--fade-easing) 1.1s forwards; /* Delay after heading */
 }
 
 .season-info {
@@ -594,8 +692,13 @@ button { border: none; background: none; color: inherit; font: inherit; }
     -webkit-backdrop-filter: blur(10px);
     position: relative;
     overflow: hidden; /* Clip gradient border */
-    transition: transform var(--transition-default), box-shadow var(--transition-default);
+    transition: transform var(--transition-bounce), box-shadow var(--transition-default), border-color var(--transition-default); /* ENHANCED transition */
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    /* NEW Add fade-in animation */
+    opacity: 0;
+    transform: scale(0.95); /* Start slightly smaller */
+    animation: fade-scale-in-anim var(--fade-duration) var(--fade-easing) 1.3s forwards; /* Delay after intro para */
+    will-change: transform, box-shadow;
 }
 /* Gradient Border Effect */
 .season-info::before {
@@ -607,17 +710,18 @@ button { border: none; background: none; color: inherit; font: inherit; }
     z-index: -1;
     filter: blur(5px);
     opacity: 0.6;
-    transition: opacity var(--transition-default), filter var(--transition-default);
+    transition: opacity var(--transition-default), filter var(--transition-default), transform var(--transition-default); /* NEW Add transform */
 }
 
 
 .season-info:hover {
-    transform: scale(1.01); /* Subtle scale */
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+    transform: scale(1.03) perspective(1000px) rotateX(2deg); /* ENHANCED 3D scale */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.55); /* ENHANCED Shadow */
 }
 .season-info:hover::before {
     opacity: 1;
-    filter: blur(8px);
+    filter: blur(10px); /* ENHANCED Blur */
+    transform: scale(1.05); /* ENHANCED subtle border pulse */
 }
 
 .season-info h3 {
@@ -628,33 +732,38 @@ button { border: none; background: none; color: inherit; font: inherit; }
     align-items: center;
     gap: var(--space-sm);
     font-family: var(--minecraft-font);
-    transition: color var(--transition-fast);
+    transition: color var(--transition-fast), transform var(--transition-bounce); /* ENHANCED transition */
     text-shadow: var(--text-glow-primary);
 }
 
 .season-info:hover h3 {
     color: var(--light);
+    transform: translateX(5px); /* NEW subtle shift */
 }
 
 .season-info h3 i {
     color: var(--secondary); /* Magenta icon */
     font-size: 1.3em; /* Larger icon */
     filter: drop-shadow(0 0 10px rgba(var(--secondary-rgb), 0.8));
-    transition: transform var(--transition-fast), filter var(--transition-fast);
+    transition: transform var(--transition-bounce-strong), filter var(--transition-fast); /* ENHANCED use strong bounce */
 }
 .season-info:hover h3 i {
-    transform: rotate(5deg) scale(1.15);
-    filter: drop-shadow(0 0 15px rgba(var(--secondary-rgb), 1));
+    transform: rotate(10deg) scale(1.25); /* ENHANCED Interaction */
+    filter: drop-shadow(0 0 18px rgba(var(--secondary-rgb), 1)); /* ENHANCED Glow */
 }
 
 .season-info p {
     color: var(--light);
     font-size: 1.1rem;
     line-height: 1.8;
+    transition: color var(--transition-fast); /* NEW transition */
+}
+.season-info:hover p {
+    color: var(--light-muted); /* NEW subtle change */
 }
 
 
-/* --- 6. Season Filter - Button Redesign (Cyber Style) --- */
+/* --- 6. Season Filter - Button Redesign (Cyber Style, Staggered Entry) --- */
 .season-filter {
     display: flex;
     justify-content: center;
@@ -677,8 +786,15 @@ button { border: none; background: none; color: inherit; font: inherit; }
     letter-spacing: 0.6px;
     text-shadow: 1px 1px 2px rgba(var(--darker-rgb), 0.4);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(var(--light-rgb), 0.05);
-    transition: all var(--transition-fast);
-    transform: perspective(500px);
+    transition: all var(--transition-bounce); /* ENHANCED use bounce */
+    transform: perspective(800px); /* ENHANCED perspective */
+    /* NEW Add fade-in animation (staggered) */
+    opacity: 0;
+    transform: translateY(var(--fade-in-translate));
+    /* Delay is set dynamically via JS or inline style: style="--order: 1;" */
+    animation: fade-in-up-staggered-anim var(--fade-duration) var(--fade-easing) forwards;
+    animation-delay: calc(var(--order, 0) * var(--stagger-delay)); /* Use --order custom property */
+    will-change: transform, box-shadow, opacity;
 }
 
 .season-btn:hover,
@@ -686,8 +802,8 @@ button { border: none; background: none; color: inherit; font: inherit; }
     background: linear-gradient(135deg, var(--primary), var(--primary-dark));
     color: var(--darker);
     border-color: var(--primary);
-    transform: translateY(-3px) rotateX(5deg);
-    box-shadow: 0 5px 15px rgba(var(--primary-rgb), 0.3), inset 0 1px 0 rgba(var(--primary-light-rgb), 0.2);
+    transform: translateY(-5px) rotateX(10deg) scale(1.05); /* ENHANCED transform */
+    box-shadow: 0 8px 18px rgba(var(--primary-rgb), 0.4), inset 0 1px 0 rgba(var(--primary-light-rgb), 0.2), var(--glow-primary); /* ENHANCED shadow */
     text-shadow: none;
 }
 
@@ -695,21 +811,23 @@ button { border: none; background: none; color: inherit; font: inherit; }
     background: linear-gradient(135deg, var(--secondary), var(--secondary-dark)); /* Active color: Magenta */
     color: var(--light);
     border-color: var(--secondary);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), inset 0 2px 5px rgba(var(--darker-rgb), 0.5);
-    transform: translateY(1px) rotateX(0deg);
+    /* ENHANCED active state */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), inset 0 3px 6px rgba(var(--darker-rgb), 0.6), var(--glow-secondary);
+    transform: translateY(1px) rotateX(2deg) scale(0.98);
     pointer-events: none;
     cursor: default;
     text-shadow: 1px 1px 2px rgba(var(--darker-rgb), 0.5);
 }
 
 
-/* --- 7. Gallery Styles - Enhanced 3D & Neon Touches --- */
+/* --- 7. Gallery Styles - Enhanced 3D & Neon Touches, Staggered Entry --- */
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Slightly larger min size */
     gap: 35px; /* Increased gap */
     margin-top: var(--space-lg);
     padding-inline: clamp(1rem, 3vw, 3%);
+    perspective: 1500px; /* NEW Set perspective on the container for children */
 }
 
 .gallery-item {
@@ -720,12 +838,27 @@ button { border: none; background: none; color: inherit; font: inherit; }
     background-color: var(--dark);
     border: 1px solid rgba(var(--primary-light-rgb), 0.15);
     box-shadow: var(--shadow-strong);
-    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1.1), /* Smoother, bouncier */
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.15), /* ENHANCED timing/easing */
                 box-shadow var(--transition-default),
                 border-color var(--transition-default);
     transform-style: preserve-3d;
-    will-change: transform, box-shadow;
+    will-change: transform, box-shadow, opacity; /* Add opacity for fade-in */
+    /* NEW Add fade-in animation (staggered) */
+    opacity: 0;
+    transform: translateY(var(--fade-in-translate)) rotateX(-10deg) scale(0.95); /* Start lower, tilted back */
+    /* Delay set dynamically via JS/inline style: style="--order: 1;" */
+    animation: fade-in-gallery-item-anim var(--fade-duration) var(--fade-easing) forwards;
+    animation-delay: calc(var(--order, 0) * var(--stagger-delay));
 }
+
+/* NEW Keyframe for gallery item entry */
+@keyframes fade-in-gallery-item-anim {
+    to {
+        opacity: 1;
+        transform: translateY(0) rotateX(0deg) scale(1);
+    }
+}
+
 /* Inner shine effect */
 .gallery-item::after {
     content: '';
@@ -734,21 +867,24 @@ button { border: none; background: none; color: inherit; font: inherit; }
     width: 50%; height: 100%;
     background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0) 100%);
     transform: skewX(-25deg);
-    transition: left 0.6s ease-in-out;
-    z-index: 1;
+    transition: left 0.7s cubic-bezier(0.23, 1, 0.32, 1); /* ENHANCED easing */
+    z-index: 2; /* Above image, below overlay content */
     pointer-events: none;
+    mix-blend-mode: overlay; /* NEW blend mode */
 }
 
 
 .gallery-item:hover,
 .gallery-item:focus-within {
-    transform: perspective(1200px) translateY(-12px) rotateX(5deg) rotateY(-4deg) scale(1.04); /* Enhanced 3D */
-    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.5); /* Increased shadow */
+    /* ENHANCED 3D - Deeper perspective, more tilt */
+    transform: perspective(1200px) translateY(-15px) rotateX(8deg) rotateY(-6deg) scale(1.06);
+    box-shadow: var(--shadow-intense); /* ENHANCED Shadow */
     border-color: var(--primary);
     z-index: 10;
 }
 .gallery-item:hover::after {
     left: 125%; /* Swipe shine effect */
+    transition-duration: 0.5s; /* Faster swipe on hover */
 }
 
 
@@ -757,23 +893,27 @@ button { border: none; background: none; color: inherit; font: inherit; }
     width: 100%; height: 100%;
     object-fit: cover;
     filter: brightness(0.8) saturate(1) contrast(1.1); /* Slightly more contrast */
-    transition: transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.5s ease; /* Smoother zoom */
+    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.6s ease; /* ENHANCED Smoother/slower zoom */
+    transform-origin: center center; /* Explicit origin */
 }
 
 .gallery-item:hover img,
 .gallery-item:focus-within img {
-    transform: scale(1.12); /* Increased scale */
-    filter: brightness(1) saturate(1.1) contrast(1.05); /* Enhance vibrancy */
+    transform: scale(1.15); /* ENHANCED scale */
+    filter: brightness(1.05) saturate(1.15) contrast(1.1); /* ENHANCED vibrancy */
+    /* NEW Add subtle chromatic aberration simulation */
+    /* box-shadow: 1px 1px 0 rgba(var(--primary-rgb), 0.3), -1px -1px 0 rgba(var(--secondary-rgb), 0.3); */
 }
 
 /* Overlay - Gradient reveal */
 .gallery-item .item-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(var(--darker-rgb), 0.95) 10%, rgba(var(--darker-rgb), 0.7) 45%, transparent 85%);
+    /* ENHANCED Gradient: starts lower, extends higher */
+    background: linear-gradient(to top, rgba(var(--darker-rgb), 1) 5%, rgba(var(--darker-rgb), 0.8) 50%, transparent 90%);
     opacity: 0;
-    transition: opacity var(--transition-default); /* Smooth fade */
-    z-index: 1; /* Below shine */
+    transition: opacity var(--transition-slow); /* ENHANCED Slower fade */
+    z-index: 3; /* Above shine */
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -799,13 +939,15 @@ button { border: none; background: none; color: inherit; font: inherit; }
     border: none;
     border-radius: 50%; /* Circular button */
     font-size: 1.8rem;
-    box-shadow: 0 3px 0 0 rgba(var(--accent-dark-rgb), 0.8), 0 5px 10px rgba(0,0,0,0.4); /* Cyber shadow */
+    /* ENHANCED Cyber Shadow */
+    box-shadow: 0 3px 0 0 rgba(var(--accent-dark-rgb), 0.8), 0 6px 12px rgba(0,0,0,0.45);
     opacity: 0;
-    transform: translateY(40px) scale(0.7);
-    transition: opacity 0.3s ease 0.1s, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.1s, /* Bounce in */
+    transform: translateY(50px) scale(0.6); /* Start further down and smaller */
+    transition: opacity 0.4s ease 0.15s, transform 0.4s var(--transition-bounce-strong) 0.15s, /* ENHANCED Bounce in */
                 background var(--transition-fast), box-shadow var(--transition-fast);
-    z-index: 3; /* Above overlay */
+    z-index: 4; /* Above overlay gradient */
     pointer-events: none;
+    will-change: transform, opacity;
 }
 
 .gallery-item:hover .view-btn,
@@ -818,14 +960,15 @@ button { border: none; background: none; color: inherit; font: inherit; }
 .gallery-item .view-btn:hover,
 .gallery-item .view-btn:focus-visible {
     background: var(--accent-light);
-    transform: scale(1.1) !important; /* Pop */
-    box-shadow: 0 3px 0 0 rgba(var(--accent-dark-rgb), 0.8), 0 8px 15px rgba(var(--accent-rgb), 0.5); /* Glow */
+    transform: scale(1.15) !important; /* ENHANCED Pop */
+    box-shadow: 0 3px 0 0 rgba(var(--accent-dark-rgb), 0.8), 0 10px 20px rgba(var(--accent-rgb), 0.6), var(--glow-accent); /* ENHANCED Glow */
 }
 .gallery-item .view-btn:active {
-    transform: translateY(2px) scale(1.05) !important;
+    transform: translateY(2px) scale(1.08) !important; /* ENHANCED Active state */
     box-shadow: inset 0 2px 4px rgba(var(--darker-rgb), 0.6), 0 2px 5px rgba(0,0,0,0.3);
     background: var(--accent-dark);
     color: var(--accent-light);
+    transition-duration: 0.1s;
 }
 
 
@@ -840,10 +983,35 @@ button { border: none; background: none; color: inherit; font: inherit; }
     font-size: 0.9rem;
     font-weight: 700; /* Bold */
     text-shadow: none;
-    z-index: 2; /* Below shine */
+    z-index: 1; /* Below shine */
     clip-path: polygon(0 0, 100% 0, calc(100% - 15px) 100%, 0 100%); /* Angled cut */
     box-shadow: 2px 2px 5px rgba(0,0,0, 0.3);
+    /* NEW Subtle pop-in animation */
+    transform-origin: left center;
+    transform: scaleX(0);
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1) 0.4s; /* Delayed pop-in */
 }
+/* Make visible when gallery item animates in */
+.gallery-item.fade-in-gallery-item-anim-applied .season-tag { /* Needs JS to add class when animation ends */
+     transform: scaleX(1);
+}
+/* Or simplify: Animate with the item itself (less delay control) */
+.gallery-item { /* Add this if not using JS class */
+    /* ... existing styles ... */
+    /* Apply tag animation as part of item entry */
+}
+.gallery-item .season-tag { /* If animating with item */
+    /* ... existing styles ... */
+    opacity: 0; /* Start hidden */
+    transform: translateX(-20px);
+    transition: opacity 0.4s ease 0.5s, transform 0.4s ease 0.5s; /* Delay */
+}
+/* When item is visible */
+.gallery-item:not([style*='opacity: 0']) .season-tag { /* Check if opacity animation is done (approx) */
+    opacity: 1;
+    transform: translateX(0);
+}
+
 
 /* Specific Season Tag Styles - Vibrant Colors */
 .season-tag.s1 { background: var(--s1-color); color: #6f4e00; }
@@ -852,7 +1020,7 @@ button { border: none; background: none; color: inherit; font: inherit; }
 .season-tag.s4 { background: var(--s4-color); color: var(--darker); box-shadow: 2px 2px 8px rgba(var(--s4-color-rgb), 0.4); }
 
 
-/* --- 8. Lightbox Styles - Sleek Glassmorphism --- */
+/* --- 8. Lightbox Styles - Sleek Glassmorphism, Smooth Transitions --- */
 .lightbox {
     position: fixed;
     inset: 0;
@@ -863,16 +1031,28 @@ button { border: none; background: none; color: inherit; font: inherit; }
     z-index: 1000;
     opacity: 0;
     visibility: hidden;
-    transition: opacity var(--transition-default), visibility 0s linear var(--transition-default);
-    backdrop-filter: blur(var(--glass-blur));
-    -webkit-backdrop-filter: blur(var(--glass-blur));
+    /* ENHANCED Transition: Faster opacity, delayed visibility, includes backdrop */
+    transition: opacity 0.4s var(--fade-easing), visibility 0s linear 0.4s, backdrop-filter 0.4s var(--fade-easing);
+    backdrop-filter: blur(0px); /* Start with no blur */
+    -webkit-backdrop-filter: blur(0px);
 }
 
 .lightbox.active {
     opacity: 1;
     visibility: visible;
     transition-delay: 0s;
+    backdrop-filter: blur(var(--glass-blur)); /* Animate blur in */
+    -webkit-backdrop-filter: blur(var(--glass-blur));
 }
+
+/* NEW Fade-out class for lightbox */
+.lightbox.fade-out {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    transition: opacity 0.4s var(--fade-easing), visibility 0s linear 0.4s, backdrop-filter 0.4s var(--fade-easing);
+}
+
 
 .lightbox-content {
     position: relative;
@@ -882,7 +1062,21 @@ button { border: none; background: none; color: inherit; font: inherit; }
     flex-direction: column;
     align-items: center;
     gap: var(--space-md);
+    /* NEW Add scale/fade animation to content */
+    transform: scale(0.9);
+    opacity: 0;
+    transition: transform 0.4s var(--transition-bounce-strong) 0.1s, opacity 0.4s var(--fade-easing) 0.1s;
 }
+.lightbox.active .lightbox-content {
+    transform: scale(1);
+    opacity: 1;
+}
+.lightbox.fade-out .lightbox-content {
+    transform: scale(0.9);
+    opacity: 0;
+    transition: transform 0.3s ease-in, opacity 0.3s ease-in; /* Faster fade out */
+}
+
 
 .lightbox-image-wrapper {
     position: relative;
@@ -899,19 +1093,29 @@ button { border: none; background: none; color: inherit; font: inherit; }
     max-height: 85vh;
     object-fit: contain;
     border-radius: 8px;
-    box-shadow: var(--shadow-strong), 0 0 30px rgba(0,0,0, 0.5); /* Stronger shadow */
+    box-shadow: var(--shadow-intense), 0 0 40px rgba(0,0,0, 0.6); /* ENHANCED Shadow */
     border: 1px solid rgba(var(--primary-light-rgb), 0.2); /* Subtle border */
-    transition: opacity 0.4s ease;
+    transition: opacity 0.5s ease 0.1s; /* ENHANCED Smoother transition */
     user-select: none;
     -webkit-user-select: none;
+    /* NEW Settle effect */
+    transform: scale(1.05);
+    opacity: 0;
 }
+/* Apply final state when not loading and lightbox is active */
+.lightbox.active .lightbox-img:not(.loading) {
+    transform: scale(1);
+    opacity: 1;
+    transition: opacity 0.5s ease 0.1s, transform 0.6s cubic-bezier(0.23, 1, 0.32, 1) 0.1s; /* Settle transition */
+}
+
 
 /* Lightbox Loader (Spinner) - Vibrant */
 .lightbox-loader {
     position: absolute; inset: 0; display: flex; justify-content: center; align-items: center; z-index: 1; opacity: 0; transition: opacity 0.3s ease; pointer-events: none;
 }
-.lightbox-img.loading + .lightbox-loader { opacity: 1; }
-.lightbox-img.loading { opacity: 0; }
+.lightbox-img.loading + .lightbox-loader { opacity: 1; transition-delay: 0.2s; } /* Delay showing loader slightly */
+.lightbox-img.loading { opacity: 0; transform: scale(1); } /* Prevent scaling animation while loading */
 
 /* Spinner element - Dual color */
 .lightbox-loader::after {
@@ -945,16 +1149,25 @@ button { border: none; background: none; color: inherit; font: inherit; }
     box-shadow: var(--glass-shadow);
     opacity: 0;
     visibility: hidden;
-    transform: translateY(15px);
-    transition: opacity var(--transition-fast), transform var(--transition-fast), visibility 0s linear var(--transition-fast);
+    transform: translateY(20px) scale(0.9); /* ENHANCED Start lower and smaller */
+    transition: opacity var(--transition-fast) 0.2s, transform var(--transition-bounce) 0.2s, visibility 0s linear calc(var(--transition-default) + 0.2s); /* ENHANCED Transition */
 }
-.lightbox-caption.visible { opacity: 1; transform: translateY(0); visibility: visible; transition-delay: 0s; }
+.lightbox-caption.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    visibility: visible;
+    transition-delay: 0s;
+}
 
 .lightbox-caption i {
     color: var(--primary); /* Primary color */
     font-size: 1.3em;
     filter: drop-shadow(0 0 6px rgba(var(--primary-rgb), 0.7));
     flex-shrink: 0;
+    transition: transform var(--transition-bounce); /* NEW transition */
+}
+.lightbox-caption:hover i { /* NEW subtle interaction */
+    transform: scale(1.1);
 }
 
 .lightbox-counter {
@@ -969,9 +1182,9 @@ button { border: none; background: none; color: inherit; font: inherit; }
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     opacity: 0;
     visibility: hidden;
-    transition: opacity var(--transition-fast);
+    transition: opacity var(--transition-fast) 0.2s; /* ENHANCED Delayed fade */
 }
-.lightbox-counter.visible { opacity: 1; visibility: visible; }
+.lightbox-counter.visible { opacity: 1; visibility: visible; transition-delay: 0s; }
 
 
 /* Lightbox Close Button - Minimal & Clean */
@@ -992,21 +1205,36 @@ button { border: none; background: none; color: inherit; font: inherit; }
     box-shadow: var(--glass-shadow);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    transition: all var(--transition-fast);
+    transition: all var(--transition-bounce); /* ENHANCED use bounce */
     user-select: none; -webkit-user-select: none;
+    /* NEW Entry animation */
+    opacity: 0;
+    transform: scale(0.8) rotate(-90deg);
 }
+.lightbox.active .lightbox-close {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    transition: all var(--transition-bounce) 0.3s; /* Delayed entry */
+}
+.lightbox.fade-out .lightbox-close {
+    opacity: 0;
+    transform: scale(0.8) rotate(90deg);
+    transition: all 0.3s ease-in; /* Faster fade out */
+}
+
 
 .lightbox-close:hover,
 .lightbox-close:focus-visible {
-    transform: rotate(90deg) scale(1.1);
+    transform: rotate(90deg) scale(1.15); /* ENHANCED Transform */
     color: var(--status-offline); /* Error red */
     background: rgba(var(--dark-rgb), 0.9);
-    box-shadow: var(--glass-shadow), 0 0 15px rgba(var(--status-offline-rgb), 0.6);
+    box-shadow: var(--glass-shadow), 0 0 18px rgba(var(--status-offline-rgb), 0.7); /* ENHANCED Glow */
     border-color: rgba(var(--status-offline-rgb), 0.5);
 }
 .lightbox-close:active {
-     transform: rotate(90deg) scale(1.05) translateY(1px);
+     transform: rotate(90deg) scale(1.08) translateY(1px); /* ENHANCED Active state */
      box-shadow: inset 0 1px 3px rgba(var(--darker-rgb), 0.6);
+     transition-duration: 0.1s;
 }
 
 
@@ -1020,9 +1248,14 @@ button { border: none; background: none; color: inherit; font: inherit; }
     z-index: 1001;
     pointer-events: none;
     opacity: 0; visibility: hidden;
-    transition: opacity 0.3s ease 0.2s, visibility 0s linear 0.5s;
+    transition: opacity 0.4s ease 0.4s, visibility 0s linear 0.8s; /* ENHANCED Delayed entry */
 }
-.lightbox.active .lightbox-nav.visible { opacity: 1; visibility: visible; }
+.lightbox.active .lightbox-nav.visible { opacity: 1; visibility: visible; transition-delay: 0s; }
+.lightbox.fade-out .lightbox-nav { /* NEW Fade out */
+    opacity: 0;
+    transition: opacity 0.3s ease-in, visibility 0s linear 0.3s;
+}
+
 
 .lightbox-nav-btn {
     width: 55px; /* Larger */
@@ -1038,28 +1271,46 @@ button { border: none; background: none; color: inherit; font: inherit; }
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     pointer-events: auto;
-    transition: all var(--transition-fast);
+    transition: all var(--transition-bounce); /* ENHANCED use bounce */
     user-select: none; -webkit-user-select: none;
+    /* NEW Slide-in animation */
+    transform: scale(0.8);
+    opacity: 0; /* Start hidden if animating individually */
 }
+/* Apply slide based on button type within visible nav */
+.lightbox.active .lightbox-nav.visible .lightbox-prev {
+    opacity: 1;
+    transform: translateX(-20px) scale(0.8); /* Start offset */
+    animation: slide-in-left 0.5s var(--transition-bounce) 0.5s forwards; /* Delay */
+}
+.lightbox.active .lightbox-nav.visible .lightbox-next {
+    opacity: 1;
+    transform: translateX(20px) scale(0.8); /* Start offset */
+    animation: slide-in-right 0.5s var(--transition-bounce) 0.5s forwards; /* Delay */
+}
+/* NEW Keyframes for nav buttons */
+@keyframes slide-in-left { to { transform: translateX(0) scale(1); opacity: 1; } }
+@keyframes slide-in-right { to { transform: translateX(0) scale(1); opacity: 1; } }
 
 .lightbox-nav-btn:hover,
 .lightbox-nav-btn:focus-visible {
     background: rgba(var(--dark-rgb), 0.8);
-    transform: scale(1.08);
+    transform: scale(1.12); /* ENHANCED transform */
     opacity: 1;
-    box-shadow: var(--glass-shadow), 0 0 15px rgba(var(--primary-rgb), 0.5);
+    box-shadow: var(--glass-shadow), 0 0 18px rgba(var(--primary-rgb), 0.6), var(--glow-primary); /* ENHANCED Glow */
     border-color: rgba(var(--primary-rgb), 0.4);
     color: var(--primary); /* Primary color */
 }
 .lightbox-nav-btn:active {
-     transform: scale(1.03) translateY(1px);
+     transform: scale(1.05) translateY(1px); /* ENHANCED Active state */
      box-shadow: inset 0 1px 3px rgba(var(--darker-rgb), 0.6);
+     transition-duration: 0.1s;
 }
 
-.lightbox-nav-btn.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.lightbox-nav-btn.hidden { opacity: 0 !important; visibility: hidden; pointer-events: none; transform: scale(0.8) !important; transition-duration: 0.2s !important; } /* Ensure hidden class overrides animations */
 
 
-/* --- 9. Footer Styles - Glassmorphic Footer, Gradient Buttons --- */
+/* --- 9. Footer Styles - Glassmorphic Footer, Gradient Buttons, Subtle Animation --- */
 .site-footer {
     background: rgba(var(--darker-rgb), 0.6); /* Glassmorphism base */
     padding: var(--space-xl) var(--space-sm) var(--space-lg);
@@ -1070,6 +1321,7 @@ button { border: none; background: none; color: inherit; font: inherit; }
     position: relative;
     backdrop-filter: blur(var(--glass-blur));
     -webkit-backdrop-filter: blur(var(--glass-blur));
+    overflow: hidden; /* NEW hide overflow for pseudo elements */
 }
 /* Inner glow */
 .site-footer::before {
@@ -1079,6 +1331,13 @@ button { border: none; background: none; color: inherit; font: inherit; }
     border-top: 1px solid rgba(var(--primary-light-rgb), 0.1);
     pointer-events: none;
     z-index: 1;
+    /* NEW Subtle pulse like header */
+    animation: footer-glow-pulse 12s infinite alternate ease-in-out;
+}
+/* NEW Keyframe */
+@keyframes footer-glow-pulse {
+    from { border-top-color: rgba(var(--primary-light-rgb), 0.1); box-shadow: inset 0 2px 10px -5px rgba(var(--primary-rgb), 0.1); }
+    to { border-top-color: rgba(var(--primary-light-rgb), 0.2); box-shadow: inset 0 3px 15px -5px rgba(var(--primary-rgb), 0.3); }
 }
 
 .footer-container {
@@ -1097,6 +1356,10 @@ button { border: none; background: none; color: inherit; font: inherit; }
     margin-inline: auto;
     line-height: 1.7;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    /* NEW Fade-in (use utility class) */
+    opacity: 0;
+    transform: translateY(var(--fade-in-translate));
+    animation: fade-in-up-anim var(--fade-duration) var(--fade-easing) 0.2s forwards;
 }
 
 .social-links {
@@ -1124,41 +1387,70 @@ button { border: none; background: none; color: inherit; font: inherit; }
     border: none;
     text-shadow: 1px 1px 2px rgba(var(--darker-rgb), 0.4);
     box-shadow: var(--button-cyber-shadow); /* Re-use cyber shadow base */
-    transition: all var(--transition-fast);
+    transition: all var(--transition-bounce); /* ENHANCED use bounce */
     position: relative;
     overflow: hidden; /* For pseudo-element effects */
-    transform: perspective(500px);
+    transform: perspective(1000px); /* ENHANCED perspective */
+    /* NEW Fade-in (staggered) */
+    opacity: 0;
+    transform: translateY(var(--fade-in-translate)) scale(0.95);
+    animation: fade-in-up-staggered-anim var(--fade-duration) var(--fade-easing) 0.4s forwards; /* Delay after intro */
+    animation-delay: calc(var(--order, 0) * var(--stagger-delay)); /* Needs --order set */
+    will-change: transform, box-shadow, opacity;
 }
 /* Default Gradient Background */
 .social-btn {
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     box-shadow: 0 3px 0 0 rgba(var(--secondary-dark-rgb), 0.8), 0 5px 8px rgba(0, 0, 0, 0.3);
 }
+/* NEW Subtle background animation */
+.social-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.1) 75%, transparent 75%, transparent 100%);
+    background-size: 30px 30px;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+    z-index: 0;
+    animation: social-btn-scan 5s linear infinite paused; /* Paused by default */
+}
+@keyframes social-btn-scan { from { background-position: 0 0; } to { background-position: 60px 0; } }
+.social-btn:hover::after {
+    opacity: 0.3;
+    animation-play-state: running; /* Run animation on hover */
+}
 
 
 .social-btn i {
     margin-right: 12px;
     font-size: 1.4rem;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* ENHANCED Bounce */
+    position: relative; /* Needed for z-index */
+    z-index: 1;
+}
+.social-btn span { /* Wrap text in span if needed */
+    position: relative; z-index: 1;
 }
 
 /* Hover/Focus - Brighter Gradient, Lift, Glow */
 .social-btn:hover,
 .social-btn:focus-visible {
-    transform: translateY(-4px) rotateX(6deg);
-    box-shadow: 0 3px 0 0 rgba(var(--secondary-dark-rgb), 0.8), 0 8px 20px rgba(var(--primary-rgb), 0.4);
+    transform: translateY(-6px) rotateX(12deg) scale(1.05); /* ENHANCED transform */
+    box-shadow: 0 3px 0 0 rgba(var(--secondary-dark-rgb), 0.8), 0 12px 25px rgba(var(--primary-rgb), 0.5), var(--glow-primary-intense); /* ENHANCED shadow/glow */
     background: linear-gradient(135deg, var(--primary-light), var(--secondary-light));
     color: var(--darker);
 }
 .social-btn:hover i,
 .social-btn:focus-visible i {
-    transform: scale(1.1);
+    transform: scale(1.15) rotate(-5deg); /* ENHANCED icon animation */
 }
 /* Active State - Press Down */
 .social-btn:active {
-    transform: translateY(2px) rotateX(0deg);
+    transform: translateY(2px) rotateX(3deg) scale(0.98); /* ENHANCED active state */
     box-shadow: var(--button-cyber-shadow-active);
     color: var(--light);
+    transition-duration: 0.1s;
 }
 
 
@@ -1169,7 +1461,7 @@ button { border: none; background: none; color: inherit; font: inherit; }
 }
 .social-btn.discord:hover, .social-btn.discord:focus-visible {
     background: linear-gradient(135deg, #7289DA, #99aab5);
-    box-shadow: 0 3px 0 0 #4752c4, 0 8px 20px rgba(88, 101, 242, 0.4);
+    box-shadow: 0 3px 0 0 #4752c4, 0 12px 25px rgba(88, 101, 242, 0.5), 0 0 15px rgba(88, 101, 242, 0.6);
 }
 
 .social-btn.whatsapp {
@@ -1178,7 +1470,7 @@ button { border: none; background: none; color: inherit; font: inherit; }
 }
 .social-btn.whatsapp:hover, .social-btn.whatsapp:focus-visible {
     background: linear-gradient(135deg, #128C7E, #075e54);
-    box-shadow: 0 3px 0 0 #075e54, 0 8px 20px rgba(37, 211, 102, 0.4);
+    box-shadow: 0 3px 0 0 #075e54, 0 12px 25px rgba(37, 211, 102, 0.5), 0 0 15px rgba(37, 211, 102, 0.6);
 }
 
 .social-btn.server {
@@ -1189,7 +1481,7 @@ button { border: none; background: none; color: inherit; font: inherit; }
 .social-btn.server:hover, .social-btn.server:focus-visible {
      background: linear-gradient(135deg, var(--accent-light), var(--accent));
      color: var(--darker);
-     box-shadow: 0 3px 0 0 var(--accent-dark), 0 8px 20px rgba(var(--accent-rgb), 0.4);
+     box-shadow: 0 3px 0 0 var(--accent-dark), 0 12px 25px rgba(var(--accent-rgb), 0.5), var(--glow-accent-intense);
 }
 .social-btn.server:active {
     color: var(--accent-light);
@@ -1200,27 +1492,44 @@ button { border: none; background: none; color: inherit; font: inherit; }
     font-size: 0.9rem;
     margin-top: var(--space-lg);
     opacity: 0.6; /* Less prominent */
+    transition: opacity var(--transition-default), color var(--transition-default); /* NEW transition */
+     /* NEW Fade-in (use utility class) */
+    opacity: 0;
+    transform: translateY(var(--fade-in-translate));
+    animation: fade-in-up-anim var(--fade-duration) var(--fade-easing) 0.8s forwards; /* Delay after buttons */
+}
+.site-footer:hover .copyright { /* NEW Subtle effect on footer hover */
+    opacity: 0.8;
+    color: var(--light);
 }
 
 
-/* --- 10. Loader Animation - Modernized Cube --- */
+/* --- 10. Loader Animation - Modernized Cube, Enhanced Visuals --- */
 .loader {
     position: fixed; inset: 0;
     background: var(--darker); /* Solid dark background */
     display: flex; flex-direction: column; justify-content: center; align-items: center;
     z-index: 9999;
-    opacity: 0; visibility: hidden; pointer-events: none;
-    transition: opacity 0.5s ease-out, visibility 0s linear 0.5s; /* Slightly faster fade */
+    opacity: 1; /* Start visible */
+    visibility: visible;
+    pointer-events: auto; /* Start interactable (to block clicks) */
+    /* ENHANCED Transition for fade-out */
+    transition: opacity 0.6s ease-in, visibility 0s linear 0.6s;
     will-change: opacity;
 }
-.loader.active { opacity: 1; visibility: visible; transition-delay: 0s, 0s; pointer-events: auto; }
+/* Active state is default, inactive state is when hidden */
+.loader:not(.active) {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
 
 /* Minecraft Block Loader - Modernized */
 .minecraft-block-loader {
     width: 100px; height: 100px;
     position: relative;
     transform-style: preserve-3d;
-    animation: rotate3D-alt 6s infinite linear; /* Slower, smoother rotation */
+    animation: rotate3D-alt 5s infinite linear; /* ENHANCED Faster rotation */
 }
 
 @keyframes rotate3D-alt { /* Alternate rotation */
@@ -1240,6 +1549,8 @@ button { border: none; background: none; color: inherit; font: inherit; }
     box-shadow: inset 0 0 15px rgba(var(--darker-rgb), 0.5);
     backdrop-filter: blur(2px);
     transition: background 0.3s ease;
+    /* NEW Add pulsing light effect */
+    animation: block-face-pulse 2s infinite alternate ease-in-out;
 }
 /* Add wireframe effect */
 .block-face::before, .block-face::after {
@@ -1247,6 +1558,7 @@ button { border: none; background: none; color: inherit; font: inherit; }
     position: absolute;
     background-color: rgba(var(--primary-light-rgb), 0.4);
     opacity: 0.6;
+    transition: background-color 0.3s ease; /* NEW transition */
 }
 .block-face::before { /* Horizontal lines */
     width: 100%; height: 1px; top: 33%; left: 0;
@@ -1256,6 +1568,14 @@ button { border: none; background: none; color: inherit; font: inherit; }
     width: 1px; height: 100%; left: 33%; top: 0;
     box-shadow: 33px 0 0 rgba(var(--primary-light-rgb), 0.4);
 }
+
+/* NEW Keyframe for pulsing face light */
+@keyframes block-face-pulse {
+    from { background-color: rgba(var(--primary-rgb), 0.5); border-color: rgba(var(--primary-light-rgb), 0.3); box-shadow: inset 0 0 15px rgba(var(--darker-rgb), 0.5); }
+    to   { background-color: rgba(var(--secondary-rgb), 0.5); border-color: rgba(var(--secondary-light-rgb), 0.3); box-shadow: inset 0 0 20px rgba(var(--darker-rgb), 0.7); }
+}
+/* Slightly offset animation start for different faces */
+.face-back, .face-left, .face-bottom { animation-delay: -1s; }
 
 
 /* Cube face positioning */
@@ -1276,7 +1596,7 @@ button { border: none; background: none; color: inherit; font: inherit; }
     text-align: center;
     letter-spacing: 2px;
     text-shadow: 0 0 10px rgba(var(--primary-rgb), 0.7), 0 0 15px rgba(var(--primary-rgb), 0.5); /* Primary glow */
-    animation: pulse-text-alt 1.8s infinite ease-in-out alternate;
+    animation: pulse-text-alt 1.5s infinite ease-in-out alternate; /* ENHANCED speed */
     user-select: none; -webkit-user-select: none;
 }
 
@@ -1287,6 +1607,7 @@ button { border: none; background: none; color: inherit; font: inherit; }
 
 
 /* --- 11. Particle Background - Electric Grid Dust --- */
+/* Requires JavaScript for creation and animation control */
 .particle-background {
     position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden;
 }
@@ -1301,21 +1622,22 @@ button { border: none; background: none; color: inherit; font: inherit; }
     transform: scale(0.1); /* Start very small */
     pointer-events: none;
     /* Add variation possibility - JS can add classes .p-cyan, .p-magenta etc. */
+    /* Animation is controlled by JS (setting properties and adding/removing classes) */
 }
 .particle.p-magenta { background-color: rgba(var(--secondary-rgb), 0.6); box-shadow: 0 0 8px rgba(var(--secondary-rgb), 0.5), 0 0 12px rgba(var(--primary-rgb), 0.3); }
 .particle.p-lime { background-color: rgba(var(--accent-rgb), 0.6); box-shadow: 0 0 8px rgba(var(--accent-rgb), 0.5), 0 0 12px rgba(var(--primary-rgb), 0.3); }
 
-/* Dynamic animation - Faster, more variation */
+/* Example CSS animation (JS might override or use different logic) */
 @keyframes float {
-    0% { transform: translate(0, 0) scale(0.1); opacity: 0; }
+    0% { transform: translate(var(--x-start, 0), var(--y-start, 0)) scale(0.1); opacity: 0; }
     15% { opacity: 0.8; } /* Fade in quickly */
-    50% { transform: translate(var(--x-mid), var(--y-mid)) scale(var(--scale-mid, 0.7)); opacity: 1; } /* JS can set --scale-mid */
+    50% { transform: translate(var(--x-mid), var(--y-mid)) scale(var(--scale-mid, 0.7)); opacity: 1; } /* JS sets vars */
     85% { opacity: 0.4; } /* Fade out slower */
     100% { transform: translate(var(--x-end), var(--y-end)) scale(0.1); opacity: 0; }
 }
 
 
-/* --- 12. Music Controls - Floating Glassmorphic Controls --- */
+/* --- 12. Music Controls - Floating Glassmorphic Controls, Enhanced Feedback --- */
 .music-toggle-btn {
     position: fixed;
     bottom: 25px; /* Positioned slightly higher */
@@ -1333,8 +1655,13 @@ button { border: none; background: none; color: inherit; font: inherit; }
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     opacity: 0.9;
-    transition: all var(--transition-fast);
+    transition: all var(--transition-bounce); /* ENHANCED use bounce */
     user-select: none; -webkit-user-select: none;
+    /* NEW Entry animation */
+    transform: translateX(-100px) rotate(-90deg);
+    opacity: 0;
+    animation: slide-in-left 0.6s var(--transition-bounce) 1.5s forwards; /* Delayed entry */
+    will-change: transform, box-shadow;
 }
 
 .music-toggle-btn:hover,
@@ -1342,25 +1669,39 @@ button { border: none; background: none; color: inherit; font: inherit; }
     background: rgba(var(--dark-rgb), 0.8);
     color: var(--primary); /* Primary color */
     border-color: rgba(var(--primary-rgb), 0.5);
-    transform: scale(1.12); /* More pop */
-    box-shadow: var(--glass-shadow), 0 0 15px rgba(var(--primary-rgb), 0.6); /* Glow */
+    transform: scale(1.15) rotate(10deg); /* ENHANCED pop and rotate */
+    box-shadow: var(--glass-shadow), var(--glow-primary-intense); /* ENHANCED Glow */
     opacity: 1;
 }
 .music-toggle-btn:active {
-     transform: scale(1.05) translateY(1px);
+     transform: scale(1.08) translateY(1px) rotate(5deg); /* ENHANCED Active state */
      box-shadow: inset 0 1px 4px rgba(var(--darker-rgb), 0.7);
+     transition-duration: 0.1s;
 }
 
-.music-toggle-btn i { transition: transform 0.1s ease-out, color 0.3s ease, filter 0.3s ease; will-change: transform; display: inline-block; }
+.music-toggle-btn i {
+    transition: transform 0.2s ease-out, color 0.3s ease, filter 0.3s ease, opacity 0.3s ease; /* Add opacity */
+    will-change: transform; display: inline-block;
+    position: absolute; /* Allow icons to overlap for transition */
+}
+.music-toggle-btn .fa-volume-up { opacity: 0; transform: scale(0.8); }
+.music-toggle-btn .fa-volume-mute { opacity: 1; transform: scale(1); }
 
 /* Style when music is playing - Neon Accent */
-.music-toggle-btn.playing i {
+.music-toggle-btn.playing {
+    /* Optional: Change hover color when playing */
+    /* &:hover, &:focus-visible { color: var(--accent); border-color: rgba(var(--accent-rgb), 0.5); box-shadow: var(--glass-shadow), var(--glow-accent-intense); } */
+}
+.music-toggle-btn.playing .fa-volume-up {
+    opacity: 1;
+    transform: scale(1);
     color: var(--accent); /* Lime green when playing */
     filter: drop-shadow(0 0 10px rgba(var(--accent-rgb), 0.8));
 }
-
-.music-toggle-btn.pulsing-sync i { /* JS controls scale */ }
-.music-toggle-btn:not(.playing) .fa-volume-mute { color: var(--light-muted); }
+.music-toggle-btn.playing .fa-volume-mute {
+    opacity: 0;
+    transform: scale(0.8);
+}
 
 
 /* Song Notification - Glassmorphism */
@@ -1382,25 +1723,42 @@ button { border: none; background: none; color: inherit; font: inherit; }
     -webkit-backdrop-filter: blur(8px);
     border: 1px solid var(--glass-border);
     opacity: 0; visibility: hidden;
-    transform: translateX(30px);
-    transition: all var(--transition-fast);
+    transform: translateX(50px) scale(0.9); /* ENHANCED Start offset and small */
+    transition: all var(--transition-bounce-strong) 0.2s; /* ENHANCED Transition */
     pointer-events: none;
+    will-change: transform, opacity;
 }
 
-.song-notification.visible { opacity: 1; visibility: visible; transform: translateX(0); transition-delay: 0s; }
+.song-notification.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0) scale(1);
+    transition-delay: 0s;
+}
+/* NEW Fade-out state */
+.song-notification:not(.visible) {
+    opacity: 0;
+    transform: translateX(50px) scale(0.9);
+    visibility: hidden;
+    transition: all 0.3s ease-in 0s; /* Faster fade out */
+}
 
 .song-notification .song-status-icon {
     font-size: 1.2em;
     color: var(--accent); /* Lime icon */
     flex-shrink: 0;
     filter: drop-shadow(0 0 6px rgba(var(--accent-rgb), 0.6));
+    transition: transform var(--transition-bounce); /* NEW transition */
+    animation: icon-pulse 1.5s infinite ease-in-out alternate; /* NEW pulse */
 }
+@keyframes icon-pulse { from { transform: scale(1); } to { transform: scale(1.1); } }
+
 
 .song-notification .song-info { overflow: hidden; white-space: nowrap; }
 .song-notification .song-title { display: block; font-weight: 600; color: var(--light); text-overflow: ellipsis; overflow: hidden; }
 
 
-/* --- 13. Temporary Message Area - Glassmorphic Alerts --- */
+/* --- 13. Temporary Message Area - Glassmorphic Alerts, Enhanced Entry/Exit --- */
 #temp-message-area {
     position: fixed;
     bottom: 85px; /* Above music controls */
@@ -1425,12 +1783,22 @@ button { border: none; background: none; color: inherit; font: inherit; }
     border: 1px solid var(--glass-border);
     border-left-width: 5px; /* Keep colored border prominent */
     opacity: 0;
-    transform: translateX(-30px) scale(0.95); /* Slide and scale in */
-    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bounce */
+    /* ENHANCED Entry Animation */
+    transform: translateX(-40px) scale(0.9);
+    transition: opacity 0.5s var(--fade-easing), transform 0.5s var(--transition-bounce-strong); /* Use strong bounce */
     pointer-events: auto;
     word-wrap: break-word; white-space: normal;
+    will-change: transform, opacity;
 }
 .temp-message.visible { opacity: 1; transform: translateX(0) scale(1); }
+
+/* NEW Fade-out class for Temp Message (applied by JS before removal) */
+.temp-message.fade-out {
+    opacity: 0;
+    transform: translateX(40px) scale(0.9); /* Fade out to the right */
+    transition: opacity 0.4s ease-in, transform 0.4s ease-in;
+}
+
 
 /* Status variations - Vibrant Borders */
 .temp-message.error { border-left-color: var(--status-error); background-color: rgba(var(--status-error-rgb), 0.15); color: var(--status-offline); border-color: rgba(var(--status-error-rgb), 0.3); }
@@ -1438,17 +1806,53 @@ button { border: none; background: none; color: inherit; font: inherit; }
 .temp-message.info { border-left-color: var(--status-info); }
 
 
-/* --- 14. Utility Classes - Smooth Animations --- */
+/* --- 14. Utility Classes - Smooth Animations (Fade Variations, Staggering) --- */
 
-/* Fade-in Scroll Animation - Smoother Ease */
+/* Base Fade-in (used by JS or directly) */
 .fade-in {
     opacity: 0;
-    transform: translateY(40px); /* More translation */
-    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-                transform 0.9s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth ease-out */
+    transform: translateY(var(--fade-in-translate));
+    transition: opacity var(--fade-duration) var(--fade-easing),
+                transform var(--fade-duration) var(--fade-easing);
     will-change: opacity, transform;
 }
 .fade-in.is-visible { opacity: 1; transform: translateY(0); }
+
+/* NEW Directional Fade-in Keyframes (can be used by other animations) */
+@keyframes fade-in-up-anim {
+    from { opacity: 0; transform: translateY(var(--fade-in-translate)); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in-down-anim {
+    from { opacity: 0; transform: translateY(calc(var(--fade-in-translate) * -1)); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in-left-anim {
+    from { opacity: 0; transform: translateX(var(--fade-in-translate)); }
+    to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fade-in-right-anim {
+    from { opacity: 0; transform: translateX(calc(var(--fade-in-translate) * -1)); }
+    to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fade-scale-in-anim {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* NEW Staggered Animation Keyframe (reusable) */
+@keyframes fade-in-up-staggered-anim {
+    from { opacity: 0; transform: translateY(var(--fade-in-translate)); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* NEW Fade-out Class (Generic - JS adds this before removing element) */
+.fade-out-active { /* Name avoids conflict with lightbox */
+    opacity: 0 !important;
+    transform: scale(0.9) !important; /* Example fade out */
+    transition: opacity 0.4s ease-in, transform 0.4s ease-in !important;
+}
+
 
 /* --- 15. Responsive Styles - Adjustments for Modern Design --- */
 
@@ -1473,7 +1877,7 @@ button { border: none; background: none; color: inherit; font: inherit; }
     .season-btn { padding: 9px 20px; font-size: 0.95rem; min-width: 150px; }
 
     .gallery { grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 30px; }
-    .gallery-item:hover, .gallery-item:focus-within { transform: perspective(1000px) translateY(-10px) rotateX(4deg) rotateY(-3deg) scale(1.03); }
+    .gallery-item:hover, .gallery-item:focus-within { transform: perspective(1000px) translateY(-10px) rotateX(4deg) rotateY(-3deg) scale(1.04); } /* Slightly reduced 3D */
     .gallery-item .view-btn { width: 50px; height: 50px; font-size: 1.6rem; }
     .season-tag { padding: 7px 16px 7px 22px; font-size: 0.85rem; clip-path: polygon(0 0, 100% 0, calc(100% - 12px) 100%, 0 100%); }
 
@@ -1505,22 +1909,26 @@ button { border: none; background: none; color: inherit; font: inherit; }
         padding: var(--space-md); gap: var(--space-sm); max-width: 90%;
         backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); /* Less blur */
     }
+    .server-info-box:hover { transform: translateY(-4px) perspective(600px) rotateX(2deg); } /* Reduced tilt */
     .info-item { justify-content: space-between; font-size: 1rem;}
     .info-item .stat-icon { font-size: 1.2rem; }
     .copy-ip-button.stylish { margin-left: 0; margin-top: var(--space-sm); width: 100%; justify-content: center; padding: 10px 15px; font-size: 0.95rem; } /* Full width */
+    .copy-ip-button.stylish:hover, .copy-ip-button.stylish:focus-visible { transform: translateY(-3px) rotateX(5deg) scale(1.02); } /* Reduced hover */
 
     .gallery-intro h2 { font-size: clamp(2.5rem, 9vw, 3.5rem); letter-spacing: 2px;}
     .gallery-intro h2::after { width: 120px; height: 3px; bottom: -18px; }
     .gallery-intro p { font-size: 1rem; max-width: 95%; }
     .season-info { padding: var(--space-md); margin: var(--space-lg) auto; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); } /* Less blur */
     .season-info::before { filter: blur(4px); opacity: 0.5; }
+    .season-info:hover { transform: scale(1.02) perspective(800px) rotateX(1deg); } /* Reduced hover */
     .season-info h3 { font-size: clamp(1.6rem, 4.5vw, 2rem); gap: var(--space-sm);}
 
     .season-filter { flex-direction: column; gap: var(--space-sm); align-items: stretch; } /* Stretch buttons */
     .season-btn { width: auto; max-width: 350px; margin-inline: auto; font-size: 1rem; padding: 10px 18px; }
+    .season-btn:hover, .season-btn:focus-visible { transform: translateY(-4px) rotateX(6deg) scale(1.03); } /* Reduced hover */
 
-    .gallery { grid-template-columns: 1fr; gap: 25px; padding-inline: clamp(0.8rem, 4vw, 4%); }
-    .gallery-item:hover, .gallery-item:focus-within { transform: perspective(800px) translateY(-8px) scale(1.02); } /* Less intense 3D */
+    .gallery { grid-template-columns: 1fr; gap: 25px; padding-inline: clamp(0.8rem, 4vw, 4%); perspective: 1000px; } /* Keep some perspective */
+    .gallery-item:hover, .gallery-item:focus-within { transform: perspective(800px) translateY(-8px) rotateX(3deg) rotateY(-2deg) scale(1.03); } /* Less intense 3D */
     .gallery-item .view-btn { width: 45px; height: 45px; font-size: 1.5rem; }
     .season-tag { padding: 6px 14px 6px 20px; font-size: 0.8rem; clip-path: polygon(0 0, 100% 0, calc(100% - 10px) 100%, 0 100%); }
 
@@ -1532,6 +1940,7 @@ button { border: none; background: none; color: inherit; font: inherit; }
     .site-footer { padding: var(--space-md) var(--space-sm); margin-top: var(--space-xl); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
     .social-links { gap: 15px; flex-direction: column; align-items: stretch; margin-bottom: var(--space-lg);} /* Stretch buttons */
     .social-btn { width: auto; max-width: 300px; margin-inline: auto; font-size: 1rem; padding: 12px 22px; }
+    .social-btn:hover, .social-btn:focus-visible { transform: translateY(-5px) rotateX(8deg) scale(1.04); } /* Reduced hover */
 
     .music-toggle-btn { width: 40px; height: 40px; font-size: 1.4rem; bottom: 15px; left: 15px; }
     .song-notification { bottom: 15px; right: 15px; max-width: calc(100% - 70px); font-size: 0.85rem; padding: 8px 12px; }
@@ -1542,28 +1951,34 @@ button { border: none; background: none; color: inherit; font: inherit; }
 /* Extra Small Devices */
 @media (max-width: 480px) {
      html { font-size: 13px; }
+    :root { --fade-in-translate: 30px; } /* Reduce fade distance */
 
     .logo { font-size: clamp(2.8rem, 16vw, 4rem); letter-spacing: 1.5px; text-shadow: 0 0 8px rgba(var(--primary-rgb), 0.6), 0 0 12px rgba(var(--secondary-rgb), 0.3), 2px 2px 0 rgba(var(--darker-rgb), 0.6);}
+    .logo:hover, .logo:focus-visible { transform: scale(1.03) rotate(-1deg); } /* Minimal hover */
     .subtitle { font-size: 1rem; letter-spacing: 0.5px;}
     .server-status-container h2 { font-size: 1.4rem; gap: var(--space-xs);}
     .live-indicator { width: 10px; height: 10px;}
 
     .server-info-box { padding: var(--space-sm); gap: var(--space-xs); }
+    .server-info-box:hover { transform: translateY(-2px); } /* Minimal hover */
     .info-item { font-size: 0.9rem;}
     .info-item .stat-icon { font-size: 1.1em;}
     .copy-ip-button.stylish { padding: 8px 12px; font-size: 0.9rem; }
+    .copy-ip-button.stylish:hover, .copy-ip-button.stylish:focus-visible { transform: translateY(-2px) rotateX(3deg) scale(1.01); }
 
     .gallery-intro h2 { font-size: clamp(2.2rem, 9vw, 3rem); letter-spacing: 1.5px;}
     .gallery-intro h2::after { width: 100px; height: 2px; bottom: -15px; }
     .gallery-intro p { font-size: 0.9rem; }
     .season-info { padding: var(--space-sm); margin: var(--space-md) auto; border-radius: 8px; }
+    .season-info:hover { transform: scale(1.01); } /* Minimal hover */
     .season-info h3 { font-size: clamp(1.4rem, 5vw, 1.8rem); }
     .season-info p { font-size: 0.9rem; }
 
     .season-btn { font-size: 0.9rem; padding: 9px 15px; }
+    .season-btn:hover, .season-btn:focus-visible { transform: translateY(-3px) rotateX(4deg) scale(1.02); }
 
-    .gallery { gap: 20px; padding-inline: clamp(0.5rem, 3vw, 3%); }
-    .gallery-item:hover, .gallery-item:focus-within { transform: perspective(600px) translateY(-5px) scale(1.01); } /* Minimal 3D */
+    .gallery { gap: 20px; padding-inline: clamp(0.5rem, 3vw, 3%); perspective: none; } /* Remove perspective */
+    .gallery-item:hover, .gallery-item:focus-within { transform: translateY(-5px) scale(1.02); } /* Minimal Transform */
     .gallery-item .view-btn { width: 40px; height: 40px; font-size: 1.4rem; }
     .season-tag { padding: 5px 12px 5px 18px; font-size: 0.75rem; clip-path: polygon(0 0, 100% 0, calc(100% - 8px) 100%, 0 100%); }
 
@@ -1572,11 +1987,14 @@ button { border: none; background: none; color: inherit; font: inherit; }
     .lightbox-caption { font-size: 0.85rem; padding: 0.6rem 1.2rem; max-width: 95%; }
 
     .social-btn { font-size: 0.95rem; padding: 10px 18px; }
+    .social-btn:hover, .social-btn:focus-visible { transform: translateY(-4px) rotateX(5deg) scale(1.03); } /* Minimal hover */
+
 
     .music-toggle-btn { width: 35px; height: 35px; font-size: 1.2rem; bottom: 10px; left: 10px;}
+    .music-toggle-btn:hover, .music-toggle-btn:focus-visible { transform: scale(1.1) rotate(5deg); }
     .song-notification { bottom: 10px; right: 10px; max-width: calc(100% - 55px); font-size: 0.8rem; padding: 6px 10px; }
     #temp-message-area { bottom: 55px; left: 10px; max-width: calc(100% - 20px); }
     .temp-message { padding: 6px 12px; font-size: 0.85rem; }
 
-    .fade-in { transform: translateY(25px); transition-duration: 0.6s, 0.7s; }
+    .fade-in.is-visible { transition-duration: 0.6s, 0.7s; } /* Adjust base fade if needed */
 }
