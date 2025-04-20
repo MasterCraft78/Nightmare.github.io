@@ -4,25 +4,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jelajahi galeri resmi server Minecraft Nightmare. Temukan status server real-time, kumpulan bangunan menakjubkan, momen epik, dan kenangan tak terlupakan dari setiap season petualangan kami.">
-    <title>Nightmare Minecraft Gallery | Status & Kenangan Setiap Season</title>
+    <title data-lang-key="pageTitle">Galeri Kenangan Server Nightmare | Status & Momen Terbaik Tiap Season</title>
+    <meta name="description" content="Jelajahi galeri kenangan server Minecraft Nightmare. Lihat momen terbaik, bangunan epik, dan petualangan seru dari setiap season yang penuh cerita." data-lang-key="metaDescription">
 
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-website-url.com/"> <meta property="og:title" content="Galeri Kenangan Server Nightmare | Status & Momen Terbaik Tiap Season" data-lang-og-key="pageTitle">
+    <meta property="og:description" content="Jelajahi galeri kenangan server Minecraft Nightmare. Lihat momen terbaik, bangunan epik, dan petualangan seru dari setiap season yang penuh cerita." data-lang-og-key="metaDescription">
+    <meta property="og:image" content="https://your-website-url.com/og-image.jpg"> <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://your-website-url.com/"> <meta property="twitter:title" content="Galeri Kenangan Server Nightmare | Status & Momen Terbaik Tiap Season" data-lang-tw-key="pageTitle">
+    <meta property="twitter:description" content="Jelajahi galeri kenangan server Minecraft Nightmare. Lihat momen terbaik, bangunan epik, dan petualangan seru dari setiap season yang penuh cerita." data-lang-tw-key="metaDescription">
+    <meta property="twitter:image" content="https://your-website-url.com/og-image.jpg"> <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.cdnfonts.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://api.mcsrvstat.us">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="style.css">
+
+    <noscript>
+        <style>
+            /* Hide JS-dependent elements if JS is disabled */
+            #page-loader, .particle-background, .music-toggle-btn, #song-notification, #temp-message-area, .language-switcher { display: none !important; }
+            body { overflow: auto !important; }
+            body::before, body::after { content: none !important; }
+            main { opacity: 1 !important; transform: none !important; padding-top: 20px; }
+            .fade-in { opacity: 1 !important; transform: none !important; transition: none !important; }
+            .server-status-container .live-indicator.pulsing { animation: none !important; }
+            /* Show gallery overlay/button without hover if JS is off */
+            /* .gallery-item .item-overlay, .gallery-item .view-btn { opacity: 1; pointer-events: auto;} */ /* Optional: uncomment if needed */
+            .gallery-item img { filter: none; transform: none;}
+        </style>
+         <div style="position: sticky; top: 0; z-index: 10000; text-align: center; padding: 15px; background-color: #ff4d4d; color: white; font-family: sans-serif; border-bottom: 1px solid #cc0000;">
+            <p><strong>[ID] Peringatan: JavaScript dinonaktifkan.</strong> Fitur interaktif (status server live, galeri, musik) tidak akan berfungsi. Aktifkan JavaScript untuk pengalaman penuh.</p>
+            <p><strong>[EN] Warning: JavaScript is disabled.</strong> Interactive features (live server status, gallery, music) will not work. Enable JavaScript for the full experience.</p>
+        </div>
+    </noscript>
 </head>
 
 <body>
-    <div class="loader active" id="page-loader">
-        <div class="minecraft-block-loader">
+    <div class="loader active" id="page-loader" aria-busy="true" data-lang-aria-label="loadingPage">
+        <div class="minecraft-block-loader" role="img" data-lang-aria-label="loadingAnimation">
             <div class="block-face face-front"></div>
             <div class="block-face face-back"></div>
             <div class="block-face face-right"></div>
@@ -30,143 +55,162 @@
             <div class="block-face face-top"></div>
             <div class="block-face face-bottom"></div>
         </div>
-        <p class="loading-text">Memuat Galeri & Status Nightmare...</p>
+        <p class="loading-text" data-lang-key="loadingText">Memuat Kenangan Nightmare Gallery...</p>
     </div>
 
-    <div class="particle-background" id="particle-background"></div>
+    <div class="particle-background" id="particle-background" aria-hidden="true"></div>
 
-    <header>
+    <header class="site-header">
         <div class="header-container">
+            <div class="language-switcher" role="navigation" data-lang-aria-label="languageSwitcher">
+                <button class="lang-btn" data-lang="id" aria-pressed="true">ID</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+            </div>
+
             <h1 class="logo">Nightmare</h1>
-            <p class="subtitle">Galeri Karya Agung & Status Server Minecraft</p>
+            <p class="subtitle" data-lang-key="subtitle">Galeri Kenangan Setiap Season & Status Server</p>
 
             <div class="server-status-container">
                 <h2>
-                    Status Server
-                    <span class="live-indicator pulsing" id="live-indicator-dot"></span>
-                    <span id="live-indicator-text">Memeriksa...</span>
+                    <span data-lang-key="serverStatusTitle">Status Server</span>
+                    <span class="live-indicator pulsing" id="live-indicator-dot" aria-live="polite" aria-atomic="true"></span>
+                    <span id="live-indicator-text" data-lang-key="statusChecking">Memeriksa...</span>
                 </h2>
 
                 <div class="server-info-box">
                     <div class="info-item ip-container">
-                        <i class="fas fa-network-wired stat-icon"></i>
+                        <i class="fas fa-network-wired stat-icon" aria-hidden="true"></i>
                         <span id="server-ip-display">night.ftp.sh:25565</span>
-                        <button id="copy-ip-btn" class="copy-ip-button stylish" title="Salin IP & Port" aria-label="Salin Alamat IP Server">
+                        <button id="copy-ip-btn" class="copy-ip-button stylish" data-lang-title="copyIpTitle" data-lang-aria-label="copyIpAriaLabel">
                             <span class="button-content">
-                                <i class="fas fa-copy icon-copy"></i>
-                                <i class="fas fa-check icon-check"></i>
-                                <span class="copy-text">Salin</span>
-                                <span class="copied-text">Tersalin!</span>
+                                <i class="fas fa-copy icon-copy" aria-hidden="true"></i>
+                                <i class="fas fa-check icon-check" aria-hidden="true"></i>
+                                <span class="copy-text" data-lang-key="copyText">Salin</span>
+                                <span class="copied-text" data-lang-key="copiedText">Tersalin!</span>
                             </span>
                         </button>
-                        </div>
-                    <div class="info-item">
-                        <i class="fas fa-users stat-icon"></i>
-                        <span id="player-count" aria-live="polite">Pemain: Memuat...</span>
                     </div>
                     <div class="info-item">
-                        <i class="fas fa-server stat-icon"></i>
-                        <span>Bedrock Edition</span>
+                        <i class="fas fa-users stat-icon" aria-hidden="true"></i>
+                        <span id="player-count" aria-live="polite" aria-atomic="true" data-lang-key="playersLoading">Pemain: Memuat...</span>
                     </div>
-                     </div>
-                <p class="status-last-updated" id="last-updated">Terakhir diperbarui: -</p>
+                    <div class="info-item">
+                        <i class="fas fa-server stat-icon" aria-hidden="true"></i>
+                        <span data-lang-key="serverType">Bedrock Edition</span>
+                    </div>
+                </div>
+                <p class="status-last-updated" id="last-updated" aria-live="polite" aria-atomic="true">
+                    <span data-lang-key="lastUpdatedPrefix">Terakhir diperbarui:</span> <span id="last-updated-time">-</span>
+                </p>
             </div>
-            </div>
+        </div>
     </header>
 
     <main>
         <section class="gallery-intro fade-in">
-            <h2>Kenangan Setiap Season</h2>
-            <p>Selamat datang di galeri resmi server Minecraft Nightmare! Jelajahi kumpulan momen terbaik, bangunan kreatif, dan petualangan seru dari setiap season yang telah kami lalui bersama. Setiap gambar menceritakan kisah unik dari dunia balok kami.</p>
+            <h2 data-lang-key="galleryIntroTitle">Momen dan Kenangan Setiap Season</h2>
+            <p data-lang-key="galleryIntroDesc">Selamat datang di galeri kenangan resmi server Minecraft Nightmare! Di sini kami mengabadikan dan membagikan momen-momen terbaik, bangunan-bangunan epik, dan petualangan seru dari setiap season yang telah kita lewati bersama. Setiap tangkapan layar menyimpan cerita unik dan kenangan tak terlupakan dari server kita.</p>
 
             <div class="season-info fade-in">
-                <h3><i class="fas fa-book-open"></i> Cerita Server Kami</h3>
-                <p>Server Nightmare adalah rumah bagi komunitas yang dinamis dan kreatif. Setiap season membawa tema unik, tantangan baru, dan cerita tak terlupakan. Galeri ini adalah monumen digital untuk dedikasi, kerja keras, dan persahabatan yang terjalin di dunia balok kami. Kami berharap galeri ini dapat menghidupkan kembali kenangan indah dari petualangan kita.</p>
+                <h3><i class="fas fa-book-open" aria-hidden="true"></i> <span data-lang-key="serverStoryTitle">Kisah dan Perjalanan Server Kami</span></h3>
+                <p data-lang-key="serverStoryDesc">Server Nightmare telah menjadi rumah bagi komunitas yang dinamis dan penuh kreativitas. Setiap season yang kami jalani menghadirkan tema unik, tantangan baru, dan segudang cerita tak terlupakan. Galeri ini kami persembahkan sebagai monumen digital, wujud apresiasi atas dedikasi, kerja keras, dan ikatan persahabatan yang telah terjalin di server kami. Semoga setiap gambar di sini dapat menghidupkan kembali kenangan indah dari petualangan kita bersama.</p>
             </div>
 
-            <div class="season-filter">
-                <button class="season-btn active" data-season="all">Semua Season</button>
-                <button class="season-btn" data-season="s1">Season 1</button>
-                </div>
+            <nav class="season-filter" id="season-filter" data-lang-aria-label="seasonFilterNav">
+                <button class="season-btn active" data-season="all" aria-pressed="true" data-lang-key="filterAllSeasons">Semua Season</button>
+                <button class="season-btn" data-season="s1" aria-pressed="false" data-lang-key="filterSeason1">Season 1</button>
+                </nav>
         </section>
 
-        <section class="gallery fade-in">
-            <div class="gallery-item season-s1" data-season="s1" data-src="IMG-20250419-WA0054.jpg" data-caption="Bangunan Komunitas Utama Season 1">
-                <span class="season-tag s1">S1</span> <img src="IMG-20250419-WA0054.jpg" alt="Gambar Galeri Nightmare Season 1" loading="lazy" decoding="async">
-                <div class="item-overlay">
-                    <button class="view-btn">
-                        <i class="fas fa-search-plus"></i>
+        <section class="gallery fade-in" aria-live="polite">
+            <div class="gallery-item season-s1" data-season="s1"
+                 data-src="IMG-20250419-WA0054.jpg"
+                 data-caption-key="galleryCaptionS1_1"
+                 data-lang-aria-label-key="galleryAriaS1_1"
+                 role="button" tabindex="0">
+                <span class="season-tag s1">S1</span>
+                <img src="IMG-20250419-WA0054.jpg"
+                     data-lang-alt-key="galleryAltS1_1"
+                     loading="lazy" decoding="async"
+                     alt=""> <div class="item-overlay">
+                    <button class="view-btn" data-lang-aria-label="viewImageAria">
+                        <i class="fas fa-search-plus" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
-             <div class="gallery-item season-s1" data-season="s1" data-src="IMG-20250419-WA0055.jpg" data-caption="Pemandangan Epik di Season 1">
-                <span class="season-tag s1">S1</span> <img src="IMG-20250419-WA0055.jpg" alt="Gambar Galeri Nightmare Season 1" loading="lazy" decoding="async">
-                 <div class="item-overlay">
-                     <button class="view-btn">
-                        <i class="fas fa-search-plus"></i>
+            <div class="gallery-item season-s1" data-season="s1"
+                 data-src="IMG-20250419-WA0055.jpg"
+                 data-caption-key="galleryCaptionS1_2"
+                 data-lang-aria-label-key="galleryAriaS1_2"
+                 role="button" tabindex="0">
+                <span class="season-tag s1">S1</span>
+                <img src="IMG-20250419-WA0055.jpg"
+                     data-lang-alt-key="galleryAltS1_2"
+                     loading="lazy" decoding="async"
+                     alt=""> <div class="item-overlay">
+                    <button class="view-btn" data-lang-aria-label="viewImageAria">
+                        <i class="fas fa-search-plus" aria-hidden="true"></i>
                     </button>
-                 </div>
+                </div>
             </div>
-             </section>
+            </section>
+
+        <p id="no-gallery-items" class="no-items-message fade-in" style="display: none; text-align: center; margin-top: var(--space-lg); color: var(--light-muted);" data-lang-key="noItemsFound">Tidak ada item ditemukan untuk filter ini.</p>
     </main>
 
-    <div class="lightbox" id="lightbox">
-        <span class="lightbox-close" title="Tutup (Esc)">×</span>
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" data-lang-aria-label="lightboxAriaLabel">
+        <button class="lightbox-close" data-lang-title="closeLightboxTitle" data-lang-aria-label="closeLightboxAriaLabel">×</button>
         <div class="lightbox-content">
             <div class="lightbox-image-wrapper">
-                 <img class="lightbox-img" id="lightbox-img" src="" alt="Gambar Galeri Diperbesar">
-                 <div class="lightbox-loader"></div> </div>
-            <p class="lightbox-caption" id="lightbox-caption">
-                <i class="fas fa-comment-alt"></i><span></span>
-            </p>
-            <div class="lightbox-counter" id="lightbox-counter"></div>
+                 <img class="lightbox-img" id="lightbox-img" src="" alt=""> <div class="lightbox-loader" role="status" data-lang-aria-label="loadingImage"></div>
+            </div>
+            <p class="lightbox-caption" id="lightbox-caption" aria-live="polite">
+                <i class="fas fa-comment-alt" aria-hidden="true"></i><span id="lightbox-caption-text"></span> </p>
+            <div class="lightbox-counter" id="lightbox-counter" aria-live="polite"></div>
         </div>
-        <div class="lightbox-nav">
-            <button class="lightbox-nav-btn prev" title="Sebelumnya (Panah Kiri)">
-                 <i class="fas fa-chevron-left"></i>
+        <nav class="lightbox-nav" data-lang-aria-label="lightboxNavAriaLabel">
+            <button class="lightbox-nav-btn prev" data-lang-title="prevImageTitle" data-lang-aria-label="prevImageAriaLabel">
+                 <i class="fas fa-chevron-left" aria-hidden="true"></i>
             </button>
-            <button class="lightbox-nav-btn next" title="Berikutnya (Panah Kanan)">
-                 <i class="fas fa-chevron-right"></i>
+            <button class="lightbox-nav-btn next" data-lang-title="nextImageTitle" data-lang-aria-label="nextImageAriaLabel">
+                 <i class="fas fa-chevron-right" aria-hidden="true"></i>
             </button>
-        </div>
+        </nav>
     </div>
 
-    <footer class="fade-in">
+    <footer class="site-footer fade-in">
         <div class="footer-container">
-            <div class="social-links">
-                <a href="https://discord.gg/your-invite-code" target="_blank" rel="noopener noreferrer" class="social-btn discord">
-                    <i class="fab fa-discord"></i><span>Gabung Discord</span>
+             <nav class="social-links" data-lang-aria-label="socialNavAriaLabel">
+                <a href="https://discord.gg/B3kKb6HDMm" target="_blank" rel="noopener noreferrer" class="social-btn discord">
+                    <i class="fab fa-discord" aria-hidden="true"></i><span data-lang-key="joinDiscord">Gabung Discord</span>
                 </a>
-                <a href="https://chat.whatsapp.com/your-group-invite" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp">
-                    <i class="fab fa-whatsapp"></i><span>Grup WhatsApp</span>
+                <a href="https://chat.whatsapp.com/JBmrFjfuaFz0j8z6PW4p4H" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp">
+                    <i class="fab fa-whatsapp" aria-hidden="true"></i><span data-lang-key="joinWhatsapp">Grup WhatsApp</span>
                 </a>
-                <a href="https://server-vote-link" target="_blank" rel="noopener noreferrer" class="social-btn server">
-                    <i class="fas fa-vote-yea"></i><span>Vote Server</span>
+                <a href="https://minecraftpocket-servers.com/server/130585/" target="_blank" rel="noopener noreferrer" class="social-btn server">
+                    <i class="fas fa-vote-yea" aria-hidden="true"></i><span data-lang-key="voteServer">Vote Server</span>
                 </a>
-            </div>
-            <p>Bergabunglah dengan komunitas kami untuk mendapatkan pembaruan terbaru, berinteraksi dengan pemain lain, dan ikut serta dalam event-event seru di server Nightmare!</p>
-            <p class="copyright">© <span id="copyright-year"></span> Nightmare Minecraft. Semua hak cipta dilindungi. | Tidak berafiliasi dengan Mojang Studios atau Microsoft.</p>
+             </nav>
+            <p class="footer-intro" data-lang-key="footerIntro">Bergabunglah dengan komunitas kami! Bagikan kenangan Anda, dapatkan pembaruan terbaru, berinteraksi dengan pemain lain, dan bersiaplah untuk petualangan seru di season Nightmare berikutnya!</p>
+            <p class="copyright">© <span id="copyright-year"></span> Nightmare Minecraft. <span data-lang-key="allRightsReserved">Semua hak cipta dilindungi.</span> | <span data-lang-key="notAffiliated">Tidak berafiliasi dengan Mojang Studios atau Microsoft.</span></p>
         </div>
     </footer>
 
-    <audio id="background-music" loop>
+    <audio id="background-music"autoplay loop preload="metadata">
          <source src="Yung Kai - blue.mp3" type="audio/mpeg">
-         Browser Anda tidak mendukung elemen audio.
+         <span data-lang-key="audioNotSupported">Browser Anda tidak mendukung elemen audio.</span>
     </audio>
 
-    <button id="music-toggle" class="music-toggle-btn" title="Putar Musik">
-        <i class="fas fa-volume-mute"></i> </button>
+    <button id="music-toggle" class="music-toggle-btn" data-lang-title="playPauseMusicTitle" data-lang-aria-label="playPauseMusicAriaLabel">
+        <i class="fas fa-volume-mute" aria-hidden="true"></i>
+     </button>
 
-    <div id="song-notification" class="song-notification">
-        <i class="fas fa-music song-status-icon"></i>
+    <div id="song-notification" class="song-notification" aria-live="polite" aria-atomic="true">
+        <i class="fas fa-music song-status-icon" aria-hidden="true"></i>
         <div class="song-info">
-             <span class="song-title"></span>
-             </div>
+             <span class="song-title"></span> </div>
     </div>
 
-
-    <div id="temp-message-area"></div>
-
-    <script src="script.js"></script>
+    <div id="temp-message-area" aria-live="assertive" aria-atomic="true"></div> <script src="script.js"></script>
 </body>
 </html>
