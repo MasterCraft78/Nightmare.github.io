@@ -4,48 +4,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-lang-key="pageTitle">Galeri Kenangan Server Nightmare | Status & Momen Terbaik Tiap Season</title>
-    <meta name="description" content="Jelajahi galeri kenangan server Minecraft Nightmare. Lihat momen terbaik, bangunan epik, dan petualangan seru dari setiap season yang penuh cerita." data-lang-key="metaDescription">
+    <!-- Title and Meta Description with Language Keys -->
+    <title data-lang-key="pageTitle">Nightmare Minecraft Gallery | Status & Kenangan Setiap Season</title>
+    <meta name="description" content="Jelajahi galeri resmi server Minecraft Nightmare. Temukan status server real-time, kumpulan bangunan menakjubkan, momen epik, dan kenangan tak terlupakan dari setiap season petualangan kami." data-lang-key="metaDescription">
 
+    <!-- Favicon -->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
+    <!-- Open Graph / Facebook Meta Tags -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://your-website-url.com/"> <meta property="og:title" content="Galeri Kenangan Server Nightmare | Status & Momen Terbaik Tiap Season" data-lang-og-key="pageTitle">
-    <meta property="og:description" content="Jelajahi galeri kenangan server Minecraft Nightmare. Lihat momen terbaik, bangunan epik, dan petualangan seru dari setiap season yang penuh cerita." data-lang-og-key="metaDescription">
-    <meta property="og:image" content="https://your-website-url.com/og-image.jpg"> <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://your-website-url.com/"> <meta property="twitter:title" content="Galeri Kenangan Server Nightmare | Status & Momen Terbaik Tiap Season" data-lang-tw-key="pageTitle">
-    <meta property="twitter:description" content="Jelajahi galeri kenangan server Minecraft Nightmare. Lihat momen terbaik, bangunan epik, dan petualangan seru dari setiap season yang penuh cerita." data-lang-tw-key="metaDescription">
-    <meta property="twitter:image" content="https://your-website-url.com/og-image.jpg"> <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <meta property="og:url" content="https://nightmare.zapto.org/"> <!-- UPDATE THIS URL -->
+    <meta property="og:title" content="Nightmare Minecraft Gallery | Status & Kenangan Setiap Season" data-lang-og-key="pageTitle">
+    <meta property="og:description" content="Jelajahi galeri resmi server Minecraft Nightmare. Temukan status server real-time, kumpulan bangunan menakjubkan, momen epik, dan kenangan tak terlupakan dari setiap season petualangan kami." data-lang-og-key="metaDescription">
+    <meta property="og:image" content="https://your-website-url.com/og-image.jpg"> <!-- UPDATE THIS IMAGE URL -->
+
+    <!-- Twitter Meta Tags -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://nightmare.zapto.org/"> <!-- UPDATE THIS URL -->
+    <meta property="twitter:title" content="Nightmare Minecraft Gallery | Status & Kenangan Setiap Season" data-lang-tw-key="pageTitle">
+    <meta property="twitter:description" content="Jelajahi galeri resmi server Minecraft Nightmare. Temukan status server real-time, kumpulan bangunan menakjubkan, momen epik, dan kenangan tak terlupakan dari setiap season petualangan kami." data-lang-tw-key="metaDescription">
+    <meta property="twitter:image" content="https://your-website-url.com/og-image.jpg"> <!-- UPDATE THIS IMAGE URL -->
+
+    <!-- Preconnect Hints for Performance -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://fonts.cdnfonts.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://api.mcsrvstat.us">
+
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Fonts -->
     <link href="https://fonts.cdnfonts.com/css/minecraft-4" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="style.css">
 
+    <!-- Fallback for No JavaScript -->
     <noscript>
         <style>
             /* Hide JS-dependent elements if JS is disabled */
             #page-loader, .particle-background, .music-toggle-btn, #song-notification, #temp-message-area, .language-switcher { display: none !important; }
             body { overflow: auto !important; }
+            /* Remove fixed background effects */
             body::before, body::after { content: none !important; }
-            main { opacity: 1 !important; transform: none !important; padding-top: 20px; }
+            main { opacity: 1 !important; transform: none !important; padding-top: 20px; } /* Ensure main content is visible */
             .fade-in { opacity: 1 !important; transform: none !important; transition: none !important; }
             .server-status-container .live-indicator.pulsing { animation: none !important; }
-            /* Show gallery overlay/button without hover if JS is off */
-            /* .gallery-item .item-overlay, .gallery-item .view-btn { opacity: 1; pointer-events: auto;} */ /* Optional: uncomment if needed */
-            .gallery-item img { filter: none; transform: none;}
+            /* Optional: Show gallery overlay/button without hover if JS is off */
+            /* .gallery-item .item-overlay, .gallery-item .view-btn { opacity: 1; pointer-events: auto;} */
+            .gallery-item img { filter: none; transform: none;} /* Reset image effects */
+            .server-info-box .copy-ip-button { display: none !important; } /* Hide copy button as it requires JS */
         </style>
          <div style="position: sticky; top: 0; z-index: 10000; text-align: center; padding: 15px; background-color: #ff4d4d; color: white; font-family: sans-serif; border-bottom: 1px solid #cc0000;">
-            <p><strong>[ID] Peringatan: JavaScript dinonaktifkan.</strong> Fitur interaktif (status server live, galeri, musik) tidak akan berfungsi. Aktifkan JavaScript untuk pengalaman penuh.</p>
-            <p><strong>[EN] Warning: JavaScript is disabled.</strong> Interactive features (live server status, gallery, music) will not work. Enable JavaScript for the full experience.</p>
+            <p><strong>[ID] Peringatan: JavaScript dinonaktifkan.</strong> Fitur interaktif (status server live, galeri, musik, salin IP) tidak akan berfungsi. Aktifkan JavaScript untuk pengalaman penuh.</p>
+            <p><strong>[EN] Warning: JavaScript is disabled.</strong> Interactive features (live server status, gallery, music, copy IP) will not work. Enable JavaScript for the full experience.</p>
         </div>
     </noscript>
 </head>
 
 <body>
+    <!-- Page Loader -->
     <div class="loader active" id="page-loader" aria-busy="true" data-lang-aria-label="loadingPage">
         <div class="minecraft-block-loader" role="img" data-lang-aria-label="loadingAnimation">
             <div class="block-face face-front"></div>
@@ -55,13 +74,16 @@
             <div class="block-face face-top"></div>
             <div class="block-face face-bottom"></div>
         </div>
-        <p class="loading-text" data-lang-key="loadingText">Memuat Kenangan Nightmare Gallery...</p>
+        <p class="loading-text" data-lang-key="loadingText">Memuat Galeri & Status Nightmare...</p>
     </div>
 
+    <!-- Particle Background Effect -->
     <div class="particle-background" id="particle-background" aria-hidden="true"></div>
 
+    <!-- Header Section -->
     <header class="site-header">
         <div class="header-container">
+            <!-- Language Switcher -->
             <div class="language-switcher" role="navigation" data-lang-aria-label="languageSwitcher">
                 <button class="lang-btn" data-lang="id" aria-pressed="true">ID</button>
                 <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
@@ -70,35 +92,45 @@
             <h1 class="logo">Nightmare</h1>
             <p class="subtitle" data-lang-key="subtitle">Galeri Kenangan Setiap Season & Status Server</p>
 
+            <!-- Server Status Section -->
             <div class="server-status-container">
                 <h2>
                     <span data-lang-key="serverStatusTitle">Status Server</span>
-                    <span class="live-indicator pulsing" id="live-indicator-dot" aria-live="polite" aria-atomic="true"></span>
-                    <span id="live-indicator-text" data-lang-key="statusChecking">Memeriksa...</span>
+                    <!-- Live Indicator Dot (class updated by JS) -->
+                    <span class="live-indicator loading pulsing" id="live-indicator-dot" aria-live="polite" aria-atomic="true"></span>
+                    <!-- Live Indicator Text (content and class updated by JS) -->
+                    <span id="live-indicator-text" class="loading" data-lang-key="statusLoading" data-status-key="statusLoading">Memuat...</span>
                 </h2>
 
+                <!-- Server Info Box -->
                 <div class="server-info-box">
+                    <!-- IP Address and Copy Button -->
                     <div class="info-item ip-container">
                         <i class="fas fa-network-wired stat-icon" aria-hidden="true"></i>
                         <span id="server-ip-display">night.ftp.sh:25565</span>
                         <button id="copy-ip-btn" class="copy-ip-button stylish" data-lang-title="copyIpTitle" data-lang-aria-label="copyIpAriaLabel">
                             <span class="button-content">
+                                <!-- Icons swap visibility via CSS based on 'copied' class -->
                                 <i class="fas fa-copy icon-copy" aria-hidden="true"></i>
                                 <i class="fas fa-check icon-check" aria-hidden="true"></i>
+                                <!-- Text swaps visibility via CSS based on 'copied' class -->
                                 <span class="copy-text" data-lang-key="copyText">Salin</span>
                                 <span class="copied-text" data-lang-key="copiedText">Tersalin!</span>
                             </span>
                         </button>
                     </div>
+                    <!-- Player Count -->
                     <div class="info-item">
                         <i class="fas fa-users stat-icon" aria-hidden="true"></i>
                         <span id="player-count" aria-live="polite" aria-atomic="true" data-lang-key="playersLoading">Pemain: Memuat...</span>
                     </div>
+                    <!-- Server Type -->
                     <div class="info-item">
                         <i class="fas fa-server stat-icon" aria-hidden="true"></i>
                         <span data-lang-key="serverType">Bedrock Edition</span>
                     </div>
                 </div>
+                <!-- Last Updated Time -->
                 <p class="status-last-updated" id="last-updated" aria-live="polite" aria-atomic="true">
                     <span data-lang-key="lastUpdatedPrefix">Terakhir diperbarui:</span> <span id="last-updated-time">-</span>
                 </p>
@@ -106,23 +138,31 @@
         </div>
     </header>
 
+    <!-- Main Content Area -->
     <main>
+        <!-- Gallery Introduction Section -->
         <section class="gallery-intro fade-in">
-            <h2 data-lang-key="galleryIntroTitle">Momen dan Kenangan Setiap Season</h2>
-            <p data-lang-key="galleryIntroDesc">Selamat datang di galeri kenangan resmi server Minecraft Nightmare! Di sini kami mengabadikan dan membagikan momen-momen terbaik, bangunan-bangunan epik, dan petualangan seru dari setiap season yang telah kita lewati bersama. Setiap tangkapan layar menyimpan cerita unik dan kenangan tak terlupakan dari server kita.</p>
+            <h2 data-lang-key="galleryIntroTitle">Kenangan Setiap Season</h2>
+            <p data-lang-key="galleryIntroDesc">Selamat datang di galeri resmi server Minecraft Nightmare! Jelajahi kumpulan momen terbaik, bangunan kreatif, dan petualangan seru dari setiap season yang telah kami lalui bersama. Setiap gambar menceritakan kisah unik dari server kami.</p>
 
+            <!-- Server Story Box -->
             <div class="season-info fade-in">
-                <h3><i class="fas fa-book-open" aria-hidden="true"></i> <span data-lang-key="serverStoryTitle">Kisah dan Perjalanan Server Kami</span></h3>
-                <p data-lang-key="serverStoryDesc">Server Nightmare telah menjadi rumah bagi komunitas yang dinamis dan penuh kreativitas. Setiap season yang kami jalani menghadirkan tema unik, tantangan baru, dan segudang cerita tak terlupakan. Galeri ini kami persembahkan sebagai monumen digital, wujud apresiasi atas dedikasi, kerja keras, dan ikatan persahabatan yang telah terjalin di server kami. Semoga setiap gambar di sini dapat menghidupkan kembali kenangan indah dari petualangan kita bersama.</p>
+                <h3><i class="fas fa-book-open" aria-hidden="true"></i> <span data-lang-key="serverStoryTitle">Cerita Server Kami</span></h3>
+                <p data-lang-key="serverStoryDesc">Server Nightmare adalah rumah bagi komunitas yang dinamis dan kreatif. Setiap season membawa tema unik, tantangan baru, dan cerita tak terlupakan. Galeri ini adalah monumen digital untuk dedikasi, kerja keras, dan persahabatan yang terjalin di server kami. Kami berharap galeri ini dapat menghidupkan kembali kenangan indah dari petualangan kita bersama.</p>
             </div>
 
+            <!-- Season Filter Navigation -->
             <nav class="season-filter" id="season-filter" data-lang-aria-label="seasonFilterNav">
                 <button class="season-btn active" data-season="all" aria-pressed="true" data-lang-key="filterAllSeasons">Semua Season</button>
                 <button class="season-btn" data-season="s1" aria-pressed="false" data-lang-key="filterSeason1">Season 1</button>
-                </nav>
+                <!-- Add more season buttons here as needed, e.g.: -->
+                <!-- <button class="season-btn" data-season="s2" aria-pressed="false" data-lang-key="filterSeason2">Season 2</button> -->
+            </nav>
         </section>
 
-        <section class="gallery fade-in" aria-live="polite">
+        <!-- Gallery Grid -->
+        <section class="gallery" aria-live="polite">
+            <!-- Gallery Item Example 1 (Season 1) -->
             <div class="gallery-item season-s1" data-season="s1"
                  data-src="IMG-20250419-WA0054.jpg"
                  data-caption-key="galleryCaptionS1_1"
@@ -132,12 +172,15 @@
                 <img src="IMG-20250419-WA0054.jpg"
                      data-lang-alt-key="galleryAltS1_1"
                      loading="lazy" decoding="async"
-                     alt=""> <div class="item-overlay">
-                    <button class="view-btn" data-lang-aria-label="viewImageAria">
+                     alt=""> <!-- Alt text is set by JS using data-lang-alt-key -->
+                <div class="item-overlay">
+                    <button class="view-btn" data-lang-aria-label="viewImageAria" aria-hidden="true" tabindex="-1"> <!-- Button inside is decorative for click purpose -->
                         <i class="fas fa-search-plus" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
+
+            <!-- Gallery Item Example 2 (Season 1) -->
             <div class="gallery-item season-s1" data-season="s1"
                  data-src="IMG-20250419-WA0055.jpg"
                  data-caption-key="galleryCaptionS1_2"
@@ -147,39 +190,72 @@
                 <img src="IMG-20250419-WA0055.jpg"
                      data-lang-alt-key="galleryAltS1_2"
                      loading="lazy" decoding="async"
-                     alt=""> <div class="item-overlay">
-                    <button class="view-btn" data-lang-aria-label="viewImageAria">
+                     alt=""> <!-- Alt text is set by JS -->
+                <div class="item-overlay">
+                    <button class="view-btn" data-lang-aria-label="viewImageAria" aria-hidden="true" tabindex="-1">
                         <i class="fas fa-search-plus" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
-            </section>
 
-        <p id="no-gallery-items" class="no-items-message fade-in" style="display: none; text-align: center; margin-top: var(--space-lg); color: var(--light-muted);" data-lang-key="noItemsFound">Tidak ada item ditemukan untuk filter ini.</p>
+            <!-- Add more gallery items here following the pattern -->
+            <!-- Example for Season 2 item:
+            <div class="gallery-item season-s2" data-season="s2"
+                 data-src="path/to/season2-image.jpg"
+                 data-caption-key="galleryCaptionS2_1"
+                 data-lang-aria-label-key="galleryAriaS2_1"
+                 role="button" tabindex="0">
+                <span class="season-tag s2">S2</span>
+                <img src="path/to/season2-image.jpg"
+                     data-lang-alt-key="galleryAltS2_1"
+                     loading="lazy" decoding="async"
+                     alt="">
+                <div class="item-overlay">
+                    <button class="view-btn" data-lang-aria-label="viewImageAria" aria-hidden="true" tabindex="-1">
+                        <i class="fas fa-search-plus" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+            -->
+
+        </section>
+
+        <!-- Message shown when no gallery items match the filter -->
+        <p id="no-gallery-items" class="no-items-message fade-in" style="display: none; text-align: center; margin-top: var(--space-lg); color: var(--light-muted);" data-lang-key="noItemsFound" aria-hidden="true">Tidak ada item ditemukan untuk filter ini.</p>
     </main>
 
+    <!-- Lightbox Structure -->
     <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" data-lang-aria-label="lightboxAriaLabel">
         <button class="lightbox-close" data-lang-title="closeLightboxTitle" data-lang-aria-label="closeLightboxAriaLabel">×</button>
         <div class="lightbox-content">
             <div class="lightbox-image-wrapper">
-                 <img class="lightbox-img" id="lightbox-img" src="" alt=""> <div class="lightbox-loader" role="status" data-lang-aria-label="loadingImage"></div>
+                 <!-- Image source and alt set by JS -->
+                 <img class="lightbox-img" id="lightbox-img" src="" alt="">
+                 <!-- Loader shown while image loads -->
+                 <div class="lightbox-loader" role="status" data-lang-aria-label="loadingImage"></div>
             </div>
+            <!-- Caption (visibility and content set by JS) -->
             <p class="lightbox-caption" id="lightbox-caption" aria-live="polite">
-                <i class="fas fa-comment-alt" aria-hidden="true"></i><span id="lightbox-caption-text"></span> </p>
+                <i class="fas fa-comment-alt" aria-hidden="true"></i><span id="lightbox-caption-text"></span>
+             </p>
+             <!-- Counter (visibility and content set by JS) -->
             <div class="lightbox-counter" id="lightbox-counter" aria-live="polite"></div>
         </div>
+        <!-- Navigation Arrows (visibility controlled by JS) -->
         <nav class="lightbox-nav" data-lang-aria-label="lightboxNavAriaLabel">
-            <button class="lightbox-nav-btn prev" data-lang-title="prevImageTitle" data-lang-aria-label="prevImageAriaLabel">
+            <button class="lightbox-nav-btn prev hidden" data-lang-title="prevImageTitle" data-lang-aria-label="prevImageAriaLabel">
                  <i class="fas fa-chevron-left" aria-hidden="true"></i>
             </button>
-            <button class="lightbox-nav-btn next" data-lang-title="nextImageTitle" data-lang-aria-label="nextImageAriaLabel">
+            <button class="lightbox-nav-btn next hidden" data-lang-title="nextImageTitle" data-lang-aria-label="nextImageAriaLabel">
                  <i class="fas fa-chevron-right" aria-hidden="true"></i>
             </button>
         </nav>
     </div>
 
+    <!-- Footer Section -->
     <footer class="site-footer fade-in">
         <div class="footer-container">
+             <!-- Social Media Links -->
              <nav class="social-links" data-lang-aria-label="socialNavAriaLabel">
                 <a href="https://discord.gg/B3kKb6HDMm" target="_blank" rel="noopener noreferrer" class="social-btn discord">
                     <i class="fab fa-discord" aria-hidden="true"></i><span data-lang-key="joinDiscord">Gabung Discord</span>
@@ -191,26 +267,38 @@
                     <i class="fas fa-vote-yea" aria-hidden="true"></i><span data-lang-key="voteServer">Vote Server</span>
                 </a>
              </nav>
-            <p class="footer-intro" data-lang-key="footerIntro">Bergabunglah dengan komunitas kami! Bagikan kenangan Anda, dapatkan pembaruan terbaru, berinteraksi dengan pemain lain, dan bersiaplah untuk petualangan seru di season Nightmare berikutnya!</p>
-            <p class="copyright">© <span id="copyright-year"></span> Nightmare Minecraft. <span data-lang-key="allRightsReserved">Semua hak cipta dilindungi.</span> | <span data-lang-key="notAffiliated">Tidak berafiliasi dengan Mojang Studios atau Microsoft.</span></p>
+            <p class="footer-intro" data-lang-key="footerIntro">Bergabunglah dengan komunitas kami untuk mendapatkan pembaruan terbaru, berinteraksi dengan pemain lain, dan ikut serta dalam event-event seru di server Nightmare!</p>
+            <p class="copyright">© <span id="copyright-year">2024</span> Nightmare Minecraft. <span data-lang-key="allRightsReserved">Semua hak cipta dilindungi.</span> | <span data-lang-key="notAffiliated">Tidak berafiliasi dengan Mojang Studios atau Microsoft.</span></p>
         </div>
     </footer>
 
-    <audio id="background-music"autoplay loop preload="metadata">
+    <!-- Background Music Player -->
+    <audio id="background-music" loop preload="metadata"> <!-- Autoplay removed, handled by JS -->
          <source src="Yung Kai - blue.mp3" type="audio/mpeg">
          <span data-lang-key="audioNotSupported">Browser Anda tidak mendukung elemen audio.</span>
     </audio>
 
-    <button id="music-toggle" class="music-toggle-btn" data-lang-title="playPauseMusicTitle" data-lang-aria-label="playPauseMusicAriaLabel">
-        <i class="fas fa-volume-mute" aria-hidden="true"></i>
+    <!-- Music Toggle Button -->
+    <button id="music-toggle" class="music-toggle-btn" data-lang-title="playMusicTitle" data-lang-aria-label="playMusicTitle"> <!-- Initial state is Play -->
+        <!-- JS will swap icon visibility -->
+        <i class="fas fa-volume-up" aria-hidden="true" style="opacity: 0;"></i>
+        <i class="fas fa-volume-mute" aria-hidden="true" style="opacity: 1;"></i>
      </button>
 
+    <!-- Song Notification Area -->
     <div id="song-notification" class="song-notification" aria-live="polite" aria-atomic="true">
         <i class="fas fa-music song-status-icon" aria-hidden="true"></i>
         <div class="song-info">
-             <span class="song-title"></span> </div>
+             <span class="song-title"></span> <!-- Title set by JS -->
+         </div>
     </div>
 
-    <div id="temp-message-area" aria-live="assertive" aria-atomic="true"></div> <script src="script.js"></script>
+    <!-- Temporary Message Area -->
+    <div id="temp-message-area" aria-live="assertive" aria-atomic="true">
+        <!-- Temporary messages are added here by JS -->
+    </div>
+
+    <!-- Main Script -->
+    <script src="script.js"></script>
 </body>
 </html>
